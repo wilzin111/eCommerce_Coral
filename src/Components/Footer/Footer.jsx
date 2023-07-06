@@ -110,7 +110,7 @@ export default function Footer() {
                 <div>
                   <img src={Location} />
                 </div>
-                <p className="p-footer">United States</p>
+                <p className="p-footer-location">United States</p>
               </div>
 
               <div className="rights-div">

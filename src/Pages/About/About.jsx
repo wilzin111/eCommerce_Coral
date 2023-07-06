@@ -1,11 +1,12 @@
 import React from 'react'
 import Footer from '../../Components/Footer/Footer'
+import Header from '../../Components/Header/Header'
 
 const About = () => {
   return (
     <>
-      <Footer />
-      <div>About</div>
+      <Header/>      
+      <Footer />      
     </>
   )
 }

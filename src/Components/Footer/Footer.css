@@ -26,7 +26,6 @@
   height: 18px;
   color: #626262;
   font-size: 14px;
-  font-family: Inter, sans-serif;
   font-weight: 500;
 }
 
@@ -142,9 +141,13 @@
 .a-footer,
 .span-footer,
 .h3-footer {
-  font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 500;
+}
+.p-footer-location{
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
 }
 
 .p-footer {
