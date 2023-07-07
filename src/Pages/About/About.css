@@ -1,0 +1,35 @@
+.about-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-conteiner-top {
+    width: auto;
+    max-width: 1280px;
+    height: 30%;
+    display: flex;
+    text-align: center;
+}
+
+.about-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.about-conteiner-second,
+.about-conteiner-bag,
+.about-conteiner-clock,
+.about-conteiner-gleses {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.about-h-p {
+    margin-bottom: 10px;
+}
