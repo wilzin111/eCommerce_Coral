@@ -10,7 +10,7 @@ import wishlist from "./../../Assets/Icons/wishlist.svg";
 import profile from "./../../Assets/Icons/profile.svg";
 import bag from "./../../Assets/Icons/bag.svg";
 
-import logo from "./../../Assets/Images header/logo.png";
+import logo from "./../../Assets/Images_header/logo.png";
 
 function Header() {
   function handleClick() {

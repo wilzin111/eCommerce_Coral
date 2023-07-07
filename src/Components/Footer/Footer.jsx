@@ -19,7 +19,7 @@ export default function Footer() {
   });
 
   useEffect(() => {
-    if (width > 800) {
+    if (width > 900) {
       setIsOpen(true);
     } else {
       setIsOpen(false);
