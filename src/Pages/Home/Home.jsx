@@ -49,29 +49,16 @@ const Home = () => {
         </div>
       </Carousel>
       <div className='carouselContainer'>
-      <h3 className='Top'>Top Categories</h3>
-        <Carousel
-          showArrows={false}
-          showStatus={false}
-          showThumbs={false}
-          showIndicators={false}
-          selectedItem={currentSlide}
-          infiniteLoop
-          renderThumbs={() => {}}
-          renderIndicator={() => {}}
-          renderArrowPrev={() => {}}
-          renderArrowNext={() => {}}
-        >
-          <div className='categoryContainer'>
-            {categories.map((category, index) => (
-              <a key={index} href={category.link} className='categoryItem linkUnstyled'>
-                <img src={category.image} alt={`Category ${index + 1}`} className='CategoryImage' />
-                <p className='CategoryText'>{category.text}</p>
-              </a>
-            ))}
-          </div>
-        </Carousel>
+        <h3 className='Top'>Top Categories</h3>
       </div>
+        <div className='categoryContainer'>
+          {categories.map((category, index) => (
+            <a key={index} href={category.link} className='categoryItem linkUnstyled'>
+              <img src={category.image} alt={`Category ${index + 1}`} className='CategoryImage' />
+              <p className='CategoryText'>{category.text}</p>
+            </a>
+          ))}
+        </div>
       <div className='newArrivalContainer'>
         <h3 className='new'>New Arrivals</h3>
       </div>
