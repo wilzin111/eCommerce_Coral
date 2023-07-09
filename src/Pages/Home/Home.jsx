@@ -7,7 +7,14 @@ import PersonalCare from '../../assets/images home/Personalcare.png';
 import Handbags from '../../assets/images home/Handbags.png';
 import WristWatches from '../../assets/images home/WristWatches.png';
 import SunGlasses from '../../assets/images home/Sunglasses.png';
+import Zara from '../../assets/images home/Zara.png';
+import DeG from '../../assets/images home/DeG.png';
+import Hem from '../../assets/images home/HeM.png';
+import Chanel from '../../assets/images home/Chanel.png';
+import Biba from '../../assets/images home/Biba.png';
+import Prada from '../../assets/images home/Prada.png';
 import Seta from '../../assets/IconsCategories/Seta.png';
+import ShortCut from '../../assets/images home/ShortCut.png';
 import category1Image from '../../assets/IconsCategories/SkinCare.png';
 import category2Image from '../../assets/IconsCategories/Joias.png';
 import category3Image from '../../assets/IconsCategories/Bolsa.png';
@@ -101,7 +108,7 @@ const Home = () => {
             <a href='' className='imageLink'>
             <img src={Handbags} alt='Image 2' className='image' />
             </a>
-    </div>
+      </div>
         <div className='imagePair'>
           <a href='' className='imageLink'>
           <img src={WristWatches} alt='Image 3' className='image' />
@@ -109,8 +116,28 @@ const Home = () => {
           <a href='' className='imageLink'>
           <img src={SunGlasses} alt='Image 4' className='image' />
           </a>
-  </div>
-</div>
+        </div>
+      </div>
+      <div className='brandsSection'>
+        <div className='textBrandContainer'>
+          <p className='shopByBrands'>Shop by Brands</p>
+          <div className='ViewAllBrand'>
+            <p className='viewAllTextLink'><a href="">View All</a></p>
+            <img src={Seta} alt='Arrow' className='arrowImage' />
+          </div>
+        </div>
+        <div className='brandsImagesContainer'>
+          <img src={Zara} alt='Image 1' className='brandImage' />
+          <img src={DeG} alt='Image 2' className='brandImage' />
+          <img src={Hem} alt='Image 3' className='brandImage' />
+          <img src={Biba} alt='Image 4' className='brandImage' />
+          <img src={Chanel} alt='Image 5' className='brandImage' />
+          <img src={Prada} alt='Image 6' className='brandImage' />
+        </div>
+      </div>
+      <div className='ShortCut'>
+  <     img src={ShortCut} alt='' className='centeredImg' />
+      </div>
     </div>
   );
 };

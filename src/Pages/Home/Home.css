@@ -142,6 +142,75 @@
     padding: 6px;
     margin-left: -7px;
   }
+
+  .brandsSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .brandsImagesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .brandImage {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .textBrandContainer {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 33px;
+  }
+  
+  .shopByBrands {
+    color: var(--type-high-emphasis, #171520);
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+    margin-right: 156px;
+  }
+  
+  .viewAllTextLink a {
+      color: var(--primary, #1B4B66);
+      font-family: Inter;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
+      text-decoration: none;
+  }
+
+  .ViewAllBrand {
+      display: flex;
+      align-items: center;
+  }
+  
+  .arrowImage {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .ShortCut {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+  }
+  
+  .centeredImg {
+    display: block;
+    max-width: 91.5%;
+    max-height: 100%;
+  }
   
   
   
