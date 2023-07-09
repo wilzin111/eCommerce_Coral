@@ -3,6 +3,11 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './Home.css';
 import CarryYourImage from '../../assets/images home/BG_CarryYour.png';
+import PersonalCare from '../../assets/images home/Personalcare.png';
+import Handbags from '../../assets/images home/Handbags.png';
+import WristWatches from '../../assets/images home/WristWatches.png';
+import SunGlasses from '../../assets/images home/Sunglasses.png';
+import Seta from '../../assets/IconsCategories/Seta.png';
 import category1Image from '../../assets/IconsCategories/SkinCare.png';
 import category2Image from '../../assets/IconsCategories/Joias.png';
 import category3Image from '../../assets/IconsCategories/Bolsa.png';
@@ -30,6 +35,20 @@ const Home = () => {
       clearInterval(timer);
     };
   }, []);
+
+  {/*useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const snapshot = await firebase.database().ref('products').once('value');
+        const data = snapshot.val();
+        setProducts(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []); */}
 
   return (
     <div className='container'>
@@ -59,9 +78,39 @@ const Home = () => {
             </a>
           ))}
         </div>
-      <div className='newArrivalContainer'>
-        <h3 className='new'>New Arrivals</h3>
+        <div className='newArrivalContainer'>
+          <div className='newViewAllContainer'>
+            <p className='new'>New Arrivals</p>
+            <div className='viewAllContainer'>
+          <p className='viewAllText'><a href="">View All</a></p>
+          <img src={Seta} alt='Arrow' className='arrowImage' />
+          {/*{products.map((product, index) => (
+          <div key={index}>
+            <p>Product Name: {product.name}</p>
+            <p>Price: {product.price}</p>
+            <p>Category: {product.category}</p> */}
+         </div>
+        </div>
       </div>
+      <div className='imageSection'>
+        <p>Handpicked Collections</p>
+          <div className='imagePair'>
+            <a href='' className='imageLink'>
+            <img src={PersonalCare} alt='Image 1' className='image' />
+            </a>
+            <a href='' className='imageLink'>
+            <img src={Handbags} alt='Image 2' className='image' />
+            </a>
+    </div>
+        <div className='imagePair'>
+          <a href='' className='imageLink'>
+          <img src={WristWatches} alt='Image 3' className='image' />
+          </a>
+          <a href='' className='imageLink'>
+          <img src={SunGlasses} alt='Image 4' className='image' />
+          </a>
+  </div>
+</div>
     </div>
   );
 };
