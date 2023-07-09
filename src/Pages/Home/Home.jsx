@@ -13,6 +13,9 @@ import Hem from '../../assets/images home/HeM.png';
 import Chanel from '../../assets/images home/Chanel.png';
 import Biba from '../../assets/images home/Biba.png';
 import Prada from '../../assets/images home/Prada.png';
+import LifeStyle from '../../assets/images home/LifeStyle.png';
+import SkinCareEssentials from '../../assets/images home/SkinCareEssentials.png';
+import FacePacks from '../../assets/images home/FacePacks.png';
 import Seta from '../../assets/IconsCategories/Seta.png';
 import ShortCut from '../../assets/images home/ShortCut.png';
 import category1Image from '../../assets/IconsCategories/SkinCare.png';
@@ -119,24 +122,52 @@ const Home = () => {
         </div>
       </div>
       <div className='brandsSection'>
-        <div className='textBrandContainer'>
-          <p className='shopByBrands'>Shop by Brands</p>
-          <div className='ViewAllBrand'>
-            <p className='viewAllTextLink'><a href="">View All</a></p>
-            <img src={Seta} alt='Arrow' className='arrowImage' />
-          </div>
-        </div>
-        <div className='brandsImagesContainer'>
-          <img src={Zara} alt='Image 1' className='brandImage' />
-          <img src={DeG} alt='Image 2' className='brandImage' />
-          <img src={Hem} alt='Image 3' className='brandImage' />
-          <img src={Biba} alt='Image 4' className='brandImage' />
-          <img src={Chanel} alt='Image 5' className='brandImage' />
-          <img src={Prada} alt='Image 6' className='brandImage' />
-        </div>
-      </div>
+  <div className='textBrandContainer'>
+    <p className='shopByBrands'>Shop by Brands</p>
+    <div className='ViewAllBrand'>
+      <p className='viewAllTextLink'><a href="">View All</a></p>
+      <img src={Seta} alt='Arrow' className='arrowImage' />
+    </div>
+  </div>
+  <div className='brandsImagesContainer'>
+    <a href='' className='brandLink'>
+      <img src={Zara} alt='Image 1' className='brandImage' />
+    </a>
+    <a href='' className='brandLink'>
+      <img src={DeG} alt='Image 2' className='brandImage' />
+    </a>
+    <a href='' className='brandLink'>
+      <img src={Hem} alt='Image 3' className='brandImage' />
+    </a>
+    <a href='' className='brandLink'>
+      <img src={Biba} alt='Image 4' className='brandImage' />
+    </a>
+    <a href='' className='brandLink'>
+      <img src={Chanel} alt='Image 5' className='brandImage' />
+    </a>
+    <a href='' className='brandLink'>
+      <img src={Prada} alt='Image 6' className='brandImage' />
+    </a>
+  </div>
+</div>
       <div className='ShortCut'>
-  <     img src={ShortCut} alt='' className='centeredImg' />
+        <a href=""><img src={ShortCut} alt='' className='centeredImg'/></a>
+      </div>
+      <div className='skincareSection'>
+        <div className='skincareTitleContainer'>
+          <p className='skincareTitle'>Makeup & Skincare</p>
+        </div>
+          <a href='' className='linkUnstyled'>
+          <img src={LifeStyle} alt='LifeStyle' className='sectionImage' />
+          </a>
+         <div className='productPair'>
+          <a href='' className='linkUnstyled'>
+          <img src={SkinCareEssentials} alt='SkinCareEssentials' className='productImage' />
+          </a>
+          <a href='' className='linkUnstyled'>
+          <img src={FacePacks} alt='FacePacks' className='productImage' />
+          </a>
+        </div>
       </div>
     </div>
   );

@@ -199,7 +199,7 @@
     height: 20px;
   }
   
-  .ShortCut {
+  .ShortCut a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -211,6 +211,65 @@
     max-width: 91.5%;
     max-height: 100%;
   }
+
+  .skincareSection {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .sectionTitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .sectionImage {
+    width: 91.5%;
+    height: auto;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .productPair {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  
+  .productImage {
+    width: 85%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .skincareTitleContainer {
+    text-align: left;
+    width: 100%;
+  }
+
+  .skincareTitle {
+    color: var(--type-high-emphasis, #171520);
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+    margin-bottom: 10px;
+    text-align: left;
+    margin-left: 15px;
+  }
+  
+  
+  
+  
   
   
   
