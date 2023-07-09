@@ -169,6 +169,26 @@ const Home = () => {
           </a>
         </div>
       </div>
+      <div className='TrendingSection'>
+        <div className='Trending'>
+          <p>Trending Deals</p>
+        </div>
+      <Carousel
+        showArrows={false}
+        showStatus={false}
+        showThumbs={false}
+        showIndicators={false}
+        selectedItem={currentSlide}
+        infiniteLoop
+      >
+        <div>
+          <img src={Desconto} alt='CarryYour' className='ImagesCarousel'/>
+        </div>
+        <div>
+          <img src={CarryYourImage} alt='Additional Image' className='ImagesCarousel'/>
+        </div>
+      </Carousel>
+      </div>
     </div>
   );
 };
