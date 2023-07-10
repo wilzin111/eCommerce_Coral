@@ -15,8 +15,8 @@ import del from "./../../Assets/Icons/del.svg";
 import smallMinus from "./../../Assets/Icons/small-minus.svg";
 import smallPlus from "./../../Assets/Icons/small-plus.svg";
 import crossSmall from "./../../Assets/Icons/cross-small.svg";
-
 import logo from "./../../Assets/Images_header/logo.png";
+import testImage from "./../../Assets/Images_header/testImage.png";
 
 function Header() {
   const [openBag, setOpenBag] = useState(false);

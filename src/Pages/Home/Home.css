@@ -1,94 +1,184 @@
 .container {
-    width: 360px;
-    background-color: white;
+  width: 360px;
+  background-color: white;
 }
 
 .ImagesCarousel{
-    margin-top: 8px;
-    max-width: 91.5%;
-    height: auto;
+  margin-top: 8px;
+  max-width: 91.5%;
+  height: auto;
 }
 
 .categoryContainer {
-  width: 102.7%;
-  height: 100px;
-  padding: 10px;
-  gap: 4px;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: scroll;
-  margin-left: -10px;
+width: 102.7%;
+height: 100px;
+padding: 10px;
+gap: 4px;
+display: flex;
+flex-wrap: nowrap;
+overflow-x: scroll;
+margin-left: -10px;
 }
-  
-  .categoryItem {
-    flex: 0 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 17px;
-  }
-  
-  .CategoryImage {
-    width: 58px;
-    height: 58px;
-    background: #f2f2f3;
-    border-radius: 15px;
-  }
-  
-  .CategoryText {
-    margin-top: 5px;
-    font-size: 12px;
-    text-align: center;
-  }
 
-  .carouselContainer {
-    margin-top: 25px;
-  }
+.categoryItem {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 17px;
+}
 
-  
+.CategoryImage {
+  width: 58px;
+  height: 58px;
+  background: #f2f2f3;
+  border-radius: 15px;
+}
+
 .CategoryText {
-    margin-top: 5px;
-    font-size: 12px;
-    text-align: center;
-  }
-  
-  .linkUnstyled {
-    color: inherit;
-    text-decoration: none;
-    font-family: Inter;
-    font-size: 12px;
-  }
+  margin-top: 5px;
+  font-size: 12px;
+  text-align: center;
+}
 
-  .carouselContainer h3 {
-    margin-left: 19px;
-    font-size: 14px;
-    font-family: Inter;
-    font-weight: 600;
-    margin-bottom: 9px;
-  }
+.carouselContainer {
+  margin-top: 25px;
+}
 
-  .newViewAllContainer {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 33px;
-  }
-  
-  .new {
-    color: var(--type-high-emphasis, #171520);
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 16px;
-    margin-right: 160px;
-  }
-  
-  .viewAllContainer {
-    display: flex;
-    align-items: center;
-  }
-  
-  .viewAllText > a{
+
+.CategoryText {
+  margin-top: 5px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.linkUnstyled {
+  color: inherit;
+  text-decoration: none;
+  font-family: Inter;
+  font-size: 12px;
+}
+
+.carouselContainer h3 {
+  margin-left: 19px;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+
+.newViewAllContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 33px;
+}
+
+.new {
+  color: var(--type-high-emphasis, #171520);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  margin-right: 160px;
+}
+
+.viewAllContainer {
+  display: flex;
+  align-items: center;
+}
+
+.viewAllText > a{
+  color: var(--primary, #1B4B66);
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  text-decoration: none;
+}
+
+.arrowImage {
+  width: 20px;
+  height: 20px;
+}
+
+.imageSection {
+  width: 360px;
+  height: 379px;
+  background-color: #1B4B66;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 17px;
+}
+
+.imagePair {
+  display: flex;
+  gap: 15px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.imageLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.imageSection p {
+  color: var(--type-bright, #FFF);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 16px;
+  text-align: left;
+  width: 180px;
+  padding: 6px;
+  margin-left: -7px;
+}
+
+.brandsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.brandsImagesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.brandImage {
+  width: 100px;
+  height: 100px;
+}
+
+.textBrandContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 33px;
+}
+
+.shopByBrands {
+  color: var(--type-high-emphasis, #171520);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  margin-right: 156px;
+}
+
+.viewAllTextLink a {
     color: var(--primary, #1B4B66);
     font-family: Inter;
     font-size: 12px;
@@ -96,195 +186,98 @@
     font-weight: 500;
     line-height: 18px;
     text-decoration: none;
-  }
-  
-  .arrowImage {
-    width: 20px;
-    height: 20px;
-  }
+}
 
-  .imageSection {
-    width: 360px;
-    height: 379px;
-    background-color: #1B4B66;
+.ViewAllBrand {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    padding: 17px;
-  }
-  
-  .imagePair {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .imageLink {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .imageSection p {
-    color: var(--type-bright, #FFF);
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 16px;
-    text-align: left;
-    width: 180px;
-    padding: 6px;
-    margin-left: -7px;
-  }
-
-  .brandsSection {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .brandsImagesContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  .brandImage {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .textBrandContainer {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 33px;
-  }
-  
-  .shopByBrands {
-    color: var(--type-high-emphasis, #171520);
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 16px;
-    margin-right: 156px;
-  }
-  
-  .viewAllTextLink a {
-      color: var(--primary, #1B4B66);
-      font-family: Inter;
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 18px;
-      text-decoration: none;
-  }
+}
 
-  .ViewAllBrand {
-      display: flex;
-      align-items: center;
-  }
-  
-  .arrowImage {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .ShortCut a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 24px;
-  }
-  
-  .centeredImg {
-    display: block;
-    max-width: 91.5%;
-    max-height: 100%;
-  }
+.arrowImage {
+  width: 20px;
+  height: 20px;
+}
 
-  .skincareSection {
-    width: 360px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-  }
-  
-  .sectionTitle {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .sectionImage {
-    width: 91.5%;
-    height: auto;
-    margin-bottom: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .productPair {
-    display: flex;
-    justify-content: center;
-    margin-top: 8px;
-  }
-  
-  .productImage {
-    width: 85%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.ShortCut a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
 
-  .skincareTitleContainer {
-    text-align: left;
-    width: 100%;
-  }
+.centeredImg {
+  display: block;
+  max-width: 91.5%;
+  max-height: 100%;
+}
 
-  .skincareTitle {
-    color: var(--type-high-emphasis, #171520);
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 16px;
-    margin-bottom: 10px;
-    text-align: left;
-    margin-left: 15px;
-  }
+.skincareSection {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
 
-  .TrendingSection {
-    margin-top: 25px;
-  }
+.sectionTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-  .Trending {
-    color: var(--type-high-emphasis, #171520);
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 16px;
-    margin-bottom: 10px;
-    text-align: left;
-    margin-left: 15px;
-  }
-  
-  
-  
-  
-  
-  
-  
+.sectionImage {
+  width: 91.5%;
+  height: auto;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.productPair {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.productImage {
+  width: 85%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skincareTitleContainer {
+  text-align: left;
+  width: 100%;
+}
+
+.skincareTitle {
+  color: var(--type-high-emphasis, #171520);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-left: 15px;
+}
+
+.TrendingSection {
+  margin-top: 25px;
+}
+
+.Trending {
+  color: var(--type-high-emphasis, #171520);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-left: 15px;
+}
