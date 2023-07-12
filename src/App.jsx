@@ -1,4 +1,3 @@
-
 import "./App.css";
 import Router from "./Routes/Router";
 
@@ -7,7 +6,7 @@ function App() {
     <>
       <Router />
     </>
-  )
+  );
 }
 
 export default App;
