@@ -24,6 +24,14 @@
     font-weight: 600;
     line-height: 1.625rem;
 }
+
+.header-btn-menu{
+    background-color: transparent;
+    border: none;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 .header_icons {
     display: flex;
     gap: 1.5rem;

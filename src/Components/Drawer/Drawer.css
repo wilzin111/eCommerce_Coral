@@ -1,0 +1,92 @@
+.drawer-header {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.20);
+    position: fixed;
+    display: flex;
+    z-index: 10000;
+}
+
+.drawer-container-user {
+    width: 297px;
+    height: 776px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.drawer-btn {
+    width: 63px;
+    background-color: transparent;
+    border: none;
+}
+
+.drawer-header hr {
+    width: 296px;
+    height: 8px;
+    background-color: #F4F4F4;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    border: none;
+}
+
+.user-drawer {
+    width: 265px;
+    height: 74px;
+    display: flex;
+    background-color: #F4F4F4;
+    border-radius: 8px;
+    margin-top: 16px;
+    margin-left: 16px;
+    align-items: center;
+}
+
+.drawer-img-user {
+    min-width: 42px;
+    min-height: 42px;
+    max-width: 42px;
+    max-height: 42px;
+    background-color: #807b7b;
+    border-radius: 50%;
+    margin-right: 8px;
+    margin-left: 16px;
+}
+
+.user-drawer p {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.user-drawer button {
+    margin-left: 78px;
+}
+
+.text,
+.text2 {
+    display: flex;
+    margin: 16px 0;
+    margin-right: 18px;
+    justify-content: space-between;
+}
+
+.text,
+.text2 p {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.drawer-top-categoris,
+.drawer-ContactUs {
+    margin-left: 8px;
+}
+
+.drawer-top-categoris,
+.drawer-ContactUs p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.drawer-btn-arrow {
+    background: none;
+    border: none;
+}

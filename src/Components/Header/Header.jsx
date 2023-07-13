@@ -17,6 +17,7 @@ import smallPlus from "./../../Assets/Icons/small-plus.svg";
 import crossSmall from "./../../Assets/Icons/cross-small.svg";
 import logo from "./../../Assets/Images_header/logo.png";
 import testImage from "./../../Assets/Images_header/testImage.png";
+import Drawer from "../Drawer/Drawer";
 
 function Header() {
   const [openBag, setOpenBag] = useState(false);
@@ -173,61 +174,68 @@ function Header() {
     return document.body.classList.remove("stop-scrolling");
   }
 
+  const [drawerOpen, setDrawerOpen] = useState(false)
+
   return (
-    <section className="header">
-      <div className="header-mobile">
-        <div className="header_menu">
-          <img src={menu} className="icon change_to_blue" />
-          <h1 className="">Home</h1>
-        </div>
-        <div className="header_icons">
-          <button onClick={handleClick}>
-            <img src={add} className="icon change_to_blue" />
-          </button>
-          <button onClick={handleClick}>
-            <img src={search} className="icon change_to_blue" />
-          </button>
-          <button onClick={handleClick}>
-            <img src={notification} className="icon change_to_blue" />
-          </button>
-        </div>
-      </div>
-
-      <div className="header-desktop">
-        <div className="nav-category">
-          <img src={logo} className="logo" />
-          <div className="nav-category-text">
-            <span>Handbags</span>
-            <span>Watches</span>
-            <span>Skincare</span>
-            <span>Jewellery</span>
-            <span>Apparels</span>
+    <>
+      <Drawer isOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
+      <section className="header">
+        <div className="header-mobile">
+          <div className="header_menu">
+            <button onClick={() => { setDrawerOpen(true) }} className="header-btn-menu">
+              <img src={menu} className="icon change_to_blue" />
+            </button>
+            <h1 className="">Home</h1>
+          </div>
+          <div className="header_icons">
+            <button onClick={handleClick}>
+              <img src={add} className="icon change_to_blue" />
+            </button>
+            <button onClick={handleClick}>
+              <img src={search} className="icon change_to_blue" />
+            </button>
+            <button onClick={handleClick}>
+              <img src={notification} className="icon change_to_blue" />
+            </button>
           </div>
         </div>
 
-        <div className="flex">
-          <div className="search-bar">
-            <img src={search} />
-            <input
-              type="search"
-              placeholder="Search for products or brands....."
-            ></input>
+        <div className="header-desktop">
+          <div className="nav-category">
+            <img src={logo} className="logo" />
+            <div className="nav-category-text">
+              <span>Handbags</span>
+              <span>Watches</span>
+              <span>Skincare</span>
+              <span>Jewellery</span>
+              <span>Apparels</span>
+            </div>
           </div>
-          <div className="header_icons change_to_blue">
-            <button onClick={handleClick}>
-              <img src={wishlist} className="icon" />
-            </button>
-            <button onClick={handleClick}>
-              <img src={profile} className="icon" />
-            </button>
-            <button onClick={() => setOpenBag(true)}>
-              <img src={bag} className="icon" />
-            </button>
+
+          <div className="flex">
+            <div className="search-bar">
+              <img src={search} />
+              <input
+                type="search"
+                placeholder="Search for products or brands....."
+              ></input>
+            </div>
+            <div className="header_icons change_to_blue">
+              <button onClick={handleClick}>
+                <img src={wishlist} className="icon" />
+              </button>
+              <button onClick={handleClick}>
+                <img src={profile} className="icon" />
+              </button>
+              <button onClick={() => setOpenBag(true)}>
+                <img src={bag} className="icon" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <Bag isOpen={openBag} />
-    </section>
+        <Bag isOpen={openBag} />
+      </section>
+    </>
   );
 }
 
