@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  border-radius: 0 15px 15px 0;
 }
 
 .drawer-btn {
@@ -89,4 +90,9 @@
 .drawer-btn-arrow {
   background: none;
   border: none;
+}
+
+.drawer-ContactUs {
+  display: flex;
+  flex-direction: column;
 }

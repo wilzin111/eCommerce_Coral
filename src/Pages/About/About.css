@@ -1,6 +1,6 @@
 .about-body {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .about-conteiner-top,
@@ -8,108 +8,108 @@
 .about-conteiner-bag,
 .about-conteiner-clock,
 .about-conteiner-gleses {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 500;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .about-imgs-whidth {
-    width: 100%;
-    max-width: 710px;
-    padding: 5px;
+  width: 100%;
+  max-width: 710px;
+  padding: 5px;
 }
 
 .about-img-top {
-    width: 100%;
-    height: auto;
-    padding: 5px;
+  width: 100%;
+  height: auto;
+  padding: 5px;
 }
 
 .about-h-p {
-    margin-bottom: 10px;
-    padding: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 
 @media screen and (min-width: 1000px) {
-    .about-img-top {
-        display: none;
-    }
+  .about-img-top {
+    display: none;
+  }
 
-    .about-conteiner-top {
-        width: 100%;
-        height: 30vh;
-        background: url(../../Assets/Images_about/image1.png);
-        justify-content: center;
-        align-items: end;
-        text-align: start;
-    }
+  .about-conteiner-top {
+    width: 100%;
+    height: 30vh;
+    background: url(../../Assets/Images_about/image1.png);
+    justify-content: center;
+    align-items: end;
+    text-align: start;
+  }
 
-    .about-conteiner-top h1 {
-        font-size: 50px;
-        font-weight: 600;
-    }
+  .about-conteiner-top h1 {
+    font-size: 50px;
+    font-weight: 600;
+  }
 
-    .about-conteiner-top p {
-        width: 453px;
-        color: var(--type-low-emphasis, #626262);
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 20px;
-    }
+  .about-conteiner-top p {
+    width: 453px;
+    color: var(--type-low-emphasis, #626262);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+  }
 
-    .about-conteiner-second {
-        text-align: center;
-        font-size: 16px;
-        font-weight: 500;
-        width: 713px;
-        height: 98px;
-        justify-content: center;
-        margin-left: 284px;
-        margin-bottom: 10px;
-    }
+  .about-conteiner-second {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    width: 713px;
+    height: 98px;
+    justify-content: center;
+    margin-left: 284px;
+    margin-bottom: 10px;
+  }
 
-    .about-conteiner-bag,
-    .about-conteiner-clock,
-    .about-conteiner-gleses {
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: row;
-        margin-top: 40px;
-        text-align: start;
-        align-items: center;
-        font-size: 16px;
-        font-weight: 400;
-    }
+  .about-conteiner-bag,
+  .about-conteiner-clock,
+  .about-conteiner-gleses {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    text-align: start;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+  }
 
-    .about-conteiner-bag {
-        padding-left: 10px;
-    }
+  .about-conteiner-bag {
+    padding-left: 10px;
+  }
 
-    .about-conteiner-clock {
-        flex-direction: row-reverse;
-        padding-left: 10px;
-    }
+  .about-conteiner-clock {
+    flex-direction: row-reverse;
+    padding-left: 10px;
+  }
 
-    .about-conteiner-gleses {
-        margin-bottom: 117px;
-        padding-left: 10px;
-    }
+  .about-conteiner-gleses {
+    margin-bottom: 117px;
+    padding-left: 10px;
+  }
 
-    .about-conteiner-bag-text,
-    .about-conteiner-clock-text,
-    .about-conteiner-gleses-text {
-        width: 497px;
-        height: 168px;
-        margin-right: 60px;
-    }
+  .about-conteiner-bag-text,
+  .about-conteiner-clock-text,
+  .about-conteiner-gleses-text {
+    width: 497px;
+    height: 168px;
+    margin-right: 60px;
+  }
 
-    .about-conteiner-clock-text {
-        margin-left: 32px;
-    }
+  .about-conteiner-clock-text {
+    margin-left: 32px;
+  }
 }

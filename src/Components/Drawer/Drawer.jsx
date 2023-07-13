@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Drawer.css";
 
 const Drawer = ({ isOpen, setDrawerOpen }) => {
@@ -16,9 +17,9 @@ const Drawer = ({ isOpen, setDrawerOpen }) => {
       <path
         d="M9 4.5L16.5 12L9 19.5"
         stroke="#13101E"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -38,61 +39,64 @@ const Drawer = ({ isOpen, setDrawerOpen }) => {
           <p>Top categories</p>
           <div className="text">
             <p>Skincare</p>
-            <button className="drawer-btn-arrow">{arrow}</button>
+            <Link className="drawer-btn-arrow">{arrow}</Link>
           </div>
 
           <div className="text">
             <p>Apparels</p>
-            <button className="drawer-btn-arrow">{arrow}</button>
+            <Link className="drawer-btn-arrow">{arrow}</Link>
           </div>
 
           <div className="text">
-            <p>Jwellery</p>
-            <button className="drawer-btn-arrow">{arrow}</button>
+            <p>Jewellery</p>
+            <Link className="drawer-btn-arrow">{arrow}</Link>
           </div>
 
           <div className="text">
             <p>Handbags</p>
-            <button className="drawer-btn-arrow">{arrow}</button>
+            <Link className="drawer-btn-arrow">{arrow}</Link>
           </div>
 
           <div className="text">
             <p>EyeWare</p>
-            <button className="drawer-btn-arrow">{arrow}</button>
+            <Link className="drawer-btn-arrow">{arrow}</Link>
           </div>
 
           <div className="text">
             <p>Fragrance</p>
-            <button className="drawer-btn-arrow">{arrow}</button>
+            <Link className="drawer-btn-arrow">{arrow}</Link>
           </div>
 
           <div className="text">
             <p>Watches</p>
-            <button className="drawer-btn-arrow">{arrow}</button>
+            <Link className="drawer-btn-arrow">{arrow}</Link>
           </div>
 
           <div className="text">
             <p>About</p>
-            <button className="drawer-btn-arrow">{arrow}</button>
+            <Link to={"/about"} className="drawer-btn-arrow">
+              {arrow}
+            </Link>
           </div>
         </div>
         <hr />
+
         <div className="drawer-ContactUs">
           <p>Contact Us</p>
 
           <div className="text2">
             <p className="p-drawer">Help & Support </p>
-            <button className="drawer-btn-arrow">{arrow}</button>
+            <Link className="drawer-btn-arrow">{arrow}</Link>
           </div>
 
           <div className="text2">
             <p className="p-drawer">Feedback & Suggestions </p>
-            <button className="drawer-btn-arrow">{arrow}</button>
+            <Link className="drawer-btn-arrow">{arrow}</Link>
           </div>
 
           <div className="text2">
             <p className="p-drawer">Visit Websites </p>
-            <button className="drawer-btn-arrow">{arrow}</button>
+            <Link className="drawer-btn-arrow">{arrow}</Link>
           </div>
         </div>
       </div>
