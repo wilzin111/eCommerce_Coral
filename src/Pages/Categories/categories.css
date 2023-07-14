@@ -1,0 +1,17 @@
+.categories-topbar {
+  height: 80px;
+  width: 100%;
+  padding: 39px 0 16px 16px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  color: #1b4b66;
+}
+
+.categories-img {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+  height: 684px;
+}
