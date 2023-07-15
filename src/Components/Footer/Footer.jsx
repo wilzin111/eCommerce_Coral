@@ -28,18 +28,30 @@ export default function Footer() {
 
   return (
     <>
-      <div className="more-about">
+      <div
+        className="more-about"
+        style={isOpen ? { marginBottom: 0 } : { marginBottom: 80 + "px" }}
+      >
         <button className="ma-content" onClick={() => setIsOpen(!isOpen)}>
           <p className="ma-text">More about CORA’L</p>
           <img
             src={Pointer}
             className="pointer"
-            style={{ transform: isOpen ? "rotateX(180deg)" : "rotateX(0)" }}
+            style={{
+              transform: isOpen ? "rotateX(180deg)" : "rotateX(0)",
+            }}
           />
         </button>
 
         {isOpen && (
-          <section className="container-footer">
+          <section
+            className="container-footer"
+            style={
+              isOpen && width <= 900
+                ? { marginBottom: 58 + "px" }
+                : { marginBottom: 0 + "px" }
+            }
+          >
             <div className="footer-flex">
               <div className="footer-category">
                 <p className="p-footer">Shop by Category</p>

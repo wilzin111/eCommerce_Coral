@@ -1,0 +1,40 @@
+* {
+  position: relative;
+}
+
+.navbar-container {
+  width: 100%;
+  height: 56px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 12px 32px 8px 32px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.navbar-container img {
+  width: 24px;
+  height: 24px;
+}
+
+.navbar-container a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar-container a span {
+  color: #1b4b66;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 900px) {
+  .navbar-container {
+    display: none;
+  }
+}
