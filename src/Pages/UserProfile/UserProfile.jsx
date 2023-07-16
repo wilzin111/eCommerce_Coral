@@ -1,10 +1,8 @@
 import { useState } from "react";
-
 import "./UserProfile.css";
-
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
-
+import Navbar from "../../Components/Navbar/Navbar";
 import logout from "./../../Assets/Icons/logout.svg";
 import right from "./../../Assets/Icons/chevron-right.svg";
 import rightSmall from "./../../Assets/Icons/chevron-right-small.svg";
@@ -12,6 +10,7 @@ import profile from "./../../Assets/Icons/profile.svg";
 import trash from "./../../Assets/Icons/delete.svg";
 import eye from "./../../Assets/Icons/eye.svg";
 import cross from "./../../Assets/Icons/cross.svg";
+
 
 function UserProfile() {
   const [passwordIcon, setPasswordIcon] = useState(eye);
@@ -240,6 +239,7 @@ function UserProfile() {
       </section>
 
       <Footer />
+      <Navbar page='Profile'/>
     </>
   );
 }
