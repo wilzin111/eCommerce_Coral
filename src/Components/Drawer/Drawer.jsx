@@ -24,42 +24,42 @@ const Drawer = ({ isOpen, setDrawerOpen }) => {
     
                     <div className='drawer-top-categoris'>
                         <p>Top categories</p>
-                        <div className="text">
+                        <div className="text-drawer">
                             <p>Skincare</p>
                             <button className='drawer-btn-arrow'>{arrow}</button>
                         </div>
     
-                        <div className="text">
+                        <div className="text-drawer">
                             <p>Apparels</p>
                             <button className='drawer-btn-arrow'>{arrow}</button>
                         </div>
     
-                        <div className="text">
+                        <div className="text-drawer">
                             <p>Jwellery</p>
                             <button className='drawer-btn-arrow'>{arrow}</button>
                         </div>
     
-                        <div className="text">
+                        <div className="text-drawer">
                             <p>Handbags</p>
                             <button className='drawer-btn-arrow'>{arrow}</button>
                         </div>
     
-                        <div className="text">
+                        <div className="text-drawer">
                             <p>EyeWare</p>
                             <button className='drawer-btn-arrow'>{arrow}</button>
                         </div>
     
-                        <div className="text">
+                        <div className="text-drawer">
                             <p>Fragrance</p>
                             <button className='drawer-btn-arrow'>{arrow}</button>
                         </div>
     
-                        <div className="text">
+                        <div className="text-drawer">
                             <p>Watches</p>
                             <button className='drawer-btn-arrow'>{arrow}</button>
                         </div>
     
-                        <div className="text">
+                        <div className="text-drawer">
                             <p>About</p>
                             <button className='drawer-btn-arrow'>{arrow}</button>
                         </div>
@@ -69,17 +69,17 @@ const Drawer = ({ isOpen, setDrawerOpen }) => {
                     <div className='drawer-ContactUs'>
                         <p>Contact Us</p>
     
-                        <div className="text2">
+                        <div className="text2-drawer">
                             <p>Help & Support </p>
                             <button className='drawer-btn-arrow'>{arrow}</button>
                         </div>
     
-                        <div className="text2">
+                        <div className="text2-drawer">
                             <p>Feedback & Suggestions </p>
                             <button className='drawer-btn-arrow'>{arrow}</button>
                         </div>
     
-                        <div className="text2">
+                        <div className="text2-drawer">
                             <p>Visit Websites </p>
                             <button className='drawer-btn-arrow'>{arrow}</button>
                         </div>

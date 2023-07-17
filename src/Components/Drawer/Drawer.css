@@ -61,16 +61,16 @@
     margin-left: 78px;
 }
 
-.text,
-.text2 {
+.text-drawer,
+.text2-drawer {
     display: flex;
     margin: 16px 0;
     margin-right: 18px;
     justify-content: space-between;
 }
 
-.text,
-.text2 p {
+.text-drawer,
+.text2-drawer p {
     font-size: 14px;
     font-weight: 600;
 }
