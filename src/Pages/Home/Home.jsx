@@ -2,7 +2,8 @@ import Desconto from '../../assets/images_home/DescontoOFF.png';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './Home.css';
-import CarryYourImage from '../../assets/images_home/BG_CarryYour.png';
+import DesktopCarryYourImage from '../../assets/images_home/BG_Carryyour.png';
+import CarryYourImage from '../../assets/images_home/BG_CarryyourMobile.png';
 import PersonalCare from '../../assets/images_home/Personalcare.png';
 import Handbags from '../../assets/images_home/Handbags.png';
 import WristWatches from '../../assets/images_home/WristWatches.png';
@@ -14,8 +15,10 @@ import Chanel from '../../assets/images_home/Chanel.png';
 import Biba from '../../assets/images_home/Biba.png';
 import Prada from '../../assets/images_home/Prada.png';
 import LifeStyle from '../../assets/images_home/LifeStyle.png';
-import SkinCareEssentials from '../../assets/images_home/SkinCareEssentials.png';
-import FacePacks from '../../assets/images_home/FacePacks.png';
+import SkinCareEssentialsMobile from '../../assets/images_home/SkinCareEssentialsMobile.png';
+import SkinCareEssentialsDesktop from '../../assets/images_home/SkinCareEssentialsDesktop.png';
+import FacepacksMobile from '../../assets/images_home/FacepacksMobile.png';
+import FacePacksDesktop from '../../assets/images_home/FacePacksDesktop.png';
 import Seta from '../../assets/IconsCategories/Seta.png';
 import ShortCut from '../../assets/images_home/ShortCut.png';
 import category1Image from '../../assets/IconsCategories/SkinCare.png';
@@ -24,8 +27,9 @@ import category3Image from '../../assets/IconsCategories/Bolsa.png';
 import category4Image from '../../assets/IconsCategories/Relogio.png';
 import category5Image from '../../assets/IconsCategories/SkinCare.png';
 import { useState, useEffect } from 'react';
-import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
+import Header from '../../Components/Header/Header';
+import Navbar from '../../Components/Navbar/Navbar';
 
 const categories = [
   { image: category1Image, text: 'SkinCare', link: '/skin-care' },
@@ -36,15 +40,20 @@ const categories = [
 ];
 
 const Home = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide === 0 ? 1 : 0));
-    }, 5000);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      clearInterval(timer);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -63,25 +72,32 @@ const Home = () => {
   }, []); */}
 
   return (
+
     <>
       <Header />
 
       <div className='container'>
-        <Carousel
-          showArrows={false}
-          showStatus={false}
-          showThumbs={false}
-          showIndicators={false}
-          selectedItem={currentSlide}
-          infiniteLoop
-        >
-          <div>
-            <img src={CarryYourImage} alt='CarryYour' className='ImagesCarousel' />
+        {isMobile ? (
+          <Carousel
+            showArrows={false}
+            showStatus={false}
+            showThumbs={false}
+            showIndicators={false}
+            selectedItem={currentSlide}
+            infiniteLoop
+          >
+            <div>
+              <img src={CarryYourImage} alt='CarryYour' className='ImagesCarousel' />
+            </div>
+            <div>
+              <img src={Desconto} alt='Additional Image' className='ImagesCarousel' />
+            </div>
+          </Carousel>
+        ) : (
+          <div className='desktopImageContainer'>
+            <img src={DesktopCarryYourImage} alt='CarryYour' className='ImagesCarousel' />
           </div>
-          <div>
-            <img src={Desconto} alt='Additional Image' className='ImagesCarousel' />
-          </div>
-        </Carousel>
+        )}
         <div className='carouselContainer'>
           <h3 className='Top'>Top Categories</h3>
         </div>
@@ -167,10 +183,10 @@ const Home = () => {
           </a>
           <div className='productPair'>
             <a href='' className='linkUnstyled'>
-              <img src={SkinCareEssentials} alt='SkinCareEssentials' className='productImage' />
+              <img src={isMobile ? SkinCareEssentialsMobile : SkinCareEssentialsDesktop} alt='SkinCareEssentials' className='productImage' />
             </a>
             <a href='' className='linkUnstyled'>
-              <img src={FacePacks} alt='FacePacks' className='productImage' />
+              <img src={isMobile ? FacepacksMobile : FacePacksDesktop} alt='FacePacks' className='productImage' />
             </a>
           </div>
         </div>
@@ -185,7 +201,7 @@ const Home = () => {
             showIndicators={false}
             selectedItem={currentSlide}
             infiniteLoop
-          >
+            className='home_carouselEnd'>
             <div>
               <img src={Desconto} alt='CarryYour' className='ImagesCarousel' />
             </div>
@@ -195,7 +211,10 @@ const Home = () => {
           </Carousel>
         </div>
       </div>
+
       <Footer />
+      <Navbar page='Home'/>
+
     </>
   );
 };
