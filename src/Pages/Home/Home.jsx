@@ -45,7 +45,7 @@ const Home = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 799);
     };
 
     handleResize();
@@ -77,7 +77,6 @@ const Home = () => {
       <Header />
 
       <div className='container'>
-        {isMobile ? (
           <Carousel
             showArrows={false}
             showStatus={false}
@@ -93,11 +92,6 @@ const Home = () => {
               <img src={Desconto} alt='Additional Image' className='ImagesCarousel' />
             </div>
           </Carousel>
-        ) : (
-          <div className='desktopImageContainer'>
-            <img src={DesktopCarryYourImage} alt='CarryYour' className='ImagesCarousel' />
-          </div>
-        )}
         <div className='carouselContainer'>
           <h3 className='Top'>Top Categories</h3>
         </div>
@@ -124,7 +118,7 @@ const Home = () => {
           </div>
         </div>
         <div className='imageSection'>
-          <p>Handpicked Collections</p>
+          {/*<p>Handpicked Collections</p>*/}
           <div className='imagePair'>
             <a href='' className='imageLink'>
               <img src={PersonalCare} alt='Image 1' className='image' />
