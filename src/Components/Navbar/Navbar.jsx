@@ -13,7 +13,7 @@ export default function Navbar({ page }) {
   return (
     <>
       <div className="navbar-container">
-        <Link to={"/"}>
+        <Link to={"/home"}>
           <img src={page == "Home" ? homeBlue : homeGray} alt="home icon" />
           {page == "Home" && <span>Home</span>}
         </Link>
