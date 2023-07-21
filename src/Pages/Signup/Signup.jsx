@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import './Signup.css'
 import { useRef, useState } from "react"
+import {db, auth} from "../../FireBaseConnection"
 
 
 const Signup = () => {
