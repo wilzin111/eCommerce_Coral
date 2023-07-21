@@ -2,7 +2,6 @@ import Desconto from '../../assets/images_home/DescontoOFF.png';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './Home.css';
-import DesktopCarryYourImage from '../../assets/images_home/BG_Carryyour.png';
 import CarryYourImage from '../../assets/images_home/BG_CarryyourMobile.png';
 import PersonalCare from '../../assets/images_home/Personalcare.png';
 import Handbags from '../../assets/images_home/Handbags.png';
