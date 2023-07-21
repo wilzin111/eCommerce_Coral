@@ -45,7 +45,7 @@ const Home = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 799);
+      setIsMobile(window.innerWidth < 768);
     };
 
     handleResize();
@@ -118,7 +118,7 @@ const Home = () => {
           </div>
         </div>
         <div className='imageSection'>
-          {/*<p>Handpicked Collections</p>*/}
+          <p>Handpicked Collections</p>
           <div className='imagePair'>
             <a href='' className='imageLink'>
               <img src={PersonalCare} alt='Image 1' className='image' />

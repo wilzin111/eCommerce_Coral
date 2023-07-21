@@ -122,7 +122,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  padding: 17px;
+  padding: 17px 0px 17px 0px;
 }
 
 .imagePair {
@@ -144,12 +144,12 @@
 .imageSection p {
   color: var(--type-bright, #FFF);
   font-family: Inter;
-  font-size: 14px;
+  font-size: clamp(14px, 2.5vw, 34px);
   font-style: normal;
   font-weight: 300;
   line-height: 16px;
-  padding: 6px;
   margin-left: -7px;
+  width: 91.5%;
 }
 
 .brandsSection {
@@ -277,24 +277,41 @@
   text-align: left;
 }
 
+.Trending {
+  width: 92%;
+  text-align: left;
+}
+
 .TrendingSection {
   margin-top: 25px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .Trending p{
   color: var(--type-high-emphasis, #171520);
   font-family: Inter;
-  font-size: 14px;
+  font-size: clamp(14px, 2.5vw, 34px);
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
   margin-bottom: 10px;
-  text-align: left;
-  margin-left: 15px;
 }
 
 @media screen and (min-width: 500px) {
   .ShortCut {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .carouselContainer{
+    display: none;
+  }
+
+  .categoryContainer {
     display: none;
   }
 }
@@ -347,7 +364,6 @@
   .imageSection {
     width: 1280px;
     flex-direction: row;
-    justify-content: space-evenly;
   }
 
   .image {
@@ -360,7 +376,8 @@
     position: absolute;
     width: 404px;
     font-weight: 600;
-    margin-right: 778px;
+    margin-right: 765px;
+    margin-top: 10px;
   }
 
   .imagePair {
