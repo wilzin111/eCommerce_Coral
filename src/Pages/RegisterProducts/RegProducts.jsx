@@ -6,6 +6,7 @@ import { ref, uploadBytesResumable } from "firebase/storage";
 
 export default function RegisterProducts() {
   const [name, setName] = useState("");
+  const [subname, setSubName] = useState("");
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -32,6 +33,7 @@ export default function RegisterProducts() {
 
     await addDoc(collection(db, "products"), {
       name: name,
+      subname: subname,
       price: price,
       discount: discount,
       quantity: quantity,
@@ -42,7 +44,7 @@ export default function RegisterProducts() {
     })
       .then(() => {
         setName("");
-        setPrice("");
+        setSubName(""), setPrice("");
         setDiscount("");
         setQuantity("");
         setCategory("");
@@ -66,6 +68,15 @@ export default function RegisterProducts() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+            ></input>
+          </div>
+
+          <div className="select-container-rp">
+            <p>Mini descrição:</p>
+            <input
+              type="text"
+              value={subname}
+              onChange={(e) => setSubName(e.target.value)}
             ></input>
           </div>
 
