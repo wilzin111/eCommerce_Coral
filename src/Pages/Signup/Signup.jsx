@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom"
 import './Signup.css'
 import { useRef, useState } from "react"
-import {db, auth} from "../../FireBaseConnection"
-
+import { db, auth } from "../../FireBaseConnection"
 
 const Signup = () => {
   const inputRef = useRef(null)
@@ -22,6 +21,52 @@ const Signup = () => {
     const imgReceived = e.target.files[0]
     setUserImg(imgReceived)
   }
+  //letra maiuscula nome
+  function capitalizeFirstName(e) {
+    return e.charAt(0).toUpperCase() + e.slice(1)
+  }
+  //letra maiuscula sobrenome
+  function capitalizeLastName(e) {
+    let LastNameList = e.split(" ")
+
+    for (let i = 0; i < LastNameList.length; i++) {
+      let currentLastName = LastNameList[i]
+      LastNameList[i] = currentLastName.charAt(0).toUpperCase() + currentLastName.slice(1)
+    }
+    return LastNameList.join(" ")
+  }
+  const capitalizedfirstName = capitalizeFirstName(userName)
+  const capitalizedLastName = capitalizeLastName(userLastName)
+
+  const regexPassword = /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\-])(?=.*[A-Z]).{8,}$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function handleRegister() {
+    if (userName == '' ||
+      userLastName == '' ||
+      userEmail == '' ||
+      userNiver == '' ||
+      password == '' ||
+      passwordConfirm == '') {
+      console.log("Please fill in all fields");
+      return;
+      
+    } else if (!emailRegex.test(userEmail)) {
+      console.log("Please enter a valid email")
+      return;
+
+    } else if (!regexPassword.test(password)) {
+      console.log("The password must contain one special character, one uppercase letter, and be at least 8 characters long.");
+      return;
+
+    } else if (password != passwordConfirm) {
+      console.log("The passwords must be the same");
+      return;
+
+    }
+
+  }
+
 
   return (
     <div className="signup-container">
@@ -69,7 +114,7 @@ const Signup = () => {
           onChange={(e) => setPasswordConfirm(e.target.value)}
         />
 
-        <button>Sign up</button>
+        <button onClick={handleRegister}>Sign up</button>
         <p>Do you already have an account? </p><Link to={"/"}><strong>Log in!</strong></Link>
       </div>
     </div>
