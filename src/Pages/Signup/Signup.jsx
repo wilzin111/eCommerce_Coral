@@ -2,8 +2,12 @@ import { Link } from "react-router-dom"
 import './Signup.css'
 import { useRef, useState } from "react"
 import { db, auth } from "../../FireBaseConnection"
+import { doc, setDoc } from "firebase/firestore"
+import { createUserWithEmailAndPassword } from "firebase/auth"
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
+  const navigat = useNavigate()
   const inputRef = useRef(null)
   const [userImg, setUserImg] = useState('')
   const [userName, setUserName] = useState('')
@@ -39,9 +43,9 @@ const Signup = () => {
   const capitalizedLastName = capitalizeLastName(userLastName)
 
   const regexPassword = /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\-])(?=.*[A-Z]).{8,}$/;
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  function handleRegister() {
+  async function handleRegister() {
     if (userName == '' ||
       userLastName == '' ||
       userEmail == '' ||
@@ -51,7 +55,7 @@ const Signup = () => {
       console.log("Please fill in all fields");
       return;
 
-    } else if (!emailRegex.test(userEmail)) {
+    } else if (!regexEmail.test(userEmail)) {
       console.log("Please enter a valid email")
       return;
 
@@ -64,14 +68,28 @@ const Signup = () => {
       return;
 
     } else {
-      console.log("Success!");
-      setUserImg('');
-      setUserName('');
-      setUserLastName('');
-      setUserEmail('');
-      setUserNiver('');
-      setPassword('');
-      setPasswordConfirm('');
+      await createUserWithEmailAndPassword(auth, userEmail, password)
+        .then(async (value) => {
+          const uid = value.user.uid
+          await setDoc(doc(db, 'users', uid), {
+            firstName: capitalizedfirstName,
+            lastName: capitalizedLastName,
+            niver: userNiver,
+            signupEmail: userEmail,
+            signupPassword: password
+          })
+            .then(() => {
+              console.log("Registration done successfully")
+              navigat("/")
+            })
+            .catch(() => {
+              console.log("Unable to register, please try again!")
+            })
+        })
+        .catch(() => {
+          console.log("Already existing email")
+        })
+
     }
   }
 
