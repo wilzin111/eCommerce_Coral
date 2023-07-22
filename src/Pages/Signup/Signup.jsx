@@ -7,7 +7,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth"
 import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
-  const navigat = useNavigate()
+  const navigatS = useNavigate()
   const inputRef = useRef(null)
   const [userImg, setUserImg] = useState('')
   const [userName, setUserName] = useState('')
@@ -80,7 +80,7 @@ const Signup = () => {
           })
             .then(() => {
               console.log("Registration done successfully")
-              navigat("/")
+              navigatS("/")
             })
             .catch(() => {
               console.log("Unable to register, please try again!")
