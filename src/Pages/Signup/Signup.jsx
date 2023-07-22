@@ -50,7 +50,7 @@ const Signup = () => {
       passwordConfirm == '') {
       console.log("Please fill in all fields");
       return;
-      
+
     } else if (!emailRegex.test(userEmail)) {
       console.log("Please enter a valid email")
       return;
@@ -63,8 +63,16 @@ const Signup = () => {
       console.log("The passwords must be the same");
       return;
 
+    } else {
+      console.log("Success!");
+      setUserImg('');
+      setUserName('');
+      setUserLastName('');
+      setUserEmail('');
+      setUserNiver('');
+      setPassword('');
+      setPasswordConfirm('');
     }
-
   }
 
 
