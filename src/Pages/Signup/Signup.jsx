@@ -113,35 +113,44 @@ const Signup = () => {
         <input type="text" id="Name" placeholder="Your Name"
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
+          className="signup-hover"
         />
 
         <input type="text" id="LastName" placeholder="Your Last Name"
           value={userLastName}
           onChange={(e) => setUserLastName(e.target.value)}
+          className="signup-hover"
         />
 
         <input type="text" id="Email" placeholder="Your Email"
           value={userEmail}
           onChange={(e) => setUserEmail(e.target.value)}
+          className="signup-hover"
         />
 
         <input type="date" id="Niver" placeholder="Your birthday"
           value={userNiver}
           onChange={(e) => setUserNiver(e.target.value)}
+          className="signup-hover"
         />
 
         <input type="password" id="Password" placeholder="Enter a password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="signup-hover"
         />
 
         <input type="password" id="ConfirmPassword" placeholder="Confirm the password"
           value={passwordConfirm}
           onChange={(e) => setPasswordConfirm(e.target.value)}
+          className="signup-hover"
         />
 
-        <button onClick={handleRegister}>Sign up</button>
-        <p>Do you already have an account? </p><Link to={"/"}><strong>Log in!</strong></Link>
+        <button className="signup-btn" onClick={handleRegister}>Sign up</button>
+        <div className="signup-p">
+          <p>Do you already have an account? <Link to={"/"}>Log in!</Link></p>
+        </div>
+        
       </div>
     </div>
   )

@@ -7,8 +7,11 @@ const login = () => {
             <div className="login-container-input">
                 <input type="text" placeholder="Your Email"/>
                 <input type="password" placeholder="Enter a password"/>
-                <button>Log in</button>
-                <p>Don't have an account? </p><Link to={"/signup"}><strong>Sign up!</strong></Link>
+                <button className='login-btn'>Log in</button>
+                <div className='login-p'>
+                  <p>Don't have an account? <Link to={"/signup"}>Sign up!</Link></p>  
+                </div>
+                
             </div>
 
         </div>
