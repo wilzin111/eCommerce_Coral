@@ -1,11 +1,12 @@
 import "./wishlist.css";
 import Arrow from "../../Assets/Wishlist/arrow.svg";
 import noFavs from "../../Assets/Wishlist/noFavs.png";
+import img from "../../Assets/Images home/Zara.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Wishlist() {
-  const [isEmpty, setIsEmpty] = useState(true);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   return (
     <>
@@ -35,9 +36,10 @@ export default function Wishlist() {
             </div>
           </section>
         ) : (
-          <section className="products-wishlist" id="products-wishlist">
-            
-          </section>
+          <section
+            className="products-wishlist"
+            id="products-wishlist"
+          ></section>
         )}
       </div>
     </>
