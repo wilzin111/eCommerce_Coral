@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // CSS
 import "./header.css";
@@ -224,9 +225,9 @@ function Header() {
               <button onClick={handleClick}>
                 <img src={wishlist} className="icon" />
               </button>
-              <button onClick={handleClick}>
+              <Link to="/profile" onClick={handleClick}>
                 <img src={profile} className="icon" />
-              </button>
+              </Link>
               <button onClick={() => setOpenBag(true)}>
                 <img src={bag} className="icon" />
               </button>
