@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
 import './Signup.css'
 import { useRef, useState } from "react"
-import { db, auth } from "../../FireBaseConnection"
-import { doc, setDoc } from "firebase/firestore"
+import { db, auth, storage } from "../../FireBaseConnection"
+import {  doc, setDoc } from "firebase/firestore"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { useNavigate } from 'react-router-dom'
+import { ref, uploadBytesResumable } from "firebase/storage"
 
 const Signup = () => {
   const navigatS = useNavigate()
@@ -41,9 +42,20 @@ const Signup = () => {
   }
   const capitalizedfirstName = capitalizeFirstName(userName)
   const capitalizedLastName = capitalizeLastName(userLastName)
+  const fullName = capitalizedfirstName+capitalizedLastName
 
   const regexPassword = /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\-])(?=.*[A-Z]).{8,}$/;
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+  function handleImage() {
+    if (!userImg) {
+      console.log("nenhuma foto cadastrada");
+      return;
+    }
+    const storageRef = ref(storage, `images/users/${fullName}`);
+    const uploadTask = uploadBytesResumable(storageRef, userImg);
+  }
 
   async function handleRegister() {
     if (userName == '' ||
@@ -68,16 +80,20 @@ const Signup = () => {
       return;
 
     } else {
+
       await createUserWithEmailAndPassword(auth, userEmail, password)
         .then(async (value) => {
+
           const uid = value.user.uid
           await setDoc(doc(db, 'users', uid), {
             firstName: capitalizedfirstName,
             lastName: capitalizedLastName,
             niver: userNiver,
             signupEmail: userEmail,
-            signupPassword: password
+            signupPassword: password,
+            idImgUser: fullName
           })
+          
             .then(() => {
               console.log("Registration done successfully")
               navigatS("/")
@@ -85,6 +101,7 @@ const Signup = () => {
             .catch(() => {
               console.log("Unable to register, please try again!")
             })
+            handleImage();
         })
         .catch(() => {
           console.log("Already existing email")
@@ -150,7 +167,7 @@ const Signup = () => {
         <div className="signup-p">
           <p>Do you already have an account? <Link to={"/"}>Log in!</Link></p>
         </div>
-        
+
       </div>
     </div>
   )
