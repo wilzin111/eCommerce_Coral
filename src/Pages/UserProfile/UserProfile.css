@@ -101,7 +101,7 @@
   border-radius: 0.5rem;
   background: #17494d;
   position: absolute;
-  left: 0;
+  left: -0.5rem;
 }
 .user_profile_side_navigation_selector_enabled {
   display: flex;
@@ -245,4 +245,7 @@
 }
 .align_self_end {
   align-self: flex-end;
+}
+.display_none {
+  display: none;
 }

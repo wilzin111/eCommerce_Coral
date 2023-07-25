@@ -9,14 +9,14 @@
 
 .drawer-container-user {
     width: 297px;
-    height: 776px;
+    height: auto;
     display: flex;
     flex-direction: column;
     background-color: #fff;
 }
 
 .drawer-btn {
-    width: 63px;
+    width: 100%;
     background-color: transparent;
     border: none;
 }
@@ -63,10 +63,16 @@
 
 .text-drawer,
 .text2-drawer {
+    height: 34px;
     display: flex;
     margin: 16px 0;
     margin-right: 18px;
     justify-content: space-between;
+    align-items: center;
+}
+
+.text-drawer:last-child{
+    margin-bottom: 0;
 }
 
 .text-drawer,
