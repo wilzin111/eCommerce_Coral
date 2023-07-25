@@ -1,6 +1,9 @@
 .container {
-  width: 360px;
+  width: 100%;
+  display: flex;
   background-color: white;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .ImagesCarousel {
@@ -10,14 +13,18 @@
 }
 
 .categoryContainer {
-  width: 102.7%;
+  width: 100%;
   height: 100px;
-  padding: 10px;
-  gap: 4px;
+  padding: 10px 30px;
+  gap: 2px;
   display: flex;
-  flex-wrap: nowrap;
   overflow-x: scroll;
-  margin-left: -10px;
+  justify-content: center;
+}
+
+.desktopImageContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .categoryItem {
@@ -43,6 +50,7 @@
 
 .carouselContainer {
   margin-top: 25px;
+  width: 92%;
 }
 
 
@@ -60,23 +68,26 @@
 }
 
 .carouselContainer h3 {
-  margin-left: 19px;
-  font-size: 14px;
+  font-size: clamp(14px, 2.5vw, 34px);
   font-family: Inter;
   font-weight: 600;
   margin-bottom: 9px;
 }
 
+.newArrivalContainer{
+  width: 92%;
+}
+
 .newViewAllContainer {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-top: 33px;
 }
 
 .new {
   color: var(--type-high-emphasis, #171520);
   font-family: Inter;
-  font-size: 14px;
+  font-size: clamp(14px, 2.5vw, 34px);
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
@@ -104,23 +115,24 @@
 }
 
 .imageSection {
-  width: 360px;
-  height: 379px;
+  width: 100%;
+  height: auto;
   background-color: #1B4B66;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  padding: 17px;
+  padding: 17px 0px 17px 0px;
 }
 
 .imagePair {
   display: flex;
   gap: 15px;
+  justify-content: center;
 }
 
 .image {
-  width: 100%;
+  width: 156px;
   height: auto;
 }
 
@@ -132,14 +144,12 @@
 .imageSection p {
   color: var(--type-bright, #FFF);
   font-family: Inter;
-  font-size: 14px;
+  font-size: clamp(14px, 2.5vw, 34px);
   font-style: normal;
   font-weight: 300;
   line-height: 16px;
-  text-align: left;
-  width: 180px;
-  padding: 6px;
   margin-left: -7px;
+  width: 91.5%;
 }
 
 .brandsSection {
@@ -147,6 +157,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
   gap: 10px;
 }
 
@@ -164,14 +175,15 @@
 
 .textBrandContainer {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-top: 33px;
+  width: 92%;
 }
 
 .shopByBrands {
   color: var(--type-high-emphasis, #171520);
   font-family: Inter;
-  font-size: 14px;
+  font-size: clamp(14px, 2.5vw, 34px);
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
@@ -212,7 +224,7 @@
 }
 
 .skincareSection {
-  width: 360px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -251,41 +263,64 @@
 
 .skincareTitleContainer {
   text-align: left;
-  width: 100%;
+  width: 92%;
 }
 
 .skincareTitle {
   color: var(--type-high-emphasis, #171520);
   font-family: Inter;
-  font-size: 14px;
+  font-size: clamp(14px, 2.5vw, 34px);
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
   margin-bottom: 10px;
   text-align: left;
-  margin-left: 15px;
+}
+
+.Trending {
+  width: 92%;
+  text-align: left;
 }
 
 .TrendingSection {
   margin-top: 25px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.Trending {
+.Trending p{
   color: var(--type-high-emphasis, #171520);
   font-family: Inter;
-  font-size: 14px;
+  font-size: clamp(14px, 2.5vw, 34px);
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
   margin-bottom: 10px;
-  text-align: left;
-  margin-left: 15px;
+}
+
+@media screen and (min-width: 500px) {
+  .ShortCut {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .carouselContainer{
+    display: none;
+  }
+
+  .categoryContainer {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
     width: 1280px;
     background-color: #ffffff;
+    display: flex;
   }
 
   .desktopImageContainer {
@@ -329,7 +364,6 @@
   .imageSection {
     width: 1280px;
     flex-direction: row;
-    justify-content: space-evenly;
   }
 
   .image {
@@ -342,11 +376,8 @@
     position: absolute;
     width: 404px;
     font-weight: 600;
-    margin-right: 778px;
-  }
-
-  .ShortCut {
-    display: none;
+    margin-right: 765px;
+    margin-top: 10px;
   }
 
   .imagePair {
@@ -355,7 +386,6 @@
 
   .shopByBrands {
     font-size: 34px;
-    margin-right: 920px;
     margin-bottom: 30px;
   }
 

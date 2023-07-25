@@ -2,7 +2,6 @@ import Desconto from '../../assets/images_home/DescontoOFF.png';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './Home.css';
-import DesktopCarryYourImage from '../../assets/images_home/BG_Carryyour.png';
 import CarryYourImage from '../../assets/images_home/BG_CarryyourMobile.png';
 import PersonalCare from '../../assets/images_home/Personalcare.png';
 import Handbags from '../../assets/images_home/Handbags.png';
@@ -77,7 +76,6 @@ const Home = () => {
       <Header />
 
       <div className='container'>
-        {isMobile ? (
           <Carousel
             showArrows={false}
             showStatus={false}
@@ -93,11 +91,6 @@ const Home = () => {
               <img src={Desconto} alt='Additional Image' className='ImagesCarousel' />
             </div>
           </Carousel>
-        ) : (
-          <div className='desktopImageContainer'>
-            <img src={DesktopCarryYourImage} alt='CarryYour' className='ImagesCarousel' />
-          </div>
-        )}
         <div className='carouselContainer'>
           <h3 className='Top'>Top Categories</h3>
         </div>
