@@ -300,6 +300,17 @@
   margin-bottom: 10px;
 }
 
+@media screen and (min-width: 1000px) {
+  .image {
+    width: 220px;
+  }
+
+  .brandImage {
+    width: 140px;
+    height: 140px;
+  }
+}
+
 @media screen and (min-width: 500px) {
   .ShortCut {
     display: none;
@@ -358,7 +369,7 @@
   }
 
   .newViewAllContainer {
-    margin-top: 0px;
+    margin-top: 60px;
   }
 
   .imageSection {
