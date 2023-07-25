@@ -1,4 +1,4 @@
-.container {
+.container-home {
   width: 100%;
   display: flex;
   background-color: white;
@@ -53,7 +53,6 @@
   width: 92%;
 }
 
-
 .CategoryText {
   margin-top: 5px;
   font-size: 12px;
@@ -74,7 +73,7 @@
   margin-bottom: 9px;
 }
 
-.newArrivalContainer{
+.newArrivalContainer {
   width: 92%;
 }
 
@@ -99,8 +98,8 @@
   align-items: center;
 }
 
-.viewAllText>a {
-  color: var(--primary, #1B4B66);
+.viewAllText > a {
+  color: var(--primary, #1b4b66);
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
@@ -117,12 +116,12 @@
 .imageSection {
   width: 100%;
   height: auto;
-  background-color: #1B4B66;
+  background-color: #1b4b66;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  padding: 17px 0px 17px 0px;
+  padding: 17px 0px;
 }
 
 .imagePair {
@@ -142,7 +141,7 @@
 }
 
 .imageSection p {
-  color: var(--type-bright, #FFF);
+  color: var(--type-bright, #fff);
   font-family: Inter;
   font-size: clamp(14px, 2.5vw, 34px);
   font-style: normal;
@@ -191,7 +190,7 @@
 }
 
 .viewAllTextLink a {
-  color: var(--primary, #1B4B66);
+  color: var(--primary, #1b4b66);
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
@@ -290,7 +289,7 @@
   flex-wrap: wrap;
 }
 
-.Trending p{
+.Trending p {
   color: var(--type-high-emphasis, #171520);
   font-family: Inter;
   font-size: clamp(14px, 2.5vw, 34px);
@@ -307,7 +306,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .carouselContainer{
+  .carouselContainer {
     display: none;
   }
 
@@ -335,7 +334,11 @@
 
   .carouselContainer,
   .CategoryImage,
-  .CategoryText {
+  .CategoryText,
+  .home_carouselEnd,
+  .TrendingSection,
+  .skincareTitle,
+  .ViewAllBrand {
     display: none;
   }
 
@@ -362,7 +365,7 @@
   }
 
   .imageSection {
-    width: 1280px;
+    width: 100%;
     flex-direction: row;
   }
 
@@ -382,6 +385,7 @@
 
   .imagePair {
     margin-top: 55px;
+    gap: 10px;
   }
 
   .shopByBrands {
@@ -393,10 +397,6 @@
     margin-top: 80px;
   }
 
-  .ViewAllBrand {
-    display: none;
-  }
-
   .brandImage {
     width: 168px;
     height: 168px;
@@ -406,20 +406,8 @@
     gap: 35px;
   }
 
-  .home_carouselEnd {
-    display: none;
-  }
-
-  .TrendingSection {
-    display: none;
-  }
-
-  .skincareTitle {
-    display: none;
-  }
-
   .skincareSection {
-    width: 1280px;
+    width: 100%;
     margin-top: 60px;
   }
 
