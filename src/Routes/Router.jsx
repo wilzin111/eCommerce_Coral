@@ -7,6 +7,7 @@ import UserProfile from "../Pages/UserProfile/UserProfile"
 import Login from "../Pages/Login/Login"
 import Signup from "../Pages/Signup/Signup";
 import RegisterProducts from "../Pages/RegisterProducts/RegProducts";
+import StartScreen from "../Pages/StartScreen/StartScreen";
 
 const Router = () => {
   return (
@@ -17,9 +18,10 @@ const Router = () => {
         <Route path="/categories" element={<Categories />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/bag" element={<Bag />} />
-        <Route path="/" element={<Login/>} />
+        <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/register-products" element={<RegisterProducts />} />
+        <Route path="/" element={<StartScreen/>}/>
       </Routes>
     </BrowserRouter>
   );
