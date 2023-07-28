@@ -1,0 +1,68 @@
+.StartScreen-container {
+    height: 100vh;
+    background: center url(../../Assets/ImagesInicPage/bg.png) no-repeat;
+}
+
+.StartScreen-container-center {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 10%, rgba(255, 250, 244, 0.96) 90.90%);
+}
+
+.container-h1 {
+    width: 328px;
+    margin-bottom: 18px;
+}
+
+.container-h1 h1 {
+    color: #171520;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.StartScreen-container-GetStarted {
+    width: 328px;
+    height: 44px;
+    background-color: #1B4B66;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.StartScreen-container-GetStarted a {
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    text-decoration: none;
+}
+
+
+.StartScreen-container-IHaveAccount {
+    margin-bottom: 32px;
+}
+
+.StartScreen-container-IHaveAccount a {
+    color: #171520;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 361px) {
+    .StartScreen-background {
+        background-image: radial-gradient(circle, #60b6f1, #4d9acc, #3b7fa9, #2b6487, #1b4b66);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

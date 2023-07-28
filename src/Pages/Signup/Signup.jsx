@@ -96,7 +96,7 @@ const Signup = () => {
           
             .then(() => {
               console.log("Registration done successfully")
-              navigatS("/")
+              navigatS("/login")
             })
             .catch(() => {
               console.log("Unable to register, please try again!")
@@ -165,7 +165,7 @@ const Signup = () => {
 
         <button className="signup-btn" onClick={handleRegister}>Sign up</button>
         <div className="signup-p">
-          <p>Do you already have an account? <Link to={"/"}>Log in!</Link></p>
+          <p>Do you already have an account? <Link to={"/login"}>Log in!</Link></p>
         </div>
 
       </div>
