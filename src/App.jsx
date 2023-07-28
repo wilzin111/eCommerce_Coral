@@ -1,10 +1,13 @@
 import "./App.css";
 import Router from "./Routes/Router";
+import ProductProvider from "./Contexts/productsContext";
 
 function App() {
   return (
     <>
-      <Router />
+      <ProductProvider>
+        <Router />
+      </ProductProvider>
     </>
   );
 }
