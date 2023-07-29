@@ -19,7 +19,6 @@ function DataUserProvider({ children }) {
             }
 
         } catch (error) {
-            console.log(error);
         }
 
     }

@@ -48,12 +48,12 @@ const Signup = () => {
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 
-  function handleImage() {
+  function handleImage(e) {
     if (!userImg) {
       console.log("nenhuma foto cadastrada");
       return;
     }
-    const storageRef = ref(storage, `images/users/${fullName}`);
+    const storageRef = ref(storage, `images/users/${e}`);
     const uploadTask = uploadBytesResumable(storageRef, userImg);
   }
 
@@ -91,12 +91,13 @@ const Signup = () => {
             niver: userNiver,
             signupEmail: userEmail,
             signupPassword: password,
-            idImgUser: fullName
+            uid: uid
           })
           
             .then(() => {
               console.log("Registration done successfully")
               navigatS("/login")
+              handleImage(uid)
             })
             .catch(() => {
               console.log("Unable to register, please try again!")

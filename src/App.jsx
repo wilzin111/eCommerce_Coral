@@ -1,13 +1,17 @@
 import "./App.css";
 import Router from "./Routes/Router";
+import DataUserProvider from "./Contexts/dataUser";
 import ProductProvider from "./Contexts/productsContext";
 
 function App() {
   return (
     <>
-      <ProductProvider>
-        <Router />
-      </ProductProvider>
+      <DataUserProvider>
+        <ProductProvider>
+          <Router />
+        </ProductProvider>
+      </DataUserProvider>
+
     </>
   );
 }
