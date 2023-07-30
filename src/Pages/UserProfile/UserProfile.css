@@ -10,7 +10,8 @@
 }
 .change_to_gray {
   filter: brightness(0) invert(0);
-  filter: invert(43%) sepia(6%) saturate(0%) hue-rotate(185deg) brightness(85%) contrast(90%);
+  filter: invert(43%) sepia(6%) saturate(0%) hue-rotate(185deg) brightness(85%)
+    contrast(90%);
 }
 .div_to_button {
   border: none;
@@ -215,7 +216,7 @@
 .user_information {
   padding: 1rem;
   border-radius: 0.5rem;
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
   align-items: center;
   margin-bottom: 1rem;
 }
@@ -283,9 +284,6 @@
   .user_profile_side_navigation {
     background: none;
   }
-  .header {
-    display: none;
-  }
   .user_profile_mobile {
     display: grid;
     width: 100%;
@@ -301,7 +299,7 @@
     justify-self: center;
   }
   .user_grid {
-    width: min(100% , 32rem);
+    width: min(100%, 32rem);
     margin: 0 auto;
   }
   .user_profile_container_title {

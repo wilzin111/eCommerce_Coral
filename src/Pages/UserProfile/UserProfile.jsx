@@ -7,25 +7,24 @@ import Navbar from "../../Components/Navbar/Navbar";
 import ProfileInfo from "../../Components/ProfileInfo/ProfileInfo";
 
 function UserProfile() {
+  const [width, setWidth] = useState(window.screen.width);
 
-  const [width, setWidth] = useState(window.screen.width)
-  
   useEffect(() => {
     function handleResize() {
-      setWidth(window.screen.width)
+      setWidth(window.screen.width);
     }
-    window.addEventListener('resize', handleResize)
-  })
+    window.addEventListener("resize", handleResize);
+  });
 
   return (
     <>
-      <Header />
+      {width >= 901 ? <Header /> : null}
 
       <ProfileInfo />
 
-      {width >= 901 ? <Footer /> :null}
-      
-      <Navbar page='Profile'/>
+      {width >= 901 ? <Footer /> : null}
+
+      <Navbar page="Profile" />
     </>
   );
 }
