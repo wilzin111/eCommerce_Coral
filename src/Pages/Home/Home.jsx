@@ -29,6 +29,7 @@ import { useState, useEffect } from "react";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import Navbar from "../../Components/Navbar/Navbar";
+import carryDesktop from "../../Assets/Images_home/homeDesktopCarry.png";
 
 const categories = [
   { image: category1Image, text: "SkinCare", link: "/skin-care" },
@@ -56,22 +57,6 @@ const Home = () => {
     };
   }, []);
 
-  {
-    /*useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const snapshot = await firebase.database().ref('products').once('value');
-        const data = snapshot.val();
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []); */
-  }
-
   return (
     <>
       <Header />
@@ -87,7 +72,7 @@ const Home = () => {
         >
           <div>
             <img
-              src={CarryYourImage}
+              src={isMobile ? CarryYourImage : carryDesktop}
               alt="CarryYour"
               className="ImagesCarousel"
             />
