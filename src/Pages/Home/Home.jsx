@@ -29,6 +29,8 @@ import { useState, useEffect } from "react";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import Navbar from "../../Components/Navbar/Navbar";
+import { useContext } from "react";
+import { productContext } from "../../Contexts/productsContext";
 
 const categories = [
   { image: category1Image, text: "SkinCare", link: "/skin-care" },
@@ -41,6 +43,10 @@ const categories = [
 const Home = () => {
   const [currentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+
+  //chamar os produtos
+  const { produtos } = useContext(productContext);
+  console.log(produtos);
 
   useEffect(() => {
     const handleResize = () => {
@@ -55,22 +61,6 @@ const Home = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  {
-    /*useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const snapshot = await firebase.database().ref('products').once('value');
-        const data = snapshot.val();
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []); */
-  }
 
   return (
     <>
