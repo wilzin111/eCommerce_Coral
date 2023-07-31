@@ -30,6 +30,8 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import Navbar from "../../Components/Navbar/Navbar";
 import carryDesktop from "../../Assets/Images_home/homeDesktopCarry.png";
+import { useContext } from "react";
+import { productContext } from "../../Contexts/productsContext";
 
 const categories = [
   { image: category1Image, text: "SkinCare", link: "/skin-care" },
@@ -42,6 +44,10 @@ const categories = [
 const Home = () => {
   const [currentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+
+  //chamar os produtos
+  const { produtos } = useContext(productContext);
+  console.log(produtos);
 
   useEffect(() => {
     const handleResize = () => {
