@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import profile from "./../../Assets/Icons/profile.svg";
 import trash from "./../../Assets/Icons/delete.svg";
 import eye from "./../../Assets/Icons/eye.svg";
 import cross from "./../../Assets/Icons/cross.svg";
+import { DataUserContext } from "../../Contexts/dataUser";
+import { storage } from "../../FireBaseConnection";
+import { getDownloadURL, ref } from "firebase/storage";
 
 export default function PersonalInfo() {
   const [passwordIcon, setPasswordIcon] = useState(eye);
@@ -25,6 +28,29 @@ export default function PersonalInfo() {
       newPassword.type = "password";
       setPasswordIcon(eye);
     }
+
+
+
+  }
+  const { dataUser } = useContext(DataUserContext)
+  const [urlImgUserProfile, setUrlImgUserProfile] = useState('');
+  const [userFirtName, setUserFirtName] = useState(dataUser.firstName)
+  const [userLastName, setUserLastName] = useState(dataUser.lastName)
+  const [userDDD, setUserDDD] = useState('1')
+  const [userNumber, setUserNumber] = useState('xxx-xxx-xxxx')
+  const [userNiver, setUserNiver] = useState(dataUser.niver)
+  const [userCurrentPassword, setUserCurrentPassword] = useState('')
+  const [userNewPassword, setUserNewPassword] = useState('')
+  const [userConfirmeNewPassword, setUserConfirmeNewPassword] = useState('')
+
+  const handleUploadImage = async () => {
+    const imagemRefUser = ref(storage, `images/users/${dataUser.uid}`);
+    const downloadURLUser = await getDownloadURL(imagemRefUser);
+    setUrlImgUserProfile(downloadURLUser);
+  };
+
+  if (!urlImgUserProfile) {
+    handleUploadImage();
   }
   return (
     <div className="user_profile_container">
@@ -34,7 +60,7 @@ export default function PersonalInfo() {
       </div>
 
       <form className="user_profile_picture">
-        <img src={profile} className="profile_photo" />
+        <img src={urlImgUserProfile ? urlImgUserProfile : './imgUserNone.jpg'} className="profile_photo" />
         <button onClick={handleUpload} className="profile_button_blue">
           Upload
         </button>
@@ -49,20 +75,20 @@ export default function PersonalInfo() {
           <div className="user_profile_info_inputs flex_column padding_right_2-06rem">
             <label>First Name</label>
             <input
-              placeholder=""
+              value={userFirtName}
               className="user_profile_info_input width_18rem"
               type="text"
-              required
+              onChange={(e) => setUserFirtName(e.target.value)}
             />
           </div>
 
           <div className="user_profile_info_inputs flex_column">
             <label>Last Name</label>
             <input
-              placeholder=""
+              value={userLastName}
               className="user_profile_info_input width_18rem"
               type="text"
-              required
+              onChange={(e) => setUserLastName(e.target.value)}
             />
           </div>
         </div>
@@ -72,8 +98,8 @@ export default function PersonalInfo() {
           <input
             className="user_profile_info_input width_38rem"
             type="text"
-            value="email@email.com"
-            readOnly
+            value={dataUser.signupEmail}
+            disabled
           />
         </div>
 
@@ -83,16 +109,17 @@ export default function PersonalInfo() {
             <input
               className="user_profile_info_input width_5rem"
               type="number"
-              placeholder="+1"
+              value={userDDD}
+              onChange={(e) => setUserDDD(e.target.value)}
             />
             <input
               className="user_profile_info_input width_19rem"
               type="tel"
-              placeholder="xxx-xxx-xxxx"
+              value={userNumber}
               inputMode="numeric"
               autoComplete="on"
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              required
+              onChange={(e) => setUserNumber(e.target.value)}
             />
           </div>
         </div>
@@ -102,7 +129,8 @@ export default function PersonalInfo() {
           <input
             className="user_profile_info_input margin_bottom_2-5rem width_19rem"
             type="date"
-            required
+            value={userNiver}
+            onChange={(e) => setUserNiver(e.target.value)}
           />
         </div>
 
@@ -115,7 +143,8 @@ export default function PersonalInfo() {
             <input
               className="user_profile_info_input width_18rem"
               type="Password"
-              required
+              value={userCurrentPassword}
+              onChange={(e) => setUserCurrentPassword(e.target.value)}
             />
           </div>
 
@@ -125,7 +154,8 @@ export default function PersonalInfo() {
               id="newPassword"
               className="user_profile_info_input width_18rem"
               type="Password"
-              required
+              value={userNewPassword}
+              onChange={(e) => setUserNewPassword(e.target.value)}
             />
             <img
               onClick={handleTogglePasswordVisibility}
@@ -139,7 +169,8 @@ export default function PersonalInfo() {
             <input
               className="user_profile_info_input width_18rem"
               type="Password"
-              required
+              value={userConfirmeNewPassword}
+              onChange={(e) => setUserConfirmeNewPassword(e.target.value)}
             />
           </div>
         </div>
