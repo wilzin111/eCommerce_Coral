@@ -32,6 +32,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import carryDesktop from "../../Assets/Images_home/homeDesktopCarry.png";
 import { useContext } from "react";
 import { productContext } from "../../Contexts/productsContext";
+import { ProductsHome } from "../../Components/ProductsHome/productsHome";
 
 const categories = [
   { image: category1Image, text: "SkinCare", link: "/skin-care" },
@@ -44,10 +45,18 @@ const categories = [
 const Home = () => {
   const [currentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   //chamar os produtos
   const { produtos } = useContext(productContext);
-  console.log(produtos);
+
+  useEffect(() => {
+    if (produtos) {
+      setLoading(false);
+    } else {
+      setLoading(true);
+    }
+  }, [productContext]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -118,14 +127,18 @@ const Home = () => {
                 <a href="">View All</a>
               </p>
               <img src={Seta} alt="Arrow" className="arrowImage" />
-              {/*{products.map((product, index) => (
-          <div key={index}>
-            <p>Product Name: {product.name}</p>
-            <p>Price: {product.price}</p>
-            <p>Category: {product.category}</p> */}
             </div>
           </div>
+
+          {!loading && (
+            <div className="new-arrivals-products">
+              {produtos.slice(0, 12).map((produto) => (
+                <ProductsHome produto={produto} key={produto.id} />
+              ))}
+            </div>
+          )}
         </div>
+
         <div className="imageSection">
           <p className="imageSection-p">Handpicked Collections</p>
           <div className="imagePair">
