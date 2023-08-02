@@ -1,11 +1,9 @@
 import { useContext, useState } from "react";
-
-import profile from "./../../Assets/Icons/profile.svg";
 import trash from "./../../Assets/Icons/delete.svg";
 import eye from "./../../Assets/Icons/eye.svg";
 import cross from "./../../Assets/Icons/cross.svg";
 import { DataUserContext } from "../../Contexts/dataUser";
-import { storage } from "../../FireBaseConnection";
+import { db, storage } from "../../FireBaseConnection";
 import { getDownloadURL, ref } from "firebase/storage";
 
 export default function PersonalInfo() {
@@ -28,20 +26,18 @@ export default function PersonalInfo() {
       newPassword.type = "password";
       setPasswordIcon(eye);
     }
-
-
-
   }
   const { dataUser } = useContext(DataUserContext)
   const [urlImgUserProfile, setUrlImgUserProfile] = useState('');
-  const [userFirtName, setUserFirtName] = useState(dataUser.firstName)
-  const [userLastName, setUserLastName] = useState(dataUser.lastName)
+  const [userFirtName, setUserFirtName] = useState(dataUser.firstName ? dataUser.firstName : '')
+  const [userLastName, setUserLastName] = useState(dataUser.lastName ? dataUser.lastName : '')
   const [userDDD, setUserDDD] = useState('1')
   const [userNumber, setUserNumber] = useState('xxx-xxx-xxxx')
-  const [userNiver, setUserNiver] = useState(dataUser.niver)
+  const [userNiver, setUserNiver] = useState(dataUser.niver ? dataUser.niver : '')
   const [userCurrentPassword, setUserCurrentPassword] = useState('')
   const [userNewPassword, setUserNewPassword] = useState('')
   const [userConfirmeNewPassword, setUserConfirmeNewPassword] = useState('')
+  const regexPasswordN = /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\-])(?=.*[A-Z]).{8,}$/;
 
   const handleUploadImage = async () => {
     const imagemRefUser = ref(storage, `images/users/${dataUser.uid}`);
@@ -52,6 +48,46 @@ export default function PersonalInfo() {
   if (!urlImgUserProfile) {
     handleUploadImage();
   }
+
+  async function handleUpdate() {
+    if (userFirtName == '' ||
+      userLastName == '' ||
+      userNiver == '' ||
+      userCurrentPassword == '' ||
+      userNewPassword == '' ||
+      userConfirmeNewPassword == '') {
+
+      console.log('Preencha os campos');
+      return;
+    }
+    else if (userCurrentPassword != dataUser.signupPassword) {
+      console.log('Senha incorreta');
+      return;
+    }
+    else if (!regexPasswordN.test(userNewPassword)) {
+      console.log("The password must contain one special character, one uppercase letter, and be at least 8 characters long.");
+      return;
+    }
+    else if (userConfirmeNewPassword != userNewPassword) {
+      console.log('Senhas devem ser igual');
+      return;
+    } else {
+      await db.collection('users').doc(dataUser.uid)
+        .update({
+          firstName: userFirtName,
+          lastName: userLastName,
+          niver: userNiver,
+          signupPassword: userNewPassword
+        })
+        .then(() => {
+          console.log('Perfil atualizado');
+        })
+        .catch(e => {
+          console.log('Não foi possivel atualizar tente mais tarde');
+        })
+    }
+  }
+
   return (
     <div className="user_profile_container">
       <div>
@@ -99,7 +135,6 @@ export default function PersonalInfo() {
             className="user_profile_info_input width_38rem"
             type="text"
             value={dataUser.signupEmail}
-            disabled
           />
         </div>
 
@@ -118,7 +153,7 @@ export default function PersonalInfo() {
               value={userNumber}
               inputMode="numeric"
               autoComplete="on"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               onChange={(e) => setUserNumber(e.target.value)}
             />
           </div>
@@ -175,7 +210,7 @@ export default function PersonalInfo() {
           </div>
         </div>
 
-        <button className="profile_button_blue align_self_end" type="submit">
+        <button className="profile_button_blue align_self_end" onClick={handleUpdate}>
           Save Changes
         </button>
       </form>
