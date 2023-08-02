@@ -30,6 +30,7 @@ import { useState, useEffect } from 'react';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import Navbar from '../../Components/Navbar/Navbar';
+import { Link } from 'react-router-dom';
 
 const categories = [
   { image: category1Image, text: 'SkinCare', link: '/skin-care' },
@@ -75,7 +76,6 @@ const Home = () => {
 
     <>
       <Header />
-
       <div className='container'>
         {isMobile ? (
           <Carousel
@@ -126,12 +126,12 @@ const Home = () => {
         <div className='imageSection'>
           <p>Handpicked Collections</p>
           <div className='imagePair'>
-            <a href='' className='imageLink'>
-              <img src={PersonalCare} alt='Image 1' className='image' />
-            </a>
-            <a href='' className='imageLink'>
+           <Link to = {'/products'} className='imageLink'>
+                  <img src={PersonalCare} alt='Image 1' className='image' />
+           </Link>
+            <Link to = {'/products/handbags'} className='imageLink'>
               <img src={Handbags} alt='Image 2' className='image' />
-            </a>
+            </Link>
           </div>
           <div className='imagePair'>
             <a href='' className='imageLink'>

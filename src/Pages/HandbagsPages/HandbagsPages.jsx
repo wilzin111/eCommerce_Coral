@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import './ProductsFilter.css';
-import BlackFridayImage from '../../Assets/ProductsPage/BlackFridayImage.png';
-import PropTypes from 'prop-types'; 
-import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
-{/*import { categories } from '../../Pages/Home/Home';*/}
+import './HandbagsPages.css';
+import BlackFridayImage from '../../Assets/ProductsPage/BlackFridayImage.png'
+import Header from '../../Components/Header/Header';
+import Footer from '../../Components/Footer/Footer';
+import { Link } from 'react-router-dom';
 
-const ProductsFilter = ({ handleCategorySelect, selectedCategory }) => {
+const ProductsFilter = () => {
   const [sizeExpanded, setSizeExpanded] = useState(false);
   const [colorExpanded, setColorExpanded] = useState(false);
   const [brandExpanded, setBrandExpanded] = useState(false);
@@ -38,35 +38,22 @@ const ProductsFilter = ({ handleCategorySelect, selectedCategory }) => {
     }
   };
 
-  ProductsFilter.propTypes = {
-    selectedCategory: PropTypes.string,
-    handleCategorySelect: PropTypes.func.isRequired,
-  };
-
   return (
     <div>
-      <Breadcrumbs
-        categories={[
-          { text: 'Home', link: '/' },
-          { text: 'Products', link: '/products' },
-          { text: selectedCategory, link: `/products/${selectedCategory}` }
-        ]}
-      />
+        <Header/>
       <div className='products_blImageContainer'>
-        <img src={BlackFridayImage} className='products_blackfriday' />
-      </div>
-      {selectedCategory && (
-        <div className='breadcrumbs'>
-          <p>Home &gt; {selectedCategory}</p>
+          <img src={BlackFridayImage} className='products_blackfriday' />
         </div>
-      )}
-      {categories.map((category, index) => (
-          <div key={index} className='category' onClick={() => handleCategorySelect(category.text)}>
-            <span>{category.text}</span>
-          </div>
-        ))}
       <div className="products-filter">
+        <div>
+          <a href={'/'} className='homeLinkCss'>Home </a>
+          <span>></span>
+          <a href="/products/handbags" className='categoriesPageLink'> Handbags</a>
+          </div>
         <div className="filter-option">
+          <h2>
+            Handbags
+          </h2>
           <div className="filter-label" onClick={() => handleToggle('size')}>
             <span>Size</span>
             {sizeExpanded ? <span> - </span> : <span> + </span>}
@@ -175,8 +162,9 @@ const ProductsFilter = ({ handleCategorySelect, selectedCategory }) => {
           )}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
 
-export default ProductsFilter;
+export default HandBags;
