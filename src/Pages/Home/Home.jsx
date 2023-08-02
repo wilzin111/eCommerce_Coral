@@ -32,6 +32,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import carryDesktop from "../../Assets/Images_home/homeDesktopCarry.png";
 import { useContext } from "react";
 import { productContext } from "../../Contexts/productsContext";
+import { ProductsHome } from "../../Components/ProductsHome/productsHome";
 
 const categories = [
   { image: category1Image, text: "SkinCare", link: "/skin-care" },
@@ -118,14 +119,20 @@ const Home = () => {
                 <a href="">View All</a>
               </p>
               <img src={Seta} alt="Arrow" className="arrowImage" />
-              {/*{products.map((product, index) => (
-          <div key={index}>
-            <p>Product Name: {product.name}</p>
-            <p>Price: {product.price}</p>
-            <p>Category: {product.category}</p> */}
             </div>
           </div>
+
+          {produtos.length > 0 ? (
+            <div className="new-arrivals-products">
+              {produtos.slice(0, 12).map((produto) => (
+                <ProductsHome produto={produto} key={produto.id} />
+              ))}
+            </div>
+          ) : (
+            <div className="products-home-loading"> loading... </div>
+          )}
         </div>
+
         <div className="imageSection">
           <p className="imageSection-p">Handpicked Collections</p>
           <div className="imagePair">
