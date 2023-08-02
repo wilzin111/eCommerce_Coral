@@ -6,6 +6,7 @@ body {
 .p-wishlist,
 .start-shopping {
   font-size: 14px;
+  text-decoration: none;
 }
 
 .my-wishlist,
@@ -71,7 +72,7 @@ body {
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   text-align: center;
-  /* padding-top: 12px; */
+  padding-top: 12px;
 }
 
 .start-shopping:hover {

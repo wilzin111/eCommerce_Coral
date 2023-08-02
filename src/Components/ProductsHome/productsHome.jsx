@@ -1,5 +1,6 @@
 import "./productsHome.css";
 import heart from "../../Assets/Icons/wishlist.svg";
+import { Link } from "react-router-dom";
 
 export const ProductsHome = ({ produto }) => {
   return (
@@ -11,7 +12,9 @@ export const ProductsHome = ({ produto }) => {
           <span className="products-description-home">{produto.subname}</span>
           <span className="products-home-span">${produto.price}</span>
         </div>
-        <img src={heart} />
+        <Link to={"/wishlist"}>
+          <img src={heart} />
+        </Link>
       </div>
     </div>
   );
