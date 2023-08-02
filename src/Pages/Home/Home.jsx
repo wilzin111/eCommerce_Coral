@@ -45,18 +45,10 @@ const categories = [
 const Home = () => {
   const [currentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   //chamar os produtos
   const { produtos } = useContext(productContext);
-
-  useEffect(() => {
-    if (produtos) {
-      setLoading(false);
-    } else {
-      setLoading(true);
-    }
-  }, [productContext]);
+  console.log(produtos);
 
   useEffect(() => {
     const handleResize = () => {
@@ -130,12 +122,14 @@ const Home = () => {
             </div>
           </div>
 
-          {!loading && (
+          {produtos.length > 0 ? (
             <div className="new-arrivals-products">
               {produtos.slice(0, 12).map((produto) => (
                 <ProductsHome produto={produto} key={produto.id} />
               ))}
             </div>
+          ) : (
+            <div className="products-home-loading"> loading... </div>
           )}
         </div>
 

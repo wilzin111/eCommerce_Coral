@@ -1,7 +1,8 @@
 .new-arrivals-products,
 .product-img-home,
 .products-home-container,
-.products-home-text {
+.products-home-text,
+.products-home-loading {
   display: flex;
 }
 
@@ -44,6 +45,12 @@
 
 .products-home-container img {
   margin-bottom: 45px;
+}
+
+.products-home-loading {
+  padding: 20px;
+  justify-content: center;
+  align-content: center;
 }
 
 @media screen and (min-width: 900px) {
