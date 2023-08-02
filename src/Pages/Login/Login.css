@@ -1,6 +1,6 @@
 .login-container {
     height: 100vh;
-    background: linear-gradient(0deg, rgb(22, 60, 80), rgb(103, 140, 160));
+    background-image: radial-gradient(circle, #60b6f1, #4d9acc, #3b7fa9, #2b6487, #1b4b66);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,6 +22,10 @@
     border: none;
     background-color: #ffffff;
     padding-left: 10px;
+}
+
+.login-container-input input:hover{
+    border:2px solid  #111;
 }
 
 .login-btn {

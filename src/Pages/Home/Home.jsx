@@ -29,6 +29,7 @@ import { useState, useEffect } from "react";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import Navbar from "../../Components/Navbar/Navbar";
+import carryDesktop from "../../Assets/Images_home/homeDesktopCarry.png";
 import { useContext } from "react";
 import { productContext } from "../../Contexts/productsContext";
 
@@ -77,7 +78,7 @@ const Home = () => {
         >
           <div>
             <img
-              src={CarryYourImage}
+              src={isMobile ? CarryYourImage : carryDesktop}
               alt="CarryYour"
               className="ImagesCarousel"
             />
