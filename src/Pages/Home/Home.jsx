@@ -29,6 +29,10 @@ import { useState, useEffect } from "react";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import Navbar from "../../Components/Navbar/Navbar";
+import carryDesktop from "../../Assets/Images_home/homeDesktopCarry.png";
+import { useContext } from "react";
+import { productContext } from "../../Contexts/productsContext";
+import { ProductsHome } from "../../Components/ProductsHome/productsHome";
 
 const categories = [
   { image: category1Image, text: "SkinCare", link: "/skin-care" },
@@ -41,6 +45,10 @@ const categories = [
 const Home = () => {
   const [currentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+
+  //chamar os produtos
+  const { produtos } = useContext(productContext);
+  console.log(produtos);
 
   useEffect(() => {
     const handleResize = () => {
@@ -55,22 +63,6 @@ const Home = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  {
-    /*useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const snapshot = await firebase.database().ref('products').once('value');
-        const data = snapshot.val();
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []); */
-  }
 
   return (
     <>
@@ -87,7 +79,7 @@ const Home = () => {
         >
           <div>
             <img
-              src={CarryYourImage}
+              src={isMobile ? CarryYourImage : carryDesktop}
               alt="CarryYour"
               className="ImagesCarousel"
             />
@@ -127,14 +119,20 @@ const Home = () => {
                 <a href="">View All</a>
               </p>
               <img src={Seta} alt="Arrow" className="arrowImage" />
-              {/*{products.map((product, index) => (
-          <div key={index}>
-            <p>Product Name: {product.name}</p>
-            <p>Price: {product.price}</p>
-            <p>Category: {product.category}</p> */}
             </div>
           </div>
+
+          {produtos.length > 0 ? (
+            <div className="new-arrivals-products">
+              {produtos.slice(0, 12).map((produto) => (
+                <ProductsHome produto={produto} key={produto.id} />
+              ))}
+            </div>
+          ) : (
+            <div className="products-home-loading"> loading... </div>
+          )}
         </div>
+
         <div className="imageSection">
           <p className="imageSection-p">Handpicked Collections</p>
           <div className="imagePair">

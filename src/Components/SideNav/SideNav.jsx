@@ -35,36 +35,42 @@ export default function SideNav() {
     myOrders.current.classList.remove("user_profile_side_navigation_selector_enabled");
     myOrdersSpan.current.classList.remove("user_profile_side_navigation_text_enabled");
     myOrdersImg.current.classList.remove("change_to_blue");
+
+    if (window.screen.width < 901) {
+      setComponent(-1)
+    } else {
+      if(component === 0){
+        loggoutButton.classList.remove("display_none")
+        PersonalInformation.current.classList.add("user_profile_side_navigation_selector_enabled");
+        PersonalInformationSpan.current.classList.add("user_profile_side_navigation_text_enabled");
+        PersonalInformationImg.current.classList.add("change_to_blue");
+      }
+      if(component === 1){
+        
+      }
+      if(component === 2){
+        userProfileH1.innerHTML = "My Orders";
+        myOrders.current.classList.add("user_profile_side_navigation_selector_enabled");
+        myOrdersSpan.current.classList.add("user_profile_side_navigation_text_enabled");
+        myOrdersImg.current.classList.add("change_to_blue");
+        breadCrumbImg.classList.remove("display_none");
+        breadCrumb.innerHTML = "My Orders"
+      }
+      if(component === 3){
+        
+      }
+      if(component === 4){
+        
+      }
+      if(component === 5){
+        
+      }
+      if(component === 6){
+        
+      }
+    }
     
-    if(component === 0){
-      loggoutButton.classList.remove("display_none")
-      PersonalInformation.current.classList.add("user_profile_side_navigation_selector_enabled");
-      PersonalInformationSpan.current.classList.add("user_profile_side_navigation_text_enabled");
-      PersonalInformationImg.current.classList.add("change_to_blue");
-    }
-    if(component === 1){
-      
-    }
-    if(component === 2){
-      userProfileH1.innerHTML = "My Orders";
-      myOrders.current.classList.add("user_profile_side_navigation_selector_enabled");
-      myOrdersSpan.current.classList.add("user_profile_side_navigation_text_enabled");
-      myOrdersImg.current.classList.add("change_to_blue");
-      breadCrumbImg.classList.remove("display_none");
-      breadCrumb.innerHTML = "My Orders"
-    }
-    if(component === 3){
-      
-    }
-    if(component === 4){
-      
-    }
-    if(component === 5){
-      
-    }
-    if(component === 6){
-      
-    }
+    
 
   }
   ,[component]);
@@ -117,7 +123,7 @@ export default function SideNav() {
         </button>
       </div>
 
-      {component === 0 ? <PersonlInfo /> : null}
+      {component === 0 ? window.screen.width >= 901 ? <PersonlInfo />: null : null}
     
     </>
   );

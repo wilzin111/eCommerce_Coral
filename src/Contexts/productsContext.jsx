@@ -1,45 +1,57 @@
-import { useState, createContext, useEffect } from "react";
-import { db, auth } from "../FireBaseConnection";
-import { collection, doc, getDocs, query, setDoc } from "@firebase/firestore";
+import { useState, createContext, useMemo } from "react";
+import { db, storage } from "../FireBaseConnection";
+import { collection, getDocs, query } from "@firebase/firestore";
+import { getDownloadURL, ref } from "firebase/storage";
 
 export const productContext = createContext({});
 
 export default function ProductProvider({ children }) {
   const [produtos, setProdutos] = useState("");
-  const [url, setUrl] = useState("");
   var arr = [];
-
-  const handleUploadImage = async (id) => {
-    const storageRef = storage;
-    const imagemRef = ref(storageRef, `images/products/${id}`);
-    const downloadURL = await getDownloadURL(imagemRef);
-
-    setUrl(downloadURL);
-  };
 
   async function getProducts() {
     const q = query(collection(db, "products"));
 
-    await getDocs(q).then((value) => {
-      value.forEach((doc) => {
+    try {
+      const snapProducts = await getDocs(q);
+      snapProducts.forEach((doc) => {
         let product = {
           name: doc.data().name,
           price: doc.data().price,
           discount: doc.data().discount,
+          brand: doc.data().brand,
+          category: doc.data().category,
+          colour: doc.data().colour,
+          quantity: doc.data().quantity,
+          subname: doc.data().subname,
           id: doc.data().id,
         };
 
-        //handleUploadImage(product.id);
-
         arr.push(product);
       });
+
+      await Promise.all(
+        arr.map(async (doc) => {
+          const storageRef = storage;
+          const imageRef = ref(storageRef, `images/products/${doc.id}`);
+          try {
+            const downloadURL = await getDownloadURL(imageRef);
+            doc.url = downloadURL;
+          } catch (error) {
+            console.error("Error obtaining image URL:", error);
+          }
+        })
+      );
+
       setProdutos(arr);
-    });
+    } catch (error) {
+      console.error("erro", error);
+    }
   }
 
-  // useEffect(() => {
-  //   getProducts();
-  // }, []);
+  const memoGetProducts = useMemo(() => {
+    getProducts();
+  }, []);
 
   return (
     <productContext.Provider value={{ produtos }}>

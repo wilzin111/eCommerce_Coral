@@ -108,7 +108,7 @@ export default function PersonalInfo() {
 
       <form className="user_profile_info flex_column">
         <div className="flex_row">
-          <div className="user_profile_info_inputs flex_column padding_right_2-06rem">
+          <div className="user_profile_info_inputs flex_column padding_right_2-06rem width_18rem">
             <label>First Name</label>
             <input
               value={userFirtName}
@@ -118,7 +118,7 @@ export default function PersonalInfo() {
             />
           </div>
 
-          <div className="user_profile_info_inputs flex_column">
+          <div className="user_profile_info_inputs flex_column width_18rem">
             <label>Last Name</label>
             <input
               value={userLastName}
@@ -183,7 +183,7 @@ export default function PersonalInfo() {
             />
           </div>
 
-          <div className="flex_column relative width_fitcontent row_gap_0-5rem margin_bottom_1rem">
+          <div className="flex_column relative width_fitcontent row_gap_0-5rem margin_bottom_1rem width_18rem">
             <label>New Password</label>
             <input
               id="newPassword"
@@ -209,10 +209,11 @@ export default function PersonalInfo() {
             />
           </div>
         </div>
-
-        <button className="profile_button_blue align_self_end" onClick={handleUpdate}>
-          Save Changes
-        </button>
+        <div className="align_self_end">
+          <button className="profile_button_blue" type="submit">
+            Save Changes
+          </button>
+        </div>
       </form>
     </div>
   );
