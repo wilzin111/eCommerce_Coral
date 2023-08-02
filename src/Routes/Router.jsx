@@ -9,6 +9,7 @@ import Signup from "../Pages/Signup/Signup";
 import RegisterProducts from "../Pages/RegisterProducts/RegProducts";
 import StartScreen from "../Pages/StartScreen/StartScreen";
 import Wishlist from "../Components/Wishlist/Wishlist";
+import ProductDetail from "../Pages/ProductDetail/productDetail";
 
 const Router = () => {
   return (
@@ -24,6 +25,7 @@ const Router = () => {
         <Route path="/register-products" element={<RegisterProducts />} />
         <Route path="/" element={<StartScreen />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/product-detail" element={<ProductDetail />} />
       </Routes>
     </BrowserRouter>
   );

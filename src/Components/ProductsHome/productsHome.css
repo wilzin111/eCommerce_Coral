@@ -4,6 +4,7 @@
 .products-home-text,
 .products-home-loading {
   display: flex;
+  text-decoration: none;
 }
 
 .new-arrivals-products {

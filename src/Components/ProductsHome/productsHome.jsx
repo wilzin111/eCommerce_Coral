@@ -12,6 +12,7 @@ export const ProductsHome = ({ produto }) => {
           <span className="products-description-home">{produto.subname}</span>
           <span className="products-home-span">${produto.price}</span>
         </div>
+
         <Link to={"/wishlist"}>
           <img src={heart} />
         </Link>
