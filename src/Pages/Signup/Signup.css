@@ -24,27 +24,34 @@
     padding-left: 10px;
 }
 
-.signup-img-Width{
+.signup-img-Width {
     max-width: 100px;
     max-height: 100px;
 }
 
-#imgNone{
+.signup-img-none img {
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+#imgNone {
     width: 100%;
     max-width: 100px;
     border-radius: 50%;
     cursor: pointer;
 }
 
-#imgNone:hover{
-    border:2px solid  #111;
+#imgNone:hover {
+    border: 2px solid #111;
 }
 
-.signup-hover:hover{
-    border:2px solid  #111;
+.signup-hover:hover {
+    border: 2px solid #111;
 }
 
-.signup-hover:focus{
+.signup-hover:focus {
     border: none;
 }
 
@@ -52,7 +59,7 @@ input[type='file'] {
     display: none;
 }
 
-input[type='date']{
+input[type='date'] {
     cursor: text;
 }
 
@@ -60,7 +67,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
     opacity: 0;
 }
 
-.signup-btn{
+.signup-btn {
     width: 100px;
     height: 30px;
     border-radius: 20px;
@@ -69,22 +76,22 @@ input[type='date']::-webkit-calendar-picker-indicator {
     border: none;
 }
 
-.signup-btn:hover{
-    border:2px solid  #111;
+.signup-btn:hover {
+    border: 2px solid #111;
 }
 
-.signup-p{
+.signup-p {
     width: 270px;
     text-align: center;
     display: flex;
 }
 
-.signup-p p{
+.signup-p p {
     color: #ffffff;
-   
+
 }
 
-.signup-p a{
+.signup-p a {
     color: #000000;
     font-weight: bolder;
     text-decoration: none;

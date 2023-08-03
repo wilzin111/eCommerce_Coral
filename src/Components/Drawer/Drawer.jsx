@@ -5,7 +5,7 @@ import { storage } from '../../FireBaseConnection'
 import { getDownloadURL, ref } from 'firebase/storage'
 import { Link } from 'react-router-dom'
 
-const Drawer = ({ isOpen, setDrawerOpen }) => {
+const Drawer = ({ isOpen = false, setDrawerOpen }) => {
 
     const arrow = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M9 4.5L16.5 12L9 19.5" stroke="#13101E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -13,15 +13,16 @@ const Drawer = ({ isOpen, setDrawerOpen }) => {
 
     const { dataUser } = useContext(DataUserContext)
     const [urlImgUser, setUrlImgUser] = useState('');
-
-    const handleUploadImage = async () => {
-        const imagemRefUser = ref(storage, `images/users/${dataUser.uid}`);
-        const downloadURLUser = await getDownloadURL(imagemRefUser);
-        setUrlImgUser(downloadURLUser);
-    };  
-
-    if(!urlImgUser){
-        handleUploadImage();
+    if (isOpen) {
+        const handleUploadImage = async (uid) => {
+            await getDownloadURL(ref(storage, `images/users/${uid}`))
+                .then((value) => {
+                    setUrlImgUser(value);
+                })
+        };
+        if (!urlImgUser) {
+            handleUploadImage(dataUser.uid);
+        }
     }
 
     if (isOpen) {
@@ -32,7 +33,7 @@ const Drawer = ({ isOpen, setDrawerOpen }) => {
                 <div className='drawer-container-user'>
                     <div className='user-drawer'>
                         <div className='drawer-img-user'>
-                        <img src={urlImgUser? urlImgUser: './imgUserNone.jpg'} alt="" />
+                            <img src={urlImgUser ? urlImgUser : './imgUserNone.jpg'} alt="" />
                         </div>
                         <p>Hello, {dataUser.firstName}</p>
                         <button className='drawer-btn-arrow'>{arrow}</button>

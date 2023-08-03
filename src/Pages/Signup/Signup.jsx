@@ -102,7 +102,6 @@ const Signup = () => {
             .catch(() => {
               error("Unable to register, please try again!")
             })
-            handleImage();
         })
         .catch(() => {
           warn("Already existing email")
