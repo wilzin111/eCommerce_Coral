@@ -33,7 +33,7 @@ import Navbar from '../../Components/Navbar/Navbar';
 import { Link } from 'react-router-dom';
 
 const categories = [
-  { image: category1Image, text: 'SkinCare', link: '/skin-care' },
+  { image: category1Image, text: 'SkinCare', Link: '/skincare' },
   { image: category2Image, text: 'Jewellery', link: '/jewellery' },
   { image: category3Image, text: 'Handbags', link: '/handbags' },
   { image: category4Image, text: 'Watches', link: '/watches' },
@@ -126,7 +126,7 @@ const Home = () => {
         <div className='imageSection'>
           <p>Handpicked Collections</p>
           <div className='imagePair'>
-           <Link to = {'/products'} className='imageLink'>
+           <Link to = {'/products/personalcare'} className='imageLink'>
                   <img src={PersonalCare} alt='Image 1' className='image' />
            </Link>
             <Link to = {'/products/handbags'} className='imageLink'>
@@ -134,12 +134,12 @@ const Home = () => {
             </Link>
           </div>
           <div className='imagePair'>
-            <a href='' className='imageLink'>
+            <Link to={'/products/watches'} className='imageLink'>
               <img src={WristWatches} alt='Image 3' className='image' />
-            </a>
-            <a href='' className='imageLink'>
+            </Link>
+            <Link to={'/products/sunglasses'} className='imageLink'>
               <img src={SunGlasses} alt='Image 4' className='image' />
-            </a>
+            </Link>
           </div>
         </div>
         <div className='brandsSection'>

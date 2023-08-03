@@ -3,7 +3,6 @@ import './WatchesPages.css';
 import BlackFridayImage from '../../Assets/ProductsPage/BlackFridayImage.png'
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
-import { Link } from 'react-router-dom';
 
 const ProductsFilter = () => {
   const [sizeExpanded, setSizeExpanded] = useState(false);
@@ -47,7 +46,7 @@ const ProductsFilter = () => {
       <div className="products-filter">
         <div>
           <a href={'/'} className='homeLinkCss'>Home </a>
-          <span>></span>
+          <span>&gt;</span>
           <a href="/products/watches" className='categoriesPageLink'> Watches</a>
           </div>
         <div className="filter-option">
@@ -167,4 +166,4 @@ const ProductsFilter = () => {
   );
 };
 
-export default WatchesPages;
+export default ProductsFilter;

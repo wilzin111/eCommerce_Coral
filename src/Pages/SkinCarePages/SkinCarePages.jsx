@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './HandbagsPages.css';
+import './SkinCarePages.css';
 import BlackFridayImage from '../../Assets/ProductsPage/BlackFridayImage.png'
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
@@ -47,11 +47,11 @@ const ProductsFilter = () => {
         <div>
           <a href={'/'} className='homeLinkCss'>Home </a>
           <span>&gt;</span>
-          <a href="/products/handbags" className='categoriesPageLink'> Handbags</a>
+          <a href="/products/skincare" className='categoriesPageLink'> SkinCare</a>
           </div>
         <div className="filter-option">
           <h2>
-            Handbags
+            SkinCare
           </h2>
           <div className="filter-label" onClick={() => handleToggle('size')}>
             <span>Size</span>

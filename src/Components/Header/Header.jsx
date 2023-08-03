@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 // CSS
 import "./header.css";
@@ -204,11 +205,11 @@ function Header() {
           <div className="nav-category">
             <img src={logo} className="logo" />
             <div className="nav-category-text">
-              <span>Handbags</span>
-              <span>Watches</span>
-              <span>Skincare</span>
-              <span>Jewellery</span>
-              <span>Apparels</span>
+              <Link to={'/products/handbags'}>Handbags</Link>
+              <Link to={'/products/watches'}>Watches</Link>
+              <Link to={'/products/skincare'}>Skincare</Link>
+              <Link to={'/products/jewellery'}>Jewellery</Link>
+              <Link to={'/products/apparels'}>Apparels</Link>
             </div>
           </div>
 
