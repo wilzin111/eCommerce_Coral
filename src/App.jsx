@@ -2,6 +2,7 @@ import "./App.css";
 import Router from "./Routes/Router";
 import DataUserProvider from "./Contexts/dataUser";
 import ProductProvider from "./Contexts/productsContext";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <Router />
         </ProductProvider>
       </DataUserProvider>
+      <ToastContainer/>
 
     </>
   );

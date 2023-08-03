@@ -10,7 +10,7 @@ const success = (sucesso) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
     });
 }
 
@@ -23,7 +23,7 @@ const error = (erro) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
     });
 }
 
@@ -36,8 +36,8 @@ const warn = (aviso) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
     });
 }
 
-export {success,error,warn}
+export { success, error, warn }

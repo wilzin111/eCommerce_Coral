@@ -6,6 +6,7 @@ import {  doc, setDoc } from "firebase/firestore"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { useNavigate } from 'react-router-dom'
 import { ref, uploadBytesResumable } from "firebase/storage"
+import { error, success, warn } from "../../Hooks/Toastify/Toastify"
 
 const Signup = () => {
   const navigatS = useNavigate()
@@ -42,7 +43,6 @@ const Signup = () => {
   }
   const capitalizedfirstName = capitalizeFirstName(userName)
   const capitalizedLastName = capitalizeLastName(userLastName)
-  const fullName = capitalizedfirstName+capitalizedLastName
 
   const regexPassword = /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\-])(?=.*[A-Z]).{8,}$/;
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -50,7 +50,7 @@ const Signup = () => {
 
   function handleImage(e) {
     if (!userImg) {
-      console.log("nenhuma foto cadastrada");
+      warn("nenhuma foto cadastrada");
       return;
     }
     const storageRef = ref(storage, `images/users/${e}`);
@@ -64,19 +64,19 @@ const Signup = () => {
       userNiver == '' ||
       password == '' ||
       passwordConfirm == '') {
-      console.log("Please fill in all fields");
+      warn("Please fill in all fields");
       return;
 
     } else if (!regexEmail.test(userEmail)) {
-      console.log("Please enter a valid email")
+      error("Please enter a valid email")
       return;
 
     } else if (!regexPassword.test(password)) {
-      console.log("The password must contain one special character, one uppercase letter, and be at least 8 characters long.");
+      error("The password must contain one special character, one uppercase letter, and be at least 8 characters long.");
       return;
 
     } else if (password != passwordConfirm) {
-      console.log("The passwords must be the same");
+      error("The passwords must be the same");
       return;
 
     } else {
@@ -95,17 +95,17 @@ const Signup = () => {
           })
           
             .then(() => {
-              console.log("Registration done successfully")
+              success("Registration done successfully")
               navigatS("/login")
               handleImage(uid)
             })
             .catch(() => {
-              console.log("Unable to register, please try again!")
+              error("Unable to register, please try again!")
             })
             handleImage();
         })
         .catch(() => {
-          console.log("Already existing email")
+          warn("Already existing email")
         })
 
     }

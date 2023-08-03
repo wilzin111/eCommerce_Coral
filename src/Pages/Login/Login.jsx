@@ -5,6 +5,7 @@ import { auth } from '../../FireBaseConnection'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import { error, success, warn } from '../../Hooks/Toastify/Toastify'
 
 const login = () => {
     const navigatL = useNavigate()
@@ -14,13 +15,19 @@ const login = () => {
     async function handleLogin() {
         await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
             .then((value) => {
-                console.log("User logged in successfully")
+                success("User logged in successfully")
                 navigatL("/home")
                 localStorage.setItem('userLogado', JSON.stringify(value.user.uid))
             })
 
-            .catch(() => {
-                console.log('User not found')
+            .catch((e) => {
+
+                if (e.code === 'auth/wrong-password') {
+                    error('Incorrect password')
+                } else {
+                    warn('User not found')
+                }
+
             })
     }
 
