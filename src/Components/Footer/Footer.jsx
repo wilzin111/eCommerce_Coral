@@ -7,6 +7,7 @@ import Instagram from "../../Assets/footer/insta.png";
 import Twitter from "../../Assets/footer/twitter.png";
 import YouTube from "../../Assets/footer/youtube.png";
 import Location from "../../Assets/footer/location.svg";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const [isOpen, setIsOpen] = useState(false);
@@ -89,7 +90,7 @@ export default function Footer() {
                 <div className="about-options">
                   <a className="a-footer">Contact Us</a>
                   <span className="span-footer">|</span>
-                  <a className="a-footer">About Us</a>
+                  <Link to={'/about'} className="a-footer">About Us</Link>
                   <span className="span-footer">|</span>
                   <a className="a-footer">Carees</a>
                   <span className="span-footer">|</span>

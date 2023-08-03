@@ -160,6 +160,7 @@
 .span-footer,
 .h3-footer {
   color: #b6b6b6;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 900px) {

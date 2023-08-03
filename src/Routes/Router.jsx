@@ -8,12 +8,13 @@ import Login from "../Pages/Login/Login"
 import Signup from "../Pages/Signup/Signup";
 import RegisterProducts from "../Pages/RegisterProducts/RegProducts";
 import StartScreen from "../Pages/StartScreen/StartScreen";
+import Wishlist from "../Components/Wishlist/wishlist";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/profile" element={<UserProfile />} />
@@ -21,7 +22,8 @@ const Router = () => {
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/register-products" element={<RegisterProducts />} />
-        <Route path="/" element={<StartScreen/>}/>
+        <Route path="/startScreen" element={<StartScreen/>}/>
+        <Route path="/wishlist" element={<Wishlist/>}/>
       </Routes>
     </BrowserRouter>
   );
