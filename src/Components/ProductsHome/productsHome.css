@@ -7,6 +7,11 @@
   text-decoration: none;
 }
 
+.product-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .new-arrivals-products {
   width: 100%;
   height: 260px;
