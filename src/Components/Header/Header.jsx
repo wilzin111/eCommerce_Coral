@@ -186,7 +186,7 @@ function Header() {
             <button onClick={() => { setDrawerOpen(true) }} className="header-btn-menu">
               <img src={menu} className="icon change_to_blue" />
             </button>
-            <h1 className="">Home</h1>
+            <h1 className="header-h1-home"><Link to={'/'}>Home</Link></h1>
           </div>
           <div className="header_icons">
             <button onClick={handleClick}>

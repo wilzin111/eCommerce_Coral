@@ -4,6 +4,7 @@
   height: 5rem;
   position: fixed top;
 }
+
 .header-mobile {
   display: flex;
   width: 100%;
@@ -13,9 +14,11 @@
   padding: 2.44rem 1rem 0 1rem;
   justify-content: space-between;
 }
+
 .header-desktop {
   display: none;
 }
+
 .header_menu {
   display: flex;
   gap: 1.25rem;
@@ -36,29 +39,41 @@
   display: flex;
   gap: 1.5rem;
 }
+
 .icon {
   width: 1.5rem;
   height: 1.5rem;
 }
+
 .change_to_blue {
   filter: brightness(0) invert(0);
-  filter: invert(22%) sepia(53%) saturate(715%) hue-rotate(158deg)
-    brightness(91%) contrast(87%);
+  filter: invert(22%) sepia(53%) saturate(715%) hue-rotate(158deg) brightness(91%) contrast(87%);
 }
+
+.header-h1-home a{
+  color: #1B4B66;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
 .button_icon {
   border: none;
   background: transparent;
   width: fit-content;
   height: 100%;
 }
+
 .button_icon:focus-visible {
   border-radius: 2px;
   outline: 2px solid #1b4b66;
   outline-offset: 0.001px;
 }
+
 .button_hover:hover {
   background-color: #1b4b66;
 }
+
 .button_hover img:hover {
   filter: brightness(0) invert(1);
 }
@@ -68,6 +83,7 @@
   background-color: transparent;
   height: 24px;
 }
+
 .header_icons button:focus-visible {
   outline: 3px solid #1b4b66;
   outline-offset: 3px;
@@ -84,6 +100,7 @@
   z-index: 2;
   background: var(--dark, rgba(19, 16, 30, 0.5));
 }
+
 .bag_background {
   display: flex;
   flex-direction: column;
@@ -95,6 +112,7 @@
   height: 43.5625rem;
   background: var(--bright, #fff);
 }
+
 .bag_return {
   display: flex;
   background-color: transparent;
@@ -114,20 +132,24 @@
   font-weight: 600;
   line-height: 1.625rem;
 }
+
 .bag_return:focus-visible {
   outline: 3px solid #1b4b66;
   outline-offset: 3px;
   border-radius: 25px;
 }
+
 .bag_all_products {
   display: flex;
   flex-direction: column;
   height: 18rem;
   overflow: scroll;
 }
+
 .bag_all_products::-webkit-scrollbar {
   display: none;
 }
+
 .bag_products {
   display: flex;
   flex-direction: row;
@@ -135,6 +157,7 @@
   padding-left: 0.69rem;
   height: 7.125rem;
 }
+
 .bag_product_brand {
   color: var(--type-high-emphasis, #171520);
 
@@ -145,6 +168,7 @@
   font-weight: 500;
   line-height: 1.25rem;
 }
+
 .bag_product_name {
   color: var(--type-low-emphasis, #626262);
 
@@ -155,12 +179,14 @@
   font-weight: 400;
   line-height: 1.25rem;
 }
+
 .bag_product_image {
   display: flex;
   width: 4.6875rem;
   height: 5rem;
   flex-shrink: 0;
 }
+
 .bag_product_info {
   display: flex;
   flex-direction: column;
@@ -168,6 +194,7 @@
   width: 100%;
   max-width: 13.75rem;
 }
+
 .bag_quantity {
   display: flex;
   width: fit-content;
@@ -178,15 +205,18 @@
   align-items: center;
   justify-content: center;
 }
+
 .bag_products_remove {
   display: flex;
   flex-direction: column;
   row-gap: 2.5rem;
   align-items: end;
 }
+
 .bag_bar {
   margin: 1.5rem 0.5rem 1.5rem 0.87rem;
 }
+
 .bag_bar2 {
   margin: 0.75rem 0.5rem 0 0.87rem;
 }
@@ -195,11 +225,13 @@
   .header-mobile {
     display: none;
   }
+
   .header_icons button:focus-visible {
     outline: 3px solid black;
     outline-offset: 3px;
     border-radius: 25px;
   }
+
   .header-desktop {
     display: flex;
     width: 100%;
@@ -209,13 +241,16 @@
     padding: 0 1.25rem;
     justify-content: space-between;
   }
+
   .header_icons {
     align-items: center;
     padding-left: 1.5rem;
   }
+
   .flex {
     display: flex;
   }
+
   .search-bar {
     display: flex;
     width: 120px;
@@ -225,23 +260,28 @@
     background: var(--grey, #f1f1f1);
     padding-right: 15px;
   }
+
   .search-bar img {
     width: 1.5rem;
     height: 1.5rem;
     margin: 0.63rem 0.5rem;
   }
+
   .search-bar input {
     width: 100%;
     border: none;
     background-color: transparent;
   }
+
   .search-bar input:focus {
     outline: none;
   }
+
   .nav-category {
     display: flex;
     align-items: center;
   }
+
   .nav-category-text {
     display: flex;
     gap: 1.25rem;
@@ -253,6 +293,7 @@
     font-weight: 100;
     line-height: 1.125rem;
   }
+
   .logo {
     width: 6.75rem;
     height: 1.375rem;
@@ -265,8 +306,8 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
-}
+@media screen and (min-width: 1280px) {}
+
 .stop-scrolling {
   overflow: hidden;
 }

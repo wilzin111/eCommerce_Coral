@@ -3,6 +3,7 @@ import './Drawer.css'
 import { DataUserContext } from '../../Contexts/dataUser'
 import { storage } from '../../FireBaseConnection'
 import { getDownloadURL, ref } from 'firebase/storage'
+import { Link } from 'react-router-dom'
 
 const Drawer = ({ isOpen, setDrawerOpen }) => {
 
@@ -78,7 +79,7 @@ const Drawer = ({ isOpen, setDrawerOpen }) => {
 
                         <div className="text-drawer">
                             <p>About</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
+                            <button className='drawer-btn-arrow'><Link to={'/about'}>{arrow}</Link></button>
                         </div>
 
                     </div>
