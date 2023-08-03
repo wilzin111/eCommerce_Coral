@@ -125,7 +125,11 @@ const Home = () => {
           {produtos.length > 0 ? (
             <div className="new-arrivals-products">
               {produtos.slice(0, 12).map((produto) => (
-                <Link to={`{/product-detail/${produto.id}}`} key={produto.id}>
+                <Link
+                  className="product-link"
+                  to={`/product-detail/${produto.id}`}
+                  key={produto.id}
+                >
                   <ProductsHome produto={produto} />
                 </Link>
               ))}

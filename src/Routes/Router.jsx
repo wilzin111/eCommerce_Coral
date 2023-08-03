@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, useParams } from "react-router-dom";
 import Home from "../Pages/Home/Home";
 import About from "../Pages/About/About";
 import Categories from "../Pages/Categories/Categories";
@@ -8,7 +8,6 @@ import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
 import RegisterProducts from "../Pages/RegisterProducts/RegProducts";
 import StartScreen from "../Pages/StartScreen/StartScreen";
-import Wishlist from "../Components/Wishlist/Wishlist";
 import ProductDetail from "../Pages/ProductDetail/productDetail";
 
 const Router = () => {
@@ -24,8 +23,8 @@ const Router = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/register-products" element={<RegisterProducts />} />
         <Route path="/" element={<StartScreen />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/product-detail" element={<ProductDetail />} />
+
+        <Route path="/product-detail/:id" element={<ProductDetail />} />
       </Routes>
     </BrowserRouter>
   );
