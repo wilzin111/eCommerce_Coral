@@ -16,7 +16,7 @@ const login = () => {
         await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
             .then((value) => {
                 success("User logged in successfully")
-                navigatL("/home")
+                navigatL("/")
                 localStorage.setItem('userLogado', JSON.stringify(value.user.uid))
             })
 

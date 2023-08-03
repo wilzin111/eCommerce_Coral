@@ -48,7 +48,6 @@ const Home = () => {
 
   //chamar os produtos
   const { produtos } = useContext(productContext);
-  console.log(produtos);
 
   useEffect(() => {
     const handleResize = () => {
