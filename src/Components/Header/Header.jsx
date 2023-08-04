@@ -203,7 +203,7 @@ function Header() {
 
         <div className="header-desktop">
           <div className="nav-category">
-            <img src={logo} className="logo" />
+            <Link to={'/'}><img src={logo} className="logo" /></Link>            
             <div className="nav-category-text">
               <span>Handbags</span>
               <span>Watches</span>

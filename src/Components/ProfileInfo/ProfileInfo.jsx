@@ -1,11 +1,33 @@
-import logout from "./../../Assets/Icons/logout.svg";
+import logoutimg from "./../../Assets/Icons/logout.svg";
 import rightSmall from "./../../Assets/Icons/chevron-right-small.svg";
 import right from "./../../Assets/Icons/chevron-right.svg";
-import profile from "./../../Assets/Icons/profile.svg";
-
 import SideNav from "./../SideNav/SideNav";
+import { useContext, useState, useNavigate } from "react";
+import { DataUserContext } from "../../Contexts/dataUser";
+import { getDownloadURL, ref } from "firebase/storage";
+import { storage } from "../../FireBaseConnection";
+import { signOut } from "firebase/auth"
+import { auth } from "../../FireBaseConnection"
 
 export default function ProfileInfo() {
+
+  const { dataUser } = useContext(DataUserContext)
+  const [imguser, setImgUser] = useState('')
+  const handleUploadImage = async (e) => {
+    await getDownloadURL(ref(storage, `images/users/${e}`))
+      .then((value) => {
+        setImgUser(value);
+      })
+  };
+
+  if (!imguser) {
+    handleUploadImage(dataUser.uid);
+  }
+
+  async function logout() {
+    await signOut(auth);
+  }
+
   return (
     <>
       <section className="user_profile">
@@ -25,8 +47,9 @@ export default function ProfileInfo() {
             id="user_profile_logout"
             type="button"
             className="button_icon user_profile_logout display_none"
+            onClick={logout}
           >
-            <img className="icon change_to_blue" src={logout} />
+            <img className="icon change_to_blue" src={logoutimg} />
             <span>Logout</span>
           </button>
         </div>
@@ -37,7 +60,7 @@ export default function ProfileInfo() {
       </section>
 
       <section className="user_profile_mobile flex_column">
-        <div className="user_grid" style={{display : "grid"}}>
+        <div className="user_grid" style={{ display: "grid" }}>
           <p
             className="user_profile_container_title"
             style={{ color: "#1b4b66" }}
@@ -47,19 +70,19 @@ export default function ProfileInfo() {
 
           <div className="user_information flex_row">
             <img
-              src={profile}
+              src={imguser ? imguser : './imgUserNone.jpg'}
               alt=""
               className="profile_photo"
               style={{ marginRight: "max(5.41%, 1rem)" }}
             />
             <div className="flex-row">
               <span className="user_profile_container_title">
-                Nome Sobrenome
+                {dataUser.firstName}
               </span>
               <br />
-              <span className="text_low_emphasis2">email@email.com</span>
+              <span className="text_low_emphasis2">{dataUser.signupEmail}</span>
               <br />
-              <span className="text_low_emphasis2">Numero</span>
+              <span className="text_low_emphasis2">{dataUser.nunber}</span>
             </div>
             <div className="flex_row absolute" style={{ right: "1rem" }}>
               <img className="change_to_gray" src={right} />
@@ -71,8 +94,9 @@ export default function ProfileInfo() {
             id="user_profile_logout"
             type="button"
             className="button_icon user_profile_logout"
+            onClick={logout}
           >
-            <img className="icon change_to_blue" src={logout} />
+            <img className="icon change_to_blue" src={logoutimg} />
             <span>Logout</span>
           </button>
         </div>
