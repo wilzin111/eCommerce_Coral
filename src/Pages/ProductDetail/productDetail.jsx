@@ -13,7 +13,7 @@ import heart from "../../Assets/Icons/wishlist.svg";
 import { productContext } from "../../Contexts/productsContext";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Navbar from "../../Components/Navbar/Navbar";
+import ProductNav from "../../Components/ProductDetailNav/productDetailNav";
 
 const ProductDetail = () => {
   const { produtos } = useContext(productContext);
@@ -51,7 +51,16 @@ const ProductDetail = () => {
 
   return (
     <>
-      <Header />
+      <div className="component-hide-pd">
+        <Header />
+      </div>
+
+      <div className="pd-topbar-mobile">
+        <Link to={"/home"}>
+          <img src={pointerLeft} />
+        </Link>
+      </div>
+
       <div className="product-detail-breadcrumb">
         <Link to={"/home"} className="pd-breadcrumb-link">
           Home
@@ -140,6 +149,16 @@ const ProductDetail = () => {
               </div>
             </div>
 
+            <div className="average-content">
+              <div className="average-star">
+                4.5 <img src={star} />
+              </div>
+              <div className="average-rating">
+                <p>Average Rating</p>
+                <span>43 ratings & 23 reviews</span>
+              </div>
+            </div>
+
             <div className="pd-offers">
               <div className="offers-card">
                 <div className="offers-card-text">
@@ -165,6 +184,11 @@ const ProductDetail = () => {
               </div>
             </div>
 
+            <div className="pin-code-mobile">
+              <h3>Delivery Details</h3>
+              <p>Check estimated delivery date/pickup option.</p>
+            </div>
+
             <div className="pd-buttons">
               <Link className="pd-add-to-bag">
                 <img src={bag} />
@@ -180,9 +204,13 @@ const ProductDetail = () => {
         </>
       </div>
 
-      <Navbar />
+      <div className="component-hide-pd">
+        <ProductNav />
+      </div>
 
-      <Footer />
+      <div className="component-hide-pd">
+        <Footer />
+      </div>
     </>
   );
 };
