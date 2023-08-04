@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 export const DataUserContext = createContext({});
 function DataUserProvider({ children }) {
   const [dataUser, setDataUser] = useState("");
+  const [isLog, setIsLog] = useState(false)
 
   async function getDataUser(e) {
     try {
@@ -22,17 +23,19 @@ function DataUserProvider({ children }) {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         getDataUser(user.uid);
+        setIsLog(true)
       }
     });
   }, []);
-  
+
   async function logout() {
     await signOut(auth)
-    setDataUser(null)
+    setDataUser('')
+    setIsLog(false)
   }
 
   return (
-    <DataUserContext.Provider value={{ dataUser, logout }}>
+    <DataUserContext.Provider value={{ dataUser, logout, isLog }}>
       {children}
     </DataUserContext.Provider>
   );
