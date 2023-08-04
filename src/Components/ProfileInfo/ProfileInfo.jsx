@@ -6,12 +6,10 @@ import { useContext, useState, useNavigate } from "react";
 import { DataUserContext } from "../../Contexts/dataUser";
 import { getDownloadURL, ref } from "firebase/storage";
 import { storage } from "../../FireBaseConnection";
-import { signOut } from "firebase/auth"
-import { auth } from "../../FireBaseConnection"
 
 export default function ProfileInfo() {
 
-  const { dataUser } = useContext(DataUserContext)
+  const { dataUser,logout } = useContext(DataUserContext)
   const [imguser, setImgUser] = useState('')
   const handleUploadImage = async (e) => {
     await getDownloadURL(ref(storage, `images/users/${e}`))
@@ -23,10 +21,7 @@ export default function ProfileInfo() {
   if (!imguser) {
     handleUploadImage(dataUser.uid);
   }
-
-  async function logout() {
-    await signOut(auth);
-  }
+  
 
   return (
     <>
