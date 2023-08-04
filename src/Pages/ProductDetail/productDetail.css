@@ -1,0 +1,281 @@
+.product-detail-images,
+.product-detail-container,
+.product-detail-name,
+.product-detail-price,
+.product-star-container,
+.pd-image-small-content,
+.pd-images-container,
+.pin-code-check,
+.pin-code-check-content,
+.pd-input-content,
+.pd-quantity,
+.pd-offers,
+.offers-card,
+.offers-card-code,
+.pd-buttons,
+.pd-add-to-bag,
+.pd-add-wishlist {
+  display: flex;
+}
+
+.product-detail-breadcrumb {
+  width: 40%;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 24px 0 16px 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.product-detail-breadcrumb span {
+  color: #626262;
+}
+
+.pd-breadcrumb-link {
+  text-decoration: none;
+  color: #1b4b66;
+  cursor: pointer;
+}
+
+.product-detail-container {
+  flex-direction: row;
+  gap: 24px;
+}
+
+.product-detail-images {
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+.pd-image-big {
+  width: 605px;
+  height: 605px;
+  border-radius: 16px;
+}
+
+.pd-images-container {
+  width: 473px;
+  margin-left: 58px;
+  padding-top: 24px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.pd-img-pointer {
+  padding: 0px 8px;
+  scroll-snap-align: center;
+}
+
+.pd-image-small-content {
+  flex-direction: row;
+  gap: 31px;
+  width: 393px;
+  overflow-x: auto;
+}
+
+.pd-image-small {
+  border-radius: 8px;
+  width: 75px;
+  height: 75px;
+}
+
+.product-detail-content {
+  width: 55%;
+  overflow: hidden;
+}
+
+.product-detail-name {
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pdn-title {
+  font-size: 34px;
+  font-weight: 600;
+  color: #13101e;
+}
+
+.pdn-description {
+  font-size: 20px;
+  font-weight: 600;
+  color: #626262;
+}
+
+.product-star-container {
+  flex-direction: row;
+  gap: 8px;
+  padding-top: 32px;
+  align-items: center;
+}
+
+.product-star-container span {
+  color: #b6b6b6;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.product-detail-price {
+  gap: 16px;
+  align-items: center;
+  padding-top: 24px;
+}
+
+.product-new-price {
+  color: #171520;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.product-old-price {
+  color: #b6b6b6;
+  font-size: 34px;
+  font-weight: 600;
+  text-decoration: line-through;
+}
+
+.product-discount {
+  color: #ff404b;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.product-detail-division {
+  width: 611px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.12);
+  margin-top: 24px;
+}
+
+.pin-code-check-content {
+  flex-direction: row;
+  gap: 16px;
+}
+
+.pin-code-check {
+  width: 205px;
+  height: 74px;
+  margin-top: 24px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pd-input-content {
+  padding: 18px 12px 18px 16px;
+  margin-top: 35px;
+  gap: 12px;
+  border-radius: 4px;
+  background: #f1f1f1;
+  width: 390px;
+  height: 56px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pd-input-content input,
+button {
+  border: none;
+  background: #f1f1f1;
+}
+
+.pd-input-content button {
+  color: #1b4b66;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pd-quantity {
+  margin-top: 43px;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.pd-offers {
+  height: 96px;
+  gap: 32px;
+  flex-direction: row;
+  overflow-x: auto;
+  margin-top: 52px;
+}
+
+.offers-card {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 391px;
+  height: 96px;
+  padding: 15px 16px;
+  border-radius: 8px;
+  border: 1px solid #1b4b66;
+}
+
+.offers-card-text {
+  width: 229px;
+}
+
+.offers-card-text h4 {
+  color: #171520;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.offers-card-text p {
+  color: #1b4b66;
+  font-size: 14px;
+  font-weight: 500;
+  padding-top: 8px;
+}
+
+.offers-card-code {
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  width: 109px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.offers-card-code p {
+  color: #626262;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.offers-card-code span {
+  color: #171520;
+  font-size: 16px;
+  font-weight: 500;
+  padding-top: 3px;
+}
+
+.pd-buttons {
+  margin-top: 40px;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.pd-add-to-bag,
+.pd-add-wishlist {
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  gap: 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.pd-add-to-bag {
+  width: 328px;
+  background: #1b4b66;
+  color: #fff;
+}
+
+.pd-add-wishlist {
+  width: 240px;
+  border: 2px solid #1b4b66;
+  background: #fff;
+  color: #1b4b66;
+}
