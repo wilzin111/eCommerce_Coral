@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import right from "./../../Assets/Icons/chevron-right.svg";
 
 import PersonlInfo from "./../PersonlInfo/PersonalInfo";
+import MyOrder from "../MyOrder/MyOrder";
 
 export default function SideNav() {
 
@@ -19,11 +20,13 @@ export default function SideNav() {
   useEffect(() => {
 
     const loggoutButton = document.getElementById("user_profile_logout");
+    const orderSearch = document.getElementById("my_order_search");
     const userProfileH1 = document.getElementById("user_profile_h1");
     const breadCrumbImg = document.getElementById("breadCrumbImg");
     const breadCrumb = document.getElementById("breadCrumb");
 
     loggoutButton.classList.add("display_none");
+    orderSearch.classList.add("display_none");
     userProfileH1.innerHTML = "Personal Information";
     breadCrumbImg.classList.add("display_none");
     breadCrumb.innerHTML = ""
@@ -52,6 +55,7 @@ export default function SideNav() {
       myOrdersImg.current.classList.add("change_to_blue");
       breadCrumbImg.classList.remove("display_none");
       breadCrumb.innerHTML = "My Orders"
+      orderSearch.classList.remove("display_none");
     }
     if(component === 3){
       
@@ -118,6 +122,7 @@ export default function SideNav() {
       </div>
 
       {component === 0 ? <PersonlInfo /> : null}
+      {component === 2 ? <MyOrder /> : null}
     
     </>
   );

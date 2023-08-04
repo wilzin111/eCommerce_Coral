@@ -49,9 +49,10 @@ const Signup = () => {
 
 
   function handleImage() {
+    
     if (!userImg) {
       console.log("nenhuma foto cadastrada");
-      return;
+      return
     }
     const storageRef = ref(storage, `images/users/${fullName}`);
     const uploadTask = uploadBytesResumable(storageRef, userImg);

@@ -1,6 +1,7 @@
 
 import logout from "./../../Assets/Icons/logout.svg";
 import rightSmall from "./../../Assets/Icons/chevron-right-small.svg";
+import left from "./../../Assets/Icons/chevron-left.svg";
 
 import SideNav from "./../SideNav/SideNav";
 
@@ -22,6 +23,11 @@ export default function ProfileInfo() {
             <img className="icon change_to_blue" src={logout} />
             <span>Logout</span>
           </button>
+
+          <div id="my_order_search" className="flex_row display_none">
+            <img src={left} style={{marginRight: "0.5rem"}}></img>
+            <input className="my_order_search" placeholder="Search" type="search" />
+          </div>
         </div>
 
         <div className="flex_row">
