@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 // CSS
@@ -19,6 +19,7 @@ import crossSmall from "./../../Assets/Icons/cross-small.svg";
 import logo from "./../../Assets/Images_header/logo.png";
 import testImage from "./../../Assets/Images_header/testImage.png";
 import Drawer from "../Drawer/Drawer";
+import { DataUserContext } from "../../Contexts/dataUser";
 
 function Header() {
   const [openBag, setOpenBag] = useState(false);
@@ -38,7 +39,6 @@ function Header() {
   }
 
   function handleClick() {
-    console.log("1");
   }
   function Bag() {
     if (openBag) {
@@ -176,7 +176,7 @@ function Header() {
   }
 
   const [drawerOpen, setDrawerOpen] = useState(false)
-
+  const { isLog } = useContext(DataUserContext)
   return (
     <>
       <Drawer isOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
@@ -189,21 +189,32 @@ function Header() {
             <h1 className="header-h1-home"><Link to={'/'}>Home</Link></h1>
           </div>
           <div className="header_icons">
-            <button onClick={handleClick}>
+            <button>
               <img src={add} className="icon change_to_blue" />
             </button>
-            <button onClick={handleClick}>
+            <button>
               <img src={search} className="icon change_to_blue" />
             </button>
-            <button onClick={handleClick}>
-              <img src={notification} className="icon change_to_blue" />
-            </button>
+            {isLog ?
+              <>
+                <button>
+                  <img src={notification} className="icon change_to_blue" />
+                </button>
+              </>
+              :
+              <>
+                <div className="heade-btn-notLog">
+                  <button ><Link to={'/startScreen'}>Get Started</Link></button>
+                </div>
+              </>
+            }
+
           </div>
         </div>
 
         <div className="header-desktop">
           <div className="nav-category">
-            <Link to={'/'}><img src={logo} className="logo" /></Link>            
+            <Link to={'/'}><img src={logo} className="logo" /></Link>
             <div className="nav-category-text">
               <span>Handbags</span>
               <span>Watches</span>
@@ -222,15 +233,24 @@ function Header() {
               ></input>
             </div>
             <div className="header_icons change_to_blue">
-              <button onClick={handleClick}>
-                <img src={wishlist} className="icon" />
-              </button>
-              <Link to="/profile" onClick={handleClick}>
-                <img src={profile} className="icon" />
-              </Link>
-              <button onClick={() => setOpenBag(true)}>
-                <img src={bag} className="icon" />
-              </button>
+              {isLog ? <>
+                <button onClick={handleClick}>
+                  <img src={wishlist} className="icon" />
+                </button><Link to="/profile" onClick={handleClick}>
+                  <img src={profile} className="icon" />
+                </Link><button onClick={() => setOpenBag(true)}>
+                  <img src={bag} className="icon" />
+                </button>
+              </>
+                :
+
+                <>
+                  <div className="heade-btn-notLog">
+                    <button ><Link to={'/startScreen'}>Get Started</Link></button>
+                  </div>
+                </>
+              }
+
             </div>
           </div>
         </div>

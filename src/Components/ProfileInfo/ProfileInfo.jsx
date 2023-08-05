@@ -9,19 +9,21 @@ import { storage } from "../../FireBaseConnection";
 
 export default function ProfileInfo() {
 
-  const { dataUser,logout } = useContext(DataUserContext)
+  const { dataUser, logout } = useContext(DataUserContext)
   const [imguser, setImgUser] = useState('')
-  const handleUploadImage = async (e) => {
-    await getDownloadURL(ref(storage, `images/users/${e}`))
-      .then((value) => {
-        setImgUser(value);
-      })
-  };
 
-  if (!imguser) {
-    handleUploadImage(dataUser.uid);
+  if (dataUser.uid) {
+    const handleUploadImage = async (e) => {
+      await getDownloadURL(ref(storage, `images/users/${e}`))
+        .then((value) => {
+          setImgUser(value);
+        })
+    };
+
+    if (!imguser) {
+      handleUploadImage(dataUser.uid);
+    }
   }
-  
 
   return (
     <>
