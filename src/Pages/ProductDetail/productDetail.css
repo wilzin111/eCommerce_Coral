@@ -53,7 +53,6 @@
 
 .product-detail-container {
   flex-direction: column;
-  position: relative;
 }
 
 .product-detail-images {
@@ -173,18 +172,15 @@
 }
 
 .average-star {
-  width: 74px;
-  height: 38px;
   border-radius: 4px;
   background: #f4f4f4;
-
   color: #171520;
   font-size: 16px;
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 3px 0 0 8px;
+  padding: 3px 8px;
 }
 
 .average-rating p {
@@ -214,7 +210,6 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  gap: 8px;
   border-radius: 8px;
   font-weight: 600;
   padding: 10px;
@@ -228,7 +223,6 @@
 }
 
 .pd-add-wishlist {
-  width: 44px;
   background: #f4f4f4;
 }
 
@@ -249,7 +243,6 @@
 .pd-input-content-mobile,
 .pd-input-content {
   padding: 12px 12px 12px 16px;
-  gap: 12px;
   border-radius: 4px;
   background: #f1f1f1;
   width: 328px;
@@ -265,7 +258,6 @@
 .pd-input-content-mobile button {
   border: none;
   background: #f1f1f1;
-  border: none;
 }
 
 @media screen and (min-width: 900px) {
@@ -277,7 +269,8 @@
   }
 
   .component-hide-pd,
-  .pin-code-check-content {
+  .pin-code-check-content,
+  .pd-image-big {
     display: block;
   }
 
@@ -337,21 +330,16 @@
     width: 605px;
     height: 605px;
     border-radius: 16px;
-    display: block;
   }
 
   .pd-images-container {
     width: 473px;
     margin-left: 58px;
     padding-top: 24px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
   }
 
   .pd-img-pointer {
     padding: 0px 8px;
-    display: block;
   }
 
   .pd-image-small-content {
