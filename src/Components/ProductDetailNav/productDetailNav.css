@@ -1,0 +1,122 @@
+.product-nav-mobile {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 70px;
+}
+
+.dropdown-nav {
+  width: 100%;
+  height: 48px;
+  background-color: #fff;
+  text-decoration: none;
+  color: #171520;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 12px 0 16px;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dropdown-nav-p {
+  color: #626262;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  padding: 0 16px 16px;
+}
+
+.invite-friends {
+  display: flex;
+  flex-direction: row;
+  gap: 19px;
+  padding: 16px;
+}
+
+.invite-friends-text {
+  width: 218px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.invite-friends-text p {
+  color: #626262;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.invite-friends-text button {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  background-color: #fff;
+  border: none;
+  color: #1b4b66;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.orange-square {
+  width: 94px;
+  height: 94px;
+  border-radius: 8px;
+  background: #ffe6ca;
+}
+
+.separator-nav {
+  width: 100%;
+  height: 8px;
+  background-color: #f1f1f1;
+}
+
+.product-nav-container,
+.product-description {
+  display: block;
+}
+
+.product-nav-container {
+  flex-direction: row;
+  align-items: center;
+  width: 97%;
+  height: 48px;
+  padding: 8px 16px;
+  margin: 55px 0 0 19px;
+  gap: 24px;
+  border-radius: 12px;
+  background: #f1f1f1;
+}
+
+.product-nav-container button {
+  padding: 6px 18px;
+  gap: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+}
+
+.button-clicked {
+  background: #1b4b66;
+  color: #f1f1f1;
+}
+
+.button-unclicked {
+  background: #f1f1f1;
+  color: #626262;
+}
+
+.product-description {
+  color: #626262;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  width: 88%;
+  margin: 24px 0 121px 20px;
+  gap: 28px;
+  flex-direction: column;
+}
