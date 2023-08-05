@@ -189,6 +189,11 @@ const ProductDetail = () => {
               <p>Check estimated delivery date/pickup option.</p>
             </div>
 
+            <div className="pd-input-content-mobile">
+              <input type="text" placeholder="Apply Valid Pincode"></input>
+              <button>CHECK</button>
+            </div>
+
             <div className="pd-buttons">
               <Link className="pd-add-to-bag">
                 <img src={bag} />
@@ -204,9 +209,7 @@ const ProductDetail = () => {
         </>
       </div>
 
-      <div className="component-hide-pd">
-        <ProductNav />
-      </div>
+      <ProductNav />
 
       <div className="component-hide-pd">
         <Footer />

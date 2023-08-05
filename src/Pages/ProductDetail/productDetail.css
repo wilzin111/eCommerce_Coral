@@ -13,7 +13,8 @@
 .pd-buttons,
 .pd-add-to-bag,
 .pd-add-wishlist,
-.average-content {
+.average-content,
+.pd-input-content-mobile {
   display: flex;
 }
 
@@ -52,6 +53,7 @@
 
 .product-detail-container {
   flex-direction: column;
+  position: relative;
 }
 
 .product-detail-images {
@@ -195,9 +197,16 @@
 }
 
 .pd-buttons {
-  margin: 20px 18px 0px;
+  padding: 11px 18px;
   flex-direction: row-reverse;
   gap: 8px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #fff;
+  width: 100%;
+  height: 66px;
 }
 
 .pd-add-to-bag,
@@ -209,6 +218,7 @@
   border-radius: 8px;
   font-weight: 600;
   padding: 10px;
+  height: 44px;
 }
 
 .pd-add-to-bag {
@@ -236,10 +246,33 @@
   color: #171520;
 }
 
+.pd-input-content-mobile,
+.pd-input-content {
+  padding: 12px 12px 12px 16px;
+  gap: 12px;
+  border-radius: 4px;
+  background: #f1f1f1;
+  width: 328px;
+  height: 46px;
+  margin: 8px 0 18px 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pd-input-content input,
+.pd-input-content button,
+.pd-input-content-mobile input,
+.pd-input-content-mobile button {
+  border: none;
+  background: #f1f1f1;
+  border: none;
+}
+
 @media screen and (min-width: 900px) {
   .pd-topbar-mobile,
   .average-content,
-  .pin-code-mobile {
+  .pin-code-mobile,
+  .pd-input-content-mobile {
     display: none;
   }
 
@@ -256,9 +289,17 @@
     display: flex;
   }
 
+  .pd-input-content {
+    width: 390px;
+    height: 56px;
+    margin-top: 35px;
+    padding: 18px 12px 18px 16px;
+  }
+
   .pin-code-check {
     flex-direction: column;
     margin: 24px 0 8px 16px;
+    height: 70px;
   }
 
   .product-detail-breadcrumb {
@@ -397,24 +438,6 @@
     justify-content: space-between;
   }
 
-  .pd-input-content {
-    padding: 18px 12px 18px 16px;
-    margin-top: 35px;
-    gap: 12px;
-    border-radius: 4px;
-    background: #f1f1f1;
-    width: 390px;
-    height: 56px;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .pd-input-content input,
-  button {
-    border: none;
-    background: #f1f1f1;
-  }
-
   .pd-input-content button {
     color: #1b4b66;
     font-weight: 600;
@@ -445,6 +468,7 @@
   .pd-buttons {
     margin: 40px 0 0 18px;
     flex-direction: row;
+    position: relative;
   }
 
   .pd-add-to-bag {
