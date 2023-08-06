@@ -1,52 +1,53 @@
-import { Link } from "react-router-dom"
-import './Signup.css'
-import { useRef, useState } from "react"
-import { db, auth, storage } from "../../FireBaseConnection"
-import {  doc, setDoc } from "firebase/firestore"
-import { createUserWithEmailAndPassword } from "firebase/auth"
-import { useNavigate } from 'react-router-dom'
-import { ref, uploadBytesResumable } from "firebase/storage"
-import { error, success, warn } from "../../Hooks/Toastify/Toastify"
+import { Link } from "react-router-dom";
+import "./Signup.css";
+import { useRef, useState } from "react";
+import { db, auth, storage } from "../../FireBaseConnection";
+import { doc, setDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { ref, uploadBytesResumable } from "firebase/storage";
+import { error, success, warn } from "../../Hooks/Toastify/Toastify";
 
 const Signup = () => {
-  const navigatS = useNavigate()
-  const inputRef = useRef(null)
-  const [userImg, setUserImg] = useState('')
-  const [userName, setUserName] = useState('')
-  const [userLastName, setUserLastName] = useState('')
-  const [userEmail, setUserEmail] = useState('')
-  const [userNiver, setUserNiver] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordConfirm, setPasswordConfirm] = useState('')
+  const navigatS = useNavigate();
+  const inputRef = useRef(null);
+  const [userImg, setUserImg] = useState("");
+  const [userName, setUserName] = useState("");
+  const [userLastName, setUserLastName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userNiver, setUserNiver] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const handleImageClick = () => {
     inputRef.current.click();
-  }
+  };
 
   const handleImageChange = (e) => {
-    const imgReceived = e.target.files[0]
-    setUserImg(imgReceived)
-  }
+    const imgReceived = e.target.files[0];
+    setUserImg(imgReceived);
+  };
   //letra maiuscula nome
   function capitalizeFirstName(e) {
-    return e.charAt(0).toUpperCase() + e.slice(1)
+    return e.charAt(0).toUpperCase() + e.slice(1);
   }
   //letra maiuscula sobrenome
   function capitalizeLastName(e) {
-    let LastNameList = e.split(" ")
+    let LastNameList = e.split(" ");
 
     for (let i = 0; i < LastNameList.length; i++) {
-      let currentLastName = LastNameList[i]
-      LastNameList[i] = currentLastName.charAt(0).toUpperCase() + currentLastName.slice(1)
+      let currentLastName = LastNameList[i];
+      LastNameList[i] =
+        currentLastName.charAt(0).toUpperCase() + currentLastName.slice(1);
     }
-    return LastNameList.join(" ")
+    return LastNameList.join(" ");
   }
-  const capitalizedfirstName = capitalizeFirstName(userName)
-  const capitalizedLastName = capitalizeLastName(userLastName)
+  const capitalizedfirstName = capitalizeFirstName(userName);
+  const capitalizedLastName = capitalizeLastName(userLastName);
 
-  const regexPassword = /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\-])(?=.*[A-Z]).{8,}$/;
+  const regexPassword =
+    /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\-])(?=.*[A-Z]).{8,}$/;
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 
   function handleImage(e) {
     if (!userImg) {
@@ -58,58 +59,53 @@ const Signup = () => {
   }
 
   async function handleRegister() {
-    if (userName == '' ||
-      userLastName == '' ||
-      userEmail == '' ||
-      userNiver == '' ||
-      password == '' ||
-      passwordConfirm == '') {
+    if (
+      userName == "" ||
+      userLastName == "" ||
+      userEmail == "" ||
+      userNiver == "" ||
+      password == "" ||
+      passwordConfirm == ""
+    ) {
       warn("Please fill in all fields");
       return;
-
     } else if (!regexEmail.test(userEmail)) {
-      error("Please enter a valid email")
+      error("Please enter a valid email");
       return;
-
     } else if (!regexPassword.test(password)) {
-      error("The password must contain one special character, one uppercase letter, and be at least 8 characters long.");
+      error(
+        "The password must contain one special character, one uppercase letter, and be at least 8 characters long."
+      );
       return;
-
     } else if (password != passwordConfirm) {
       error("The passwords must be the same");
       return;
-
     } else {
-
       await createUserWithEmailAndPassword(auth, userEmail, password)
         .then(async (value) => {
-
-          const uid = value.user.uid
-          await setDoc(doc(db, 'users', uid), {
+          const uid = value.user.uid;
+          await setDoc(doc(db, "users", uid), {
             firstName: capitalizedfirstName,
             lastName: capitalizedLastName,
             niver: userNiver,
             signupEmail: userEmail,
             signupPassword: password,
-            uid: uid
+            uid: uid,
           })
-          
             .then(() => {
-              success("Registration done successfully")
-              navigatS("/login")
-              handleImage(uid)
+              success("Registration done successfully");
+              navigatS("/login");
+              handleImage(uid);
             })
             .catch(() => {
-              error("Unable to register, please try again!")
-            })
+              error("Unable to register, please try again!");
+            });
         })
         .catch(() => {
-          warn("Already existing email")
-        })
-
+          warn("Already existing email");
+        });
     }
   }
-
 
   return (
     <div className="signup-container">
@@ -122,55 +118,80 @@ const Signup = () => {
               <img src="./imgUserNone.jpg" alt="img" id="imgNone" />
             )}
 
-            <input type="file" id="img" ref={inputRef} onChange={handleImageChange} />
+            <input
+              type="file"
+              id="img"
+              ref={inputRef}
+              onChange={handleImageChange}
+            />
           </div>
         </div>
 
-
-        <input type="text" id="Name" placeholder="Your Name"
+        <input
+          type="text"
+          id="Name"
+          placeholder="Your Name"
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
           className="signup-hover"
         />
 
-        <input type="text" id="LastName" placeholder="Your Last Name"
+        <input
+          type="text"
+          id="LastName"
+          placeholder="Your Last Name"
           value={userLastName}
           onChange={(e) => setUserLastName(e.target.value)}
           className="signup-hover"
         />
 
-        <input type="text" id="Email" placeholder="Your Email"
+        <input
+          type="text"
+          id="Email"
+          placeholder="Your Email"
           value={userEmail}
           onChange={(e) => setUserEmail(e.target.value)}
           className="signup-hover"
         />
 
-        <input type="date" id="Niver" placeholder="Your birthday"
+        <input
+          type="date"
+          id="Niver"
+          placeholder="Your birthday"
           value={userNiver}
           onChange={(e) => setUserNiver(e.target.value)}
           className="signup-hover"
         />
 
-        <input type="password" id="Password" placeholder="Enter a password"
+        <input
+          type="password"
+          id="Password"
+          placeholder="Enter a password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="signup-hover"
         />
 
-        <input type="password" id="ConfirmPassword" placeholder="Confirm the password"
+        <input
+          type="password"
+          id="ConfirmPassword"
+          placeholder="Confirm the password"
           value={passwordConfirm}
           onChange={(e) => setPasswordConfirm(e.target.value)}
           className="signup-hover"
         />
 
-        <button className="signup-btn" onClick={handleRegister}>Sign up</button>
+        <button className="signup-btn" onClick={handleRegister}>
+          Sign up
+        </button>
         <div className="signup-p">
-          <p>Do you already have an account? <Link to={"/login"}>Log in!</Link></p>
+          <p>
+            Do you already have an account? <Link to={"/login"}>Log in!</Link>
+          </p>
         </div>
-
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;
