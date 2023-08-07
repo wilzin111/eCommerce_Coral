@@ -38,8 +38,7 @@ function Header() {
     document.getElementById("AllProducts").classList.remove("stop-scrolling");
   }
 
-  function handleClick() {
-  }
+  function handleClick() {}
   function Bag() {
     if (openBag) {
       document.body.classList.add("stop-scrolling");
@@ -166,7 +165,6 @@ function Header() {
               </div>
 
               <hr className="bag_bar2" />
-
             </div>
           </div>
         </div>
@@ -175,18 +173,25 @@ function Header() {
     return document.body.classList.remove("stop-scrolling");
   }
 
-  const [drawerOpen, setDrawerOpen] = useState(false)
-  const { isLog } = useContext(DataUserContext)
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const { isLog } = useContext(DataUserContext);
   return (
     <>
       <Drawer isOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
       <section className="header">
         <div className="header-mobile">
           <div className="header_menu">
-            <button onClick={() => { setDrawerOpen(true) }} className="header-btn-menu">
+            <button
+              onClick={() => {
+                setDrawerOpen(true);
+              }}
+              className="header-btn-menu"
+            >
               <img src={menu} className="icon change_to_blue" />
             </button>
-            <h1 className="header-h1-home"><Link to={'/'}>Home</Link></h1>
+            <h1 className="header-h1-home">
+              <Link to={"/"}>Home</Link>
+            </h1>
           </div>
           <div className="header_icons">
             <button>
@@ -195,32 +200,35 @@ function Header() {
             <button>
               <img src={search} className="icon change_to_blue" />
             </button>
-            {isLog ?
+            {isLog ? (
               <>
                 <button>
                   <img src={notification} className="icon change_to_blue" />
                 </button>
               </>
-              :
+            ) : (
               <>
                 <div className="heade-btn-notLog">
-                  <button ><Link to={'/startScreen'}>Get Started</Link></button>
+                  <button>
+                    <Link to={"/startScreen"}>Get Started</Link>
+                  </button>
                 </div>
               </>
-            }
-
+            )}
           </div>
         </div>
 
         <div className="header-desktop">
           <div className="nav-category">
-            <Link to={'/'}><img src={logo} className="logo" /></Link>
+            <Link to={"/"}>
+              <img src={logo} className="logo" />
+            </Link>
             <div className="nav-category-text">
-              <span>Handbags</span>
-              <span>Watches</span>
-              <span>Skincare</span>
-              <span>Jewellery</span>
-              <span>Apparels</span>
+              <Link to={"/products/handbags"}>Handbags</Link>
+              <Link to={"/products/watches"}>Watches</Link>
+              <Link to={"/products/skincare"}>Skincare</Link>
+              <Link to={"/products/jewellery"}>Jewellery</Link>
+              <Link to={"/products/apparels"}>Apparels</Link>
             </div>
           </div>
 
@@ -233,24 +241,27 @@ function Header() {
               ></input>
             </div>
             <div className="header_icons change_to_blue">
-              {isLog ? <>
-                <button onClick={handleClick}>
-                  <img src={wishlist} className="icon" />
-                </button><Link to="/profile" onClick={handleClick}>
-                  <img src={profile} className="icon" />
-                </Link><button onClick={() => setOpenBag(true)}>
-                  <img src={bag} className="icon" />
-                </button>
-              </>
-                :
-
+              {isLog ? (
+                <>
+                  <button onClick={handleClick}>
+                    <img src={wishlist} className="icon" />
+                  </button>
+                  <Link to="/profile" onClick={handleClick}>
+                    <img src={profile} className="icon" />
+                  </Link>
+                  <button onClick={() => setOpenBag(true)}>
+                    <img src={bag} className="icon" />
+                  </button>
+                </>
+              ) : (
                 <>
                   <div className="heade-btn-notLog">
-                    <button ><Link to={'/startScreen'}>Get Started</Link></button>
+                    <button>
+                      <Link to={"/startScreen"}>Get Started</Link>
+                    </button>
                   </div>
                 </>
-              }
-
+              )}
             </div>
           </div>
         </div>
