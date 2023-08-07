@@ -17,7 +17,6 @@ const login = () => {
             .then((value) => {
                 success("User logged in successfully")
                 navigatL("/")
-                localStorage.setItem('userLogado', JSON.stringify(value.user.uid))
             })
 
             .catch((e) => {

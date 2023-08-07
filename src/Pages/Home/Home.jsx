@@ -33,6 +33,7 @@ import carryDesktop from "../../Assets/Images_home/homeDesktopCarry.png";
 import { useContext } from "react";
 import { productContext } from "../../Contexts/productsContext";
 import { ProductsHome } from "../../Components/ProductsHome/productsHome";
+import { Link } from "react-router-dom";
 
 const categories = [
   { image: category1Image, text: "SkinCare", link: "/skin-care" },
@@ -124,7 +125,13 @@ const Home = () => {
           {produtos.length > 0 ? (
             <div className="new-arrivals-products">
               {produtos.slice(0, 12).map((produto) => (
-                <ProductsHome produto={produto} key={produto.id} />
+                <Link
+                  className="product-link"
+                  to={`/product-detail/${produto.id}`}
+                  key={produto.id}
+                >
+                  <ProductsHome produto={produto} />
+                </Link>
               ))}
             </div>
           ) : (

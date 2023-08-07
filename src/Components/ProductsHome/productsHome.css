@@ -4,6 +4,12 @@
 .products-home-text,
 .products-home-loading {
   display: flex;
+  text-decoration: none;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .new-arrivals-products {
