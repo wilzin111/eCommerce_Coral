@@ -56,13 +56,13 @@ const ProductDetail = () => {
       </div>
 
       <div className="pd-topbar-mobile">
-        <Link to={"/home"}>
+        <Link to={"/"}>
           <img src={pointerLeft} />
         </Link>
       </div>
 
       <div className="product-detail-breadcrumb">
-        <Link to={"/home"} className="pd-breadcrumb-link">
+        <Link to={"/"} className="pd-breadcrumb-link">
           Home
         </Link>
         <img src={pointer} />
