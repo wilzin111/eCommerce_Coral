@@ -62,6 +62,7 @@ const Router = () => {
           }
         />
         <Route path="/product-detail/:id" element={<ProductDetail />} />
+        <Route path="/products/handbags" element={<HandbagsPages />} />
       </Routes>
     </BrowserRouter>
   );
