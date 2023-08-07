@@ -15,6 +15,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ProductNav from "../../Components/ProductDetailNav/productDetailNav";
 
+
 const ProductDetail = () => {
   const { produtos } = useContext(productContext);
   const { id } = useParams();
