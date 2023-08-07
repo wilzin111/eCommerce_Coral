@@ -1,7 +1,7 @@
 import "./wishlist.css";
 import Arrow from "../../Assets/Wishlist/arrow.svg";
 import noFavs from "../../Assets/Wishlist/noFavs.png";
-import img from "../../Assets/Images_home/Zara.png";
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -11,10 +11,10 @@ export default function Wishlist() {
   return (
     <>
       <div className="wrapper-wishlist">
-        <button className="my-wishlist">
+        <Link to={"/home"} className="my-wishlist">
           <img src={Arrow} className="arrow-wishlist" />
           <h2 className="h2-wishlist">My Wishlist</h2>
-        </button>
+        </Link>
 
         {isEmpty ? (
           <section className="container-wishlist" id="container-wishlist">
@@ -32,7 +32,9 @@ export default function Wishlist() {
             </div>
 
             <div className="btn-div-wishlist">
-              <button className="start-shopping">Start Shopping</button>
+              <Link to={"/home"} className="start-shopping">
+                Start Shopping
+              </Link>
             </div>
           </section>
         ) : (
