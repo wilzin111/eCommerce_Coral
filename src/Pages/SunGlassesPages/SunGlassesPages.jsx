@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./SunGlassesPages.css";
-import BlackFridayImage from "../../Assets/ProductsPage/BlackFridayImage.png";
+import BlackFridayImage from "../../Assets/ProductsPage/BlackFridayImg.png";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 
