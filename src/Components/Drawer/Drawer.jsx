@@ -3,17 +3,17 @@ import './Drawer.css'
 import { DataUserContext } from '../../Contexts/dataUser'
 import { storage } from '../../FireBaseConnection'
 import { getDownloadURL, ref } from 'firebase/storage'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 const Drawer = ({ isOpen = false, setDrawerOpen }) => {
-
     const arrow = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M9 4.5L16.5 12L9 19.5" stroke="#13101E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 
-    const { dataUser } = useContext(DataUserContext)
+    const { dataUser, isLog } = useContext(DataUserContext)
     const [urlImgUser, setUrlImgUser] = useState('');
-    if (isOpen) {
+    const nav = useNavigate()
+    if (dataUser.uid) {
         const handleUploadImage = async (uid) => {
             await getDownloadURL(ref(storage, `images/users/${uid}`))
                 .then((value) => {
@@ -27,7 +27,6 @@ const Drawer = ({ isOpen = false, setDrawerOpen }) => {
 
     if (isOpen) {
         return (
-
             <div className='drawer-header'>
 
                 <div className='drawer-container-user'>
@@ -35,8 +34,8 @@ const Drawer = ({ isOpen = false, setDrawerOpen }) => {
                         <div className='drawer-img-user'>
                             <img src={urlImgUser ? urlImgUser : './imgUserNone.jpg'} alt="" />
                         </div>
-                        <p>Hello, {dataUser.firstName}</p>
-                        <button className='drawer-btn-arrow'>{arrow}</button>
+                        <p>Hello {dataUser.firstName}</p>
+                        <button className='drawer-btn-arrow'>{isLog ? <><Link to={'/profile'}>{arrow}</Link></> : <></>}</button>
                     </div>
 
                     <hr />
@@ -104,11 +103,8 @@ const Drawer = ({ isOpen = false, setDrawerOpen }) => {
                         </div>
                     </div>
                 </div>
-
                 <button onClick={() => { setDrawerOpen(false) }} className='drawer-btn' />
-
             </div>
-
         )
     }
 }

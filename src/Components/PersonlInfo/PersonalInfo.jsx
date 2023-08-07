@@ -29,7 +29,7 @@ export default function PersonalInfo() {
   }
   const { dataUser } = useContext(DataUserContext)
   const [urlImgUserProfile, setUrlImgUserProfile] = useState('');
-  const [userFirtName, setUserFirtName] = useState(dataUser.firstName ? dataUser.firstName : '')
+  const [userFirstName, setUserFirstName] = useState(dataUser.firstName ? dataUser.firstName : '')
   const [userLastName, setUserLastName] = useState(dataUser.lastName ? dataUser.lastName : '')
   const [userDDD, setUserDDD] = useState('1')
   const [userNumber, setUserNumber] = useState('xxx-xxx-xxxx')
@@ -50,7 +50,7 @@ export default function PersonalInfo() {
   }
 
   async function handleUpdate() {
-    if (userFirtName == '' ||
+    if (userFirstName == '' ||
       userLastName == '' ||
       userNiver == '' ||
       userCurrentPassword == '' ||
@@ -74,7 +74,7 @@ export default function PersonalInfo() {
     } else {
       await db.collection('users').doc(dataUser.uid)
         .update({
-          firstName: userFirtName,
+          firstName: userFirstName,
           lastName: userLastName,
           niver: userNiver,
           signupPassword: userNewPassword
@@ -111,10 +111,10 @@ export default function PersonalInfo() {
           <div className="user_profile_info_inputs flex_column padding_right_2-06rem width_18rem">
             <label>First Name</label>
             <input
-              value={userFirtName}
+              value={userFirstName}
               className="user_profile_info_input width_18rem"
               type="text"
-              onChange={(e) => setUserFirtName(e.target.value)}
+              onChange={(e) => setUserFirstName(e.target.value)}
             />
           </div>
 

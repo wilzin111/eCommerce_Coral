@@ -9,6 +9,7 @@ import Signup from "../Pages/Signup/Signup";
 import RegisterProducts from "../Pages/RegisterProducts/RegProducts";
 import StartScreen from "../Pages/StartScreen/StartScreen";
 import Wishlist from "../Components/Wishlist/wishlist";
+import Private from "./Private";
 
 const Router = () => {
   return (
@@ -17,13 +18,13 @@ const Router = () => {
         <Route path="/" element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path="/categories" element={<Categories />} />
-        <Route path="/profile" element={<UserProfile />} />
-        <Route path="/bag" element={<Bag />} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/signup" element={<Signup/>}/>
+        <Route path="/profile" element={<Private><UserProfile /></Private>} />
+        <Route path="/bag" element={<Private><Bag /></Private>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/register-products" element={<RegisterProducts />} />
-        <Route path="/startScreen" element={<StartScreen/>}/>
-        <Route path="/wishlist" element={<Wishlist/>}/>
+        <Route path="/startScreen" element={<StartScreen />} />
+        <Route path="/wishlist" element={<Private><Wishlist /></Private>} />
       </Routes>
     </BrowserRouter>
   );
