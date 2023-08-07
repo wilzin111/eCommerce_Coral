@@ -1,71 +1,71 @@
 .products-filter {
-    display: flex;
-    flex-direction: column;
-    width: 286px;
-    padding-left: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 286px;
+  padding-left: 20px;
+}
 
-  .homeLinkCss{
-    margin-top: 49px;
-    color: var(--primary, #1B4B66);;
-    margin-right: 8px;
-    margin-left: 0px;
-  }
+.homeLinkCss {
+  margin-top: 49px;
+  color: var(--primary, #1b4b66);
+  margin-right: 8px;
+  margin-left: 0px;
+}
 
-  h2 {
-    color: var(--primary, #1B4B66);
-    font-family: Inter;
-    font-size: 29px;
-    font-style: normal;
-    font-weight: 600;
-    margin-left: -2px;
-    margin-top: 27px;
-    margin-bottom: 42px;
-  }
+h2 {
+  color: var(--primary, #1b4b66);
+  font-family: Inter;
+  font-size: 29px;
+  font-style: normal;
+  font-weight: 600;
+  margin-left: -2px;
+  margin-top: 27px;
+  margin-bottom: 42px;
+}
 
-  .categoriesPageLink span, a{
-    font-size: 16px;
-    color: var(--type-low-emphasis, #626262);
-    text-decoration: none;
-    margin-left: 8px;
-  }
-  
-  .products_blImageContainer{
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 49px;
-  }
-  
-  .products_blackfriday {
-    width: 97%;
-  }
-  
-  .filter-option {
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-  }
-  
-  .filter-label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .filter-label span {
-    font-size: 17px;
-    margin-right: 5px;
-  }
-  
-  .expanded-options {
-    display: flex;
-    flex-direction: column;
-    color: var(--type-low-emphasis, #626262)
-  }
-  
-  .filter-checkbox {
-    margin-right: 5px;
-  }
-  
+.categoriesPageLink span,
+a {
+  font-size: 16px;
+  color: var(--type-low-emphasis, #626262);
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+.products_blImageContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 49px;
+}
+
+.products_blackfriday {
+  width: 97%;
+}
+
+.filter-option {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.filter-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.filter-label span {
+  font-size: 17px;
+  margin-right: 5px;
+}
+
+.expanded-options {
+  display: flex;
+  flex-direction: column;
+  color: var(--type-low-emphasis, #626262);
+}
+
+.filter-checkbox {
+  margin-right: 5px;
+}

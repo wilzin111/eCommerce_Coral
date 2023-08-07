@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import './HandbagsPages.css';
-import BlackFridayImage from '../../Assets/ProductsPage/BlackFridayImage.png'
-import Header from '../../Components/Header/Header';
-import Footer from '../../Components/Footer/Footer';
+import { useState } from "react";
+import "./HandbagsPages.css";
+import BlackFridayImage from "../../Assets/ProductsPage/BlackFridayImage.png";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 
 const ProductsFilter = () => {
   const [sizeExpanded, setSizeExpanded] = useState(false);
@@ -14,22 +14,22 @@ const ProductsFilter = () => {
 
   const handleToggle = (option) => {
     switch (option) {
-      case 'size':
+      case "size":
         setSizeExpanded(!sizeExpanded);
         break;
-      case 'color':
+      case "color":
         setColorExpanded(!colorExpanded);
         break;
-      case 'brand':
+      case "brand":
         setBrandExpanded(!brandExpanded);
         break;
-      case 'price':
+      case "price":
         setPriceExpanded(!priceExpanded);
         break;
-      case 'discount':
+      case "discount":
         setDiscountExpanded(!discountExpanded);
         break;
-      case 'availability':
+      case "availability":
         setAvailabilityExpanded(!availabilityExpanded);
         break;
       default:
@@ -39,21 +39,24 @@ const ProductsFilter = () => {
 
   return (
     <div>
-        <Header/>
-      <div className='products_blImageContainer'>
-          <img src={BlackFridayImage} className='products_blackfriday' />
-        </div>
+      <Header />
+      <div className="products_blImageContainer">
+        <img src={BlackFridayImage} className="products_blackfriday" />
+      </div>
       <div className="products-filter">
         <div>
-          <a href={'/'} className='homeLinkCss'>Home </a>
+          <a href={"/"} className="homeLinkCss">
+            Home{" "}
+          </a>
           <span>&gt;</span>
-          <a href="/products/handbags" className='categoriesPageLink'> Handbags</a>
-          </div>
-        <div className="filter-option">
-          <h2>
+          <a href="/products/handbags" className="categoriesPageLink">
+            {" "}
             Handbags
-          </h2>
-          <div className="filter-label" onClick={() => handleToggle('size')}>
+          </a>
+        </div>
+        <div className="filter-option">
+          <h2>Handbags</h2>
+          <div className="filter-label" onClick={() => handleToggle("size")}>
             <span>Size</span>
             {sizeExpanded ? <span> - </span> : <span> + </span>}
           </div>
@@ -71,7 +74,7 @@ const ProductsFilter = () => {
           )}
         </div>
         <div className="filter-option">
-          <div className="filter-label" onClick={() => handleToggle('color')}>
+          <div className="filter-label" onClick={() => handleToggle("color")}>
             <span>Color</span>
             {colorExpanded ? <span> - </span> : <span> + </span>}
           </div>
@@ -89,7 +92,7 @@ const ProductsFilter = () => {
           )}
         </div>
         <div className="filter-option">
-          <div className="filter-label" onClick={() => handleToggle('brand')}>
+          <div className="filter-label" onClick={() => handleToggle("brand")}>
             <span>Brand</span>
             {brandExpanded ? <span> - </span> : <span> + </span>}
           </div>
@@ -107,7 +110,7 @@ const ProductsFilter = () => {
           )}
         </div>
         <div className="filter-option">
-          <div className="filter-label" onClick={() => handleToggle('price')}>
+          <div className="filter-label" onClick={() => handleToggle("price")}>
             <span>Price Range</span>
             {priceExpanded ? <span> - </span> : <span> + </span>}
           </div>
@@ -125,7 +128,10 @@ const ProductsFilter = () => {
           )}
         </div>
         <div className="filter-option">
-          <div className="filter-label" onClick={() => handleToggle('discount')}>
+          <div
+            className="filter-label"
+            onClick={() => handleToggle("discount")}
+          >
             <span>Discount</span>
             {discountExpanded ? <span> - </span> : <span> + </span>}
           </div>
@@ -143,7 +149,10 @@ const ProductsFilter = () => {
           )}
         </div>
         <div className="filter-option">
-          <div className="filter-label" onClick={() => handleToggle('availability')}>
+          <div
+            className="filter-label"
+            onClick={() => handleToggle("availability")}
+          >
             <span>Availability</span>
             {availabilityExpanded ? <span> - </span> : <span> + </span>}
           </div>
@@ -161,7 +170,7 @@ const ProductsFilter = () => {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

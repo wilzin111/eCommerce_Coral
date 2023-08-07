@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 // CSS
 import "./header.css";
@@ -166,7 +166,6 @@ function Header() {
               </div>
 
               <hr className="bag_bar2" />
-
             </div>
           </div>
         </div>
@@ -175,7 +174,7 @@ function Header() {
     return document.body.classList.remove("stop-scrolling");
   }
 
-  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <>
@@ -183,7 +182,12 @@ function Header() {
       <section className="header">
         <div className="header-mobile">
           <div className="header_menu">
-            <button onClick={() => { setDrawerOpen(true) }} className="header-btn-menu">
+            <button
+              onClick={() => {
+                setDrawerOpen(true);
+              }}
+              className="header-btn-menu"
+            >
               <img src={menu} className="icon change_to_blue" />
             </button>
             <h1 className="">Home</h1>
@@ -205,11 +209,11 @@ function Header() {
           <div className="nav-category">
             <img src={logo} className="logo" />
             <div className="nav-category-text">
-              <Link to={'/products/handbags'}>Handbags</Link>
-              <Link to={'/products/watches'}>Watches</Link>
-              <Link to={'/products/skincare'}>Skincare</Link>
-              <Link to={'/products/jewellery'}>Jewellery</Link>
-              <Link to={'/products/apparels'}>Apparels</Link>
+              <Link to={"/products/handbags"}>Handbags</Link>
+              <Link to={"/products/watches"}>Watches</Link>
+              <Link to={"/products/skincare"}>Skincare</Link>
+              <Link to={"/products/jewellery"}>Jewellery</Link>
+              <Link to={"/products/apparels"}>Apparels</Link>
             </div>
           </div>
 
