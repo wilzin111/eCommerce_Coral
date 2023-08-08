@@ -243,9 +243,9 @@ function Header() {
             <div className="header_icons change_to_blue">
               {isLog ? (
                 <>
-                  <button onClick={handleClick}>
+                  <Link to='/wishlist' onClick={handleClick}>
                     <img src={wishlist} className="icon" />
-                  </button>
+                  </Link>
                   <Link to="/profile" onClick={handleClick}>
                     <img src={profile} className="icon" />
                   </Link>

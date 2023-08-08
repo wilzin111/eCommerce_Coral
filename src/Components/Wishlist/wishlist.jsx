@@ -6,12 +6,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Wishlist() {
-  const [isEmpty, setIsEmpty] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(true);
 
   return (
     <>
       <div className="wrapper-wishlist">
-        <Link to={"/home"} className="my-wishlist">
+        <Link to={"/"} className="my-wishlist">
           <img src={Arrow} className="arrow-wishlist" />
           <h2 className="h2-wishlist">My Wishlist</h2>
         </Link>
@@ -32,7 +32,7 @@ export default function Wishlist() {
             </div>
 
             <div className="btn-div-wishlist">
-              <Link to={"/home"} className="start-shopping">
+              <Link to={"/"} className="start-shopping">
                 Start Shopping
               </Link>
             </div>
