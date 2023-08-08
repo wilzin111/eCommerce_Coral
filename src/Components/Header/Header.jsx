@@ -20,6 +20,10 @@ import logo from "./../../Assets/Images_header/logo.png";
 import testImage from "./../../Assets/Images_header/testImage.png";
 import Drawer from "../Drawer/Drawer";
 
+//pages
+
+import wishlistPage from '../Wishlist/wishlist'
+
 function Header() {
   const [openBag, setOpenBag] = useState(false);
   const [bagQuantity, setBagQuantity] = useState(1);
@@ -223,7 +227,7 @@ function Header() {
             </div>
             <div className="header_icons change_to_blue">
               <button onClick={handleClick}>
-                <img src={wishlist} className="icon" />
+                <Link to={wishlistPage}><img src={wishlist} className="icon" /></Link>
               </button>
               <Link to="/profile" onClick={handleClick}>
                 <img src={profile} className="icon" />

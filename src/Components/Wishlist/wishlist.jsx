@@ -1,12 +1,13 @@
-import "./wishlist.css";
+import { useWishlist } from "../../Contexts/wishListContext";
+
 import Arrow from "../../Assets/Wishlist/arrow.svg";
 import noFavs from "../../Assets/Wishlist/noFavs.png";
-import img from "../../Assets/Images_home/Zara.png";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Wishlist() {
-  const [isEmpty, setIsEmpty] = useState(false);
+  const { wishlist } = useWishlist();
+
+  const isEmpty = Object.keys(wishlist).length === 0;
 
   return (
     <>
@@ -15,31 +16,30 @@ export default function Wishlist() {
           <img src={Arrow} className="arrow-wishlist" />
           <h2 className="h2-wishlist">My Wishlist</h2>
         </button>
-
         {isEmpty ? (
           <section className="container-wishlist" id="container-wishlist">
-            <div className="img-wishlist">
-              <img src={noFavs} alt="empty wishlist" />
-            </div>
-
-            <div className="text-wishlist">
-              <h1 className="h1-wishlist">Well...</h1>
-              <div className="p-wishlist">
-                <p>
-                  It seems you have not added any products to your wishlist.
-                </p>
-              </div>
-            </div>
-
-            <div className="btn-div-wishlist">
-              <button className="start-shopping">Start Shopping</button>
-            </div>
           </section>
         ) : (
-          <section
-            className="products-wishlist"
-            id="products-wishlist"
-          ></section>
+          <section className="products-wishlist" id="products-wishlist">
+            {Object.keys(wishlist).map((userId) =>
+              wishlist[userId].map((product) => (
+                <div key={product.id} className="wishlist-product">
+                  <div className="wishlist-product-img">
+                    <img src={product.url} alt={product.name} />
+                  </div>
+                  <div className="wishlist-product-details">
+                    <h3 className="wishlist-product-name">{product.name}</h3>
+                    <p className="wishlist-product-subname">
+                      {product.subname}
+                    </p>
+                    <span className="wishlist-product-price">
+                      ${product.price}
+                    </span>
+                  </div>
+                </div>
+              ))
+            )}
+          </section>
         )}
       </div>
     </>
