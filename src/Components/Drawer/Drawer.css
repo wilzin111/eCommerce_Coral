@@ -41,7 +41,7 @@
     align-items: center;
 }
 
-.drawer-img-user img{
+.drawer-img-user img {
     min-width: 42px;
     min-height: 42px;
     max-width: 42px;
@@ -70,7 +70,7 @@
     align-items: center;
 }
 
-.text-drawer:last-child{
+.text-drawer:last-child {
     margin-bottom: 0;
 }
 
@@ -94,4 +94,31 @@
 .drawer-btn-arrow {
     background: none;
     border: none;
+}
+
+.drawer-notLog {
+    width: 75vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.drawer-notLog h1 {
+    color: #1b4b66;
+}
+
+.drawer-notLog button {
+    border: none;
+    background-color: #1b4b66;
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.drawer-notLog a {
+    color: #fff;
+    padding: 10px;
 }

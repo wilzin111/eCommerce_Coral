@@ -1,4 +1,3 @@
-import React from "react";
 import { useWishlist } from "../../Contexts/wishListContext";
 
 import Arrow from "../../Assets/Wishlist/arrow.svg";

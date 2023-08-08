@@ -1,11 +1,13 @@
 import { doc, getDoc } from "firebase/firestore";
 import { createContext, useEffect, useState } from "react";
 import { auth, db } from "../FireBaseConnection";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export const DataUserContext = createContext({});
 function DataUserProvider({ children }) {
   const [dataUser, setDataUser] = useState("");
+  const [isLog, setIsLog] = useState(false)
 
   async function getDataUser(e) {
     try {
@@ -14,19 +16,26 @@ function DataUserProvider({ children }) {
           setDataUser(value.data());
         });
       }
-    } catch (error) {}
+    } catch (error) { }
   }
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         getDataUser(user.uid);
+        setIsLog(true)
       }
     });
   }, []);
 
+  async function logout() {
+    await signOut(auth)
+    setDataUser('')
+    setIsLog(false)
+  }
+
   return (
-    <DataUserContext.Provider value={{ dataUser }}>
+    <DataUserContext.Provider value={{ dataUser, logout, isLog }}>
       {children}
     </DataUserContext.Provider>
   );

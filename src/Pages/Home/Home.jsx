@@ -2,6 +2,7 @@ import Desconto from "../../assets/images_home/DescontoOFF.png";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./Home.css";
+import DesktopCarryYourImage from "../../assets/images_home/BG_Carryyour.png";
 import CarryYourImage from "../../assets/images_home/BG_CarryyourMobile.png";
 import PersonalCare from "../../assets/images_home/Personalcare.png";
 import Handbags from "../../assets/images_home/Handbags.png";
@@ -25,17 +26,16 @@ import category2Image from "../../assets/IconsCategories/Joias.png";
 import category3Image from "../../assets/IconsCategories/Bolsa.png";
 import category4Image from "../../assets/IconsCategories/Relogio.png";
 import category5Image from "../../assets/IconsCategories/SkinCare.png";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import Navbar from "../../Components/Navbar/Navbar";
-import carryDesktop from "../../Assets/Images_home/homeDesktopCarry.png";
-import { useContext } from "react";
 import { productContext } from "../../Contexts/productsContext";
 import { ProductsHome } from "../../Components/ProductsHome/productsHome";
+import { Link } from "react-router-dom";
 
 const categories = [
-  { image: category1Image, text: "SkinCare", link: "/skin-care" },
+  { image: category1Image, text: "SkinCare", Link: "/skincare" },
   { image: category2Image, text: "Jewellery", link: "/jewellery" },
   { image: category3Image, text: "Handbags", link: "/handbags" },
   { image: category4Image, text: "Watches", link: "/watches" },
@@ -66,31 +66,40 @@ const Home = () => {
   return (
     <>
       <Header />
-
       <div className="container-home">
-        <Carousel
-          showArrows={false}
-          showStatus={false}
-          showThumbs={false}
-          showIndicators={false}
-          selectedItem={currentSlide}
-          infiniteLoop
-        >
-          <div>
+        {isMobile ? (
+          <Carousel
+            showArrows={false}
+            showStatus={false}
+            showThumbs={false}
+            showIndicators={false}
+            selectedItem={currentSlide}
+            infiniteLoop
+          >
+            <div>
+              <img
+                src={CarryYourImage}
+                alt="CarryYour"
+                className="ImagesCarousel"
+              />
+            </div>
+            <div>
+              <img
+                src={Desconto}
+                alt="Additional Image"
+                className="ImagesCarousel"
+              />
+            </div>
+          </Carousel>
+        ) : (
+          <div className="desktopImageContainer">
             <img
-              src={isMobile ? CarryYourImage : carryDesktop}
+              src={DesktopCarryYourImage}
               alt="CarryYour"
               className="ImagesCarousel"
             />
           </div>
-          <div>
-            <img
-              src={Desconto}
-              alt="Additional Image"
-              className="ImagesCarousel"
-            />
-          </div>
-        </Carousel>
+        )}
         <div className="carouselContainer">
           <h3 className="Top">Top Categories</h3>
         </div>
@@ -124,34 +133,36 @@ const Home = () => {
           {produtos.length > 0 ? (
             <div className="new-arrivals-products">
               {produtos.slice(0, 12).map((produto) => (
-                <ProductsHome produto={produto} key={produto.id} />
+                <Link
+                  className="product-link"
+                  to={`/product-detail/${produto.id}`}
+                  key={produto.id}
+                >
+                  <ProductsHome produto={produto} />
+                </Link>
               ))}
             </div>
           ) : (
             <div className="products-home-loading"> loading... </div>
           )}
         </div>
-
         <div className="imageSection">
-          <p className="imageSection-p">Handpicked Collections</p>
+          <p>Handpicked Collections</p>
           <div className="imagePair">
-            <a href="" className="imageLink">
+            <Link to={"/products/personalcare"} className="imageLink">
               <img src={PersonalCare} alt="Image 1" className="image" />
-            </a>
-
-            <a href="" className="imageLink">
+            </Link>
+            <Link to={"/products/handbags"} className="imageLink">
               <img src={Handbags} alt="Image 2" className="image" />
-            </a>
+            </Link>
           </div>
-
           <div className="imagePair">
-            <a href="" className="imageLink">
+            <Link to={"/products/watches"} className="imageLink">
               <img src={WristWatches} alt="Image 3" className="image" />
-            </a>
-
-            <a href="" className="imageLink">
+            </Link>
+            <Link to={"/products/sunglasses"} className="imageLink">
               <img src={SunGlasses} alt="Image 4" className="image" />
-            </a>
+            </Link>
           </div>
         </div>
         <div className="brandsSection">
