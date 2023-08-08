@@ -33,15 +33,22 @@ const login = () => {
     return (
         <div className='login-container'>
             <div className="login-container-input">
-                <input type="text"
-                    placeholder="Your Email"
+                <div className="label-float">
+                    <input type="text"
+                    placeholder=" "
                     onChange={(e) => setLoginEmail(e.target.value)}
                 />
-
-                <input type="password"
-                    placeholder="Enter a password"
+                <label >Your Email</label>
+                </div>
+                
+                <div className="label-float">
+                    <input type="password"
+                    placeholder=" "
                     onChange={(e) => setLoginPassword(e.target.value)}
                 />
+                <label>Enter a password</label>
+                </div>
+                
 
                 <button className='login-btn' onClick={handleLogin}>Log in</button>
 

@@ -111,7 +111,9 @@ const Signup = () => {
     <div className="signup-container">
       <div className="signup-container-input">
         <div className="signup-img-width">
+
           <div className="signup-img-none" onClick={handleImageClick}>
+            <p>Select your image</p>
             {userImg ? (
               <img src={URL.createObjectURL(userImg)} alt="img" id="imgNone" />
             ) : (
@@ -127,59 +129,77 @@ const Signup = () => {
           </div>
         </div>
 
-        <input
-          type="text"
-          id="Name"
-          placeholder="Your Name"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-          className="signup-hover"
-        />
+        <div className="label-float">
+          <input
+            type="text"
+            id="Name"
+            placeholder=" "
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            className="signup-hover"
+          />
+          <label >Your Name</label>
+        </div>
 
-        <input
-          type="text"
-          id="LastName"
-          placeholder="Your Last Name"
-          value={userLastName}
-          onChange={(e) => setUserLastName(e.target.value)}
-          className="signup-hover"
-        />
+        <div className="label-float">
+          <input
+            type="text"
+            id="LastName"
+            placeholder=" "
+            value={userLastName}
+            onChange={(e) => setUserLastName(e.target.value)}
+            className="signup-hover"
+          />
+          <label >Your Last Name</label>
+        </div>
 
-        <input
-          type="text"
-          id="Email"
-          placeholder="Your Email"
-          value={userEmail}
-          onChange={(e) => setUserEmail(e.target.value)}
-          className="signup-hover"
-        />
+        <div className="label-float">
+          <input
+            type="text"
+            id="Email"
+            placeholder=" "
+            value={userEmail}
+            onChange={(e) => setUserEmail(e.target.value)}
+            className="signup-hover"
+          />
+          <label >Your Email</label>
+        </div>
 
-        <input
-          type="date"
-          id="Niver"
-          placeholder="Your birthday"
-          value={userNiver}
-          onChange={(e) => setUserNiver(e.target.value)}
-          className="signup-hover"
-        />
+        <div className="label-float-date">
+          <input
+            type="date"
+            id="Niver"
+            placeholder=" "
+            value={userNiver}
+            onChange={(e) => setUserNiver(e.target.value)}
+            className="signup-hover"
+          />
+          <label >Your birthday</label>
+        </div>
 
-        <input
-          type="password"
-          id="Password"
-          placeholder="Enter a password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="signup-hover"
-        />
+        <div className="label-float">
+          <input
+            type="password"
+            id="Password"
+            placeholder=" "
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="signup-hover"
+          />
+          <label >Enter a password</label>
+        </div>
 
-        <input
-          type="password"
-          id="ConfirmPassword"
-          placeholder="Confirm the password"
-          value={passwordConfirm}
-          onChange={(e) => setPasswordConfirm(e.target.value)}
-          className="signup-hover"
-        />
+        <div className="label-float">
+          <input
+            type="password"
+            id="ConfirmPassword"
+            placeholder=" "
+            value={passwordConfirm}
+            onChange={(e) => setPasswordConfirm(e.target.value)}
+            className="signup-hover"
+          />
+          <label >Confirm the password</label>
+        </div>
 
         <button className="signup-btn" onClick={handleRegister}>
           Sign up
