@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useWishlist } from "../../Contexts/wishListContext";
 
 import "./productsHome.css";
@@ -8,7 +8,8 @@ export const ProductsHome = ({ produto }) => {
   const { addToWishlist } = useWishlist();
 
   const handleAddToWishlist = () => {
-    addToWishlist(produto); 
+    const userId = "currentUserId";
+    addToWishlist(userId, produto); 
   };
 
   return (
@@ -20,7 +21,7 @@ export const ProductsHome = ({ produto }) => {
           <span className="products-description-home">{produto.subname}</span>
           <span className="products-home-span">${produto.price}</span>
         </div>
-        <img src={heart} onClick={handleAddToWishlist} />
+        <img src={heart} alt="Add to Wishlist" onClick={handleAddToWishlist} />
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ import Drawer from "../Drawer/Drawer";
 
 //pages
 
-import wishlistPage from '../Wishlist/wishlist'
+import wishlistPage from '../Wishlist/wishlist.jsx'
 
 function Header() {
   const [openBag, setOpenBag] = useState(false);
