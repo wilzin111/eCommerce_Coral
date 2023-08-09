@@ -1,7 +1,8 @@
 import React from "react";
 import { useWishlist } from "../../Contexts/wishlistContext";
 import "./productsHome.css";
-import heart from "../../Assets/Icons/wishlist.svg";
+import heartEmpty from "../../Assets/Icons/wishlist.svg";
+import heartFill from "../../Assets/Icons/wishlist-fill.svg";
 import { useContext } from "react";
 import { DataUserContext } from "../../Contexts/dataUser";
 
@@ -10,7 +11,6 @@ export const ProductsHome = ({ produto }) => {
   const { dataUser } = useContext(DataUserContext);
 
   const handleAddToWishlist = () => {
-    console.log("Heart Clicked")
     const userId = dataUser.uid;
     addToWishlist(userId, produto);
   };
@@ -27,7 +27,7 @@ export const ProductsHome = ({ produto }) => {
           <span className="products-description-home">{produto.subname}</span>
           <span className="products-home-span">${roundedPrice}</span>
         </div>
-        <img src={heart} alt="Add to Wishlist" onClick={handleAddToWishlist} />
+        <img src={heartEmpty} alt="Add to Wishlist" onClick={handleAddToWishlist}/>
       </div>
     </div>
   );

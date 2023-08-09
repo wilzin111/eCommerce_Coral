@@ -40,7 +40,7 @@ export function WishlistProvider({ children }) {
   }
 
   return (
-    <WishlistContext.Provider value={{ wishlist, addToWishlist}}>
+    <WishlistContext.Provider value={{ wishlist, addToWishlist, removeFromWishlist}}>
       {children}
     </WishlistContext.Provider>
   );
