@@ -1,12 +1,13 @@
-import { useWishlist } from "../../Contexts/wishListContext";
-
+import React, {useContext} from "react";
+import { useWishlist } from "../../Contexts/wishlistContext";
 import Arrow from "../../Assets/Wishlist/arrow.svg";
+import { DataUserContext } from "../../Contexts/dataUser";
 
 export default function Wishlist() {
   const { wishlist } = useWishlist();
-  const currentUserId = "currentUserId";
+  const { dataUser } = useContext(DataUserContext);
 
-  const userWishlist = wishlist[currentUserId] || [];
+  const userWishlist = wishlist[dataUser.uid] || [];
   const isEmpty = userWishlist.length === 0;
 
   return (

@@ -1,20 +1,21 @@
-import { useWishlist } from "../../Contexts/wishListContext";
+import React from "react";
+import { useWishlist } from "../../Contexts/wishlistContext";
 import "./productsHome.css";
 import heart from "../../Assets/Icons/wishlist.svg";
-import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DataUserContext } from "../../Contexts/dataUser";
 
 export const ProductsHome = ({ produto }) => {
   const { addToWishlist } = useWishlist();
-  const {dataUser} = useContext (DataUserContext)
-  const handleAddToWishlist = () => {
-    const userId = dataUser.uid;
-    addToWishlist(userId, produto); 
-  };
-  
-  const newPrice = produto.price - produto.price * (produto.discount / 100);
+  const { dataUser } = useContext(DataUserContext);
 
+  const handleAddToWishlist = () => {
+    console.log("Heart Clicked")
+    const userId = dataUser.uid;
+    addToWishlist(userId, produto);
+  };
+
+  const newPrice = produto.price - produto.price * (produto.discount / 100);
   const roundedPrice = newPrice.toFixed(2);
 
   return (
