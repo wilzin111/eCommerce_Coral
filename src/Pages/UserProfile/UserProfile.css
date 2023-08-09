@@ -67,6 +67,7 @@
   background: #f1f1f1;
   padding: 0 0.44rem 0 0.5rem;
   position: relative;
+  margin-right: 1.37rem;
 }
 .user_profile_side_navigation_text {
   color: #13101e;
@@ -132,7 +133,7 @@
 .user_profile_container {
   display: flex;
   flex-direction: column;
-  padding: 0 0 2.25rem 1.37rem;
+  padding: 0 0 2.25rem 0;
   width: 100%;
   row-gap: 1.5rem;
 }
