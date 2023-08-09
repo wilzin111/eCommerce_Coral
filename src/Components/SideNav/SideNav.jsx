@@ -59,8 +59,8 @@ export default function SideNav() {
     myWishlistImg.current.classList.remove("change_to_blue");
     
     if(window.screen.width < 900){
-      if(component !== false ){
-        setComponent(false);
+      if(component !== -1 ){
+        setComponent(-1);
       }
       console.log(component);
     }
