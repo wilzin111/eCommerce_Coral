@@ -5,6 +5,8 @@ import BlackFridayImage from "../../Assets/ProductsPage/BlackFridayImg.png";
 import { Link } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 import left from "../../Assets/Icons/chevron-left.svg";
+import FilterMobile from "../../Components/FilterMobile/FilterMobile";
+import SortBy from "../../Components/SortBy/SortBy";
 
 export default function EyewearPage() {
   return (
@@ -34,7 +36,14 @@ export default function EyewearPage() {
         </div>
       </div>
       <ProductsFilter />
-      <Footer />
+
+      <SortBy />
+
+      <FilterMobile />
+
+      <div className="header-category">
+        <Footer />
+      </div>
     </div>
   );
 }
