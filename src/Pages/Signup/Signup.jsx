@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Signup.css";
+import eye from "./../../Assets/Icons/eye.svg";
+import cross from "./../../Assets/Icons/cross.svg";
 import { useRef, useState } from "react";
 import { db, auth, storage } from "../../FireBaseConnection";
 import { doc, setDoc } from "firebase/firestore";
@@ -18,6 +20,9 @@ const Signup = () => {
   const [userNiver, setUserNiver] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [showPassword, setShowPassword] = useState(false)
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false)
+
 
   const handleImageClick = () => {
     inputRef.current.click();
@@ -179,7 +184,7 @@ const Signup = () => {
 
         <div className="label-float">
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             id="Password"
             placeholder=" "
             value={password}
@@ -187,11 +192,14 @@ const Signup = () => {
             className="signup-hover"
           />
           <label >Enter a password</label>
+          <button onClick={() => setShowPassword(!showPassword)}>
+            <img src={showPassword ? cross : eye} />
+          </button>
         </div>
 
         <div className="label-float">
           <input
-            type="password"
+            type={showPasswordConfirm ? 'text' : 'password'}
             id="ConfirmPassword"
             placeholder=" "
             value={passwordConfirm}
@@ -199,6 +207,9 @@ const Signup = () => {
             className="signup-hover"
           />
           <label >Confirm the password</label>
+          <button onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}>
+            <img src={showPasswordConfirm ? cross : eye} />
+          </button>
         </div>
 
         <button className="signup-btn" onClick={handleRegister}>

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './Login.css'
-
+import eye from "./../../Assets/Icons/eye.svg";
+import cross from "./../../Assets/Icons/cross.svg";
 import { auth } from '../../FireBaseConnection'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
@@ -11,7 +12,7 @@ const login = () => {
     const navigatL = useNavigate()
     const [loginEmail, setLoginEmail] = useState('')
     const [loginPassword, setLoginPassword] = useState('')
-
+    const [showPassword, setShowPassword] = useState(false)
     async function handleLogin() {
         await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
             .then((value) => {
@@ -35,20 +36,25 @@ const login = () => {
             <div className="login-container-input">
                 <div className="label-float">
                     <input type="text"
-                    placeholder=" "
-                    onChange={(e) => setLoginEmail(e.target.value)}
-                />
-                <label >Your Email</label>
+                        placeholder=" "
+                        onChange={(e) => setLoginEmail(e.target.value)}
+                    />
+                    <label >Your Email</label>
                 </div>
-                
+
                 <div className="label-float">
-                    <input type="password"
-                    placeholder=" "
-                    onChange={(e) => setLoginPassword(e.target.value)}
-                />
-                <label>Enter a password</label>
+                    <input type={showPassword ? 'text' : 'password'}
+                        placeholder=" "
+                        onChange={(e) => setLoginPassword(e.target.value)}
+                    />
+                    
+                    <label>Enter a password</label>
+                    <button onClick={()=> setShowPassword(!showPassword)}>
+                        <img src={showPassword ? cross : eye}/>
+                    </button>
+                    
                 </div>
-                
+
 
                 <button className='login-btn' onClick={handleLogin}>Log in</button>
 
