@@ -38,7 +38,7 @@ function Header() {
     document.getElementById("AllProducts").classList.remove("stop-scrolling");
   }
 
-  function handleClick() {}
+  function handleClick() { }
   function Bag() {
     if (openBag) {
       document.body.classList.add("stop-scrolling");
@@ -209,9 +209,7 @@ function Header() {
             ) : (
               <>
                 <div className="heade-btn-notLog">
-                  <button>
-                    <Link to={"/startScreen"}>Get Started</Link>
-                  </button>
+                  <Link to={"/startScreen"}>Get Started</Link>
                 </div>
               </>
             )}
@@ -256,9 +254,7 @@ function Header() {
               ) : (
                 <>
                   <div className="heade-btn-notLog">
-                    <button>
-                      <Link to={"/startScreen"}>Get Started</Link>
-                    </button>
+                    <Link to={"/startScreen"}>Get Started</Link>
                   </div>
                 </>
               )}
