@@ -160,7 +160,7 @@ const Home = () => {
             <Link to={"/products/watches"} className="imageLink">
               <img src={WristWatches} alt="Image 3" className="image" />
             </Link>
-            <Link to={"/products/sunglasses"} className="imageLink">
+            <Link to={"/products/eyewear"} className="imageLink">
               <img src={SunGlasses} alt="Image 4" className="image" />
             </Link>
           </div>

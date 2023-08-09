@@ -6,7 +6,7 @@ import Bag from "../Components/Bag/Bag";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 import HandbagsPages from "../Pages/HandbagsPages/HandbagsPages";
 import WatchesPages from "../Pages/WatchesPages/WatchesPages";
-import SunGlassesPages from "../Pages/SunGlassesPages/SunGlassesPages";
+import EyewearPages from "../Pages/EyewarePages/EyewearPages";
 import PersonalCarePages from "../Pages/PersonalCarePages/PersonalCarePages";
 import SkinCarePages from "../Pages/SkinCarePages/SkinCarePages";
 import JewelleryPages from "../Pages/JewelleryPages/JewelleryPages";
@@ -64,7 +64,7 @@ const Router = () => {
         <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/products/handbags" element={<HandbagsPages />} />
         <Route path="/products/watches" element={<WatchesPages />} />
-        <Route path="/products/sunglasses" element={<SunGlassesPages />} />
+        <Route path="/products/eyewear" element={<EyewearPages />} />
         <Route path="/products/personalcare" element={<PersonalCarePages />} />
         <Route path="/products/skincare" element={<SkinCarePages />} />
         <Route path="/products/jewellery" element={<JewelleryPages />} />
