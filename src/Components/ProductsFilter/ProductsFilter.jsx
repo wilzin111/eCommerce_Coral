@@ -35,7 +35,7 @@ const ProductsFilter = () => {
   };
 
   return (
-    <div className="products-filter">
+    <div className="products-filter-container">
       <div className="filter-option">
         <div className="filter-label" onClick={() => handleToggle("size")}>
           <span>Size</span>

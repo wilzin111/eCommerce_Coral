@@ -1,4 +1,12 @@
-.products-filter {
+.header-category,
+.products_blackfriday,
+.products_blImageContainer,
+.breadcrumb-page-category {
+  display: none;
+}
+
+.products-filter,
+.products-filter-container {
   display: flex;
   flex-direction: column;
   width: 286px;
@@ -12,15 +20,12 @@
   margin-left: 0px;
 }
 
-h2 {
-  color: var(--primary, #1b4b66);
-  font-family: Inter;
-  font-size: 29px;
+.category-name {
+  color: #1b4b66;
+  font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  margin-left: -2px;
-  margin-top: 27px;
-  margin-bottom: 42px;
+  padding: 39px 0 41px 0;
 }
 
 .categoriesPageLink span,
@@ -29,17 +34,6 @@ a {
   color: var(--type-low-emphasis, #626262);
   text-decoration: none;
   margin-left: 8px;
-}
-
-.products_blImageContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-  margin-bottom: 49px;
-}
-
-.products_blackfriday {
-  width: 97%;
 }
 
 .filter-option {
@@ -68,4 +62,44 @@ a {
 
 .filter-checkbox {
   margin-right: 5px;
+}
+
+.category-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.category-title img {
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (min-width: 900px) {
+  .header-category,
+  .products_blackfriday,
+  .breadcrumb-page-category {
+    display: block;
+  }
+
+  .category-title img {
+    display: none;
+  }
+
+  .category-name {
+    font-size: 29px;
+    margin-left: -30px;
+  }
+
+  .products_blImageContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 49px;
+  }
+
+  .products_blackfriday {
+    width: 97%;
+  }
 }
