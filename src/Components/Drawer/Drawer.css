@@ -7,6 +7,34 @@
     z-index: 10000;
 }
 
+@keyframes open {
+    from {
+      transform: translateX(-300px);
+    }
+  
+    to {
+      transform: translateX(0px);
+    }
+  }
+  
+  @keyframes close {
+    from {
+      transform: translateX(0px);
+    }
+  
+    to {
+      transform: translateX(-300px);
+    }
+  }
+
+  .animation-header-modal {
+    animation: open 0.5s forwards;
+  }
+  
+  .animation-close-header-modal {
+    animation: close 0.5s;
+  }
+
 .drawer-container-user {
     width: 297px;
     height: auto;
@@ -64,11 +92,22 @@
 .text2-drawer {
     height: 34px;
     display: flex;
-    margin: 16px 0;
     margin-right: 18px;
+    color: #000000;
     justify-content: space-between;
     align-items: center;
 }
+
+.text2-drawer{
+    margin: 16px 0;
+    margin-right: 18px;
+}
+
+.text-drawer:hover,
+.text2-drawer:hover {
+    background-color: #F4F4F4
+}
+
 
 .text-drawer:last-child {
     margin-bottom: 0;

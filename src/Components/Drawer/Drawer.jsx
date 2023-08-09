@@ -25,9 +25,18 @@ const Drawer = ({ isOpen = false, setDrawerOpen }) => {
         }
     }
 
+    function handleModalState() {
+        setAnimation("content-header-modal animate-modal-info");
+
+        setTimeout(() => {
+            setIsOpen(false);
+            setAnimation("content-header-modal animation-header-modal");
+        }, 300);
+    }
+
     if (isOpen) {
         return (
-            <div className='drawer-header'>
+            <div className='drawer-header' onClick={(e) => { if (e.target.className === 'drawer-header') { setDrawerOpen(false) } }}>
 
                 <div className='drawer-container-user'>
                     <div className='user-drawer'>
@@ -42,46 +51,61 @@ const Drawer = ({ isOpen = false, setDrawerOpen }) => {
 
                     <div className='drawer-top-categoris'>
                         <p>Top categories</p>
-                        <div className="text-drawer">
-                            <p>Skincare</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link to={"/products/skincare"}>
+                            <div className="text-drawer">
+                                <p>Skincare</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>Apparels</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link to={'/products/apparels'}>
+                            <div className="text-drawer">
+                                <p>Apparels</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>Jwellery</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link to={"/products/jewellery"}>
+                            <div className="text-drawer">
+                                <p>Jwellery</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>Handbags</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link to={"/products/handbags"}>
+                            <div className="text-drawer">
+                                <p>Handbags</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>EyeWare</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link>
+                            <div className="text-drawer">
+                                <p>EyeWare</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>Fragrance</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link>
+                            <div className="text-drawer">
+                                <p>Fragrance</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>Watches</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link to={"/products/watches"}>
+                            <div className="text-drawer">
+                                <p>Watches</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>About</p>
-                            <button className='drawer-btn-arrow'><Link to={'/about'}>{arrow}</Link></button>
-                        </div>
-
+                        <Link to={'/about'}>
+                            <div className="text-drawer">
+                                <p>About</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
                     </div>
                     <hr />
                     <div className='drawer-ContactUs'>
@@ -103,14 +127,9 @@ const Drawer = ({ isOpen = false, setDrawerOpen }) => {
                         </div>
                     </div>
                 </div>
-                <button onClick={() => { setDrawerOpen(false) }} className='drawer-btn' />
             </div>
         )
     }
 }
-
-
-
-
 
 export default Drawer
