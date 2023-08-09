@@ -18,6 +18,8 @@ const Signup = () => {
   const [userLastName, setUserLastName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userNiver, setUserNiver] = useState("");
+  const [userDDD, setUserDDD] = useState("");
+  const [userNumber, setUserNumber] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [showPassword, setShowPassword] = useState(false)
@@ -50,8 +52,7 @@ const Signup = () => {
   const capitalizedfirstName = capitalizeFirstName(userName);
   const capitalizedLastName = capitalizeLastName(userLastName);
 
-  const regexPassword =
-    /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\-])(?=.*[A-Z]).{8,}$/;
+  const regexPassword = /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\-])(?=.*[A-Z]).{8,}$/;
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   function handleImage(e) {
@@ -77,7 +78,7 @@ const Signup = () => {
     } else if (!regexEmail.test(userEmail)) {
       error("Please enter a valid email");
       return;
-    } else if (!regexPassword.test(password)) {
+    }else if (!regexPassword.test(password)) {
       error(
         "The password must contain one special character, one uppercase letter, and be at least 8 characters long."
       );
@@ -93,6 +94,8 @@ const Signup = () => {
             firstName: capitalizedfirstName,
             lastName: capitalizedLastName,
             niver: userNiver,
+            DDD: userDDD,
+            Number: userNumber,
             signupEmail: userEmail,
             signupPassword: password,
             uid: uid,
@@ -181,6 +184,32 @@ const Signup = () => {
           />
           <label >Your birthday</label>
         </div>
+        <div className="signup-fone-number">
+          <div className="label-float signup-number-dd">
+            <input
+              type="DDD"
+              id="Number"
+              placeholder=" "
+              maxLength={2}
+              value={userDDD}
+              onChange={(e) => setUserDDD(e.target.value)}
+            />
+            <label >DDD</label>
+          </div>
+
+          <div className="label-float signup-number">
+            <input
+              type="tel"
+              id="Number"
+              placeholder=" "
+              maxLength={9}
+              value={userNumber}
+              onChange={(e) => setUserNumber(e.target.value)}
+            />
+            <label >Phone number</label>
+          </div>
+        </div>
+
 
         <div className="label-float">
           <input

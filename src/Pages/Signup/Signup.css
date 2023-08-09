@@ -37,7 +37,7 @@
     max-height: 100px;
 }
 
-.signup-img-none p{
+.signup-img-none p {
     color: #ffffff;
     margin-bottom: 5px;
 }
@@ -107,6 +107,18 @@ input[type='date']::-webkit-calendar-picker-indicator {
     position: relative;
 }
 
+.signup-fone-number {
+    display: flex;
+}
+
+.signup-number-dd input {
+    width: 60px;
+}
+
+.signup-number input {
+    width: 140px;
+}
+
 .label-float label {
     position: absolute;
     top: 17px;
@@ -123,7 +135,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
     transition: .3s;
 }
 
-.label-float button{
+.label-float button {
     position: absolute;
     top: 15px;
     right: 23px;
@@ -131,7 +143,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
     border: none;
 }
 
-.label-float-date label{
+.label-float-date label {
     position: absolute;
     left: 23px;
     color: #000000;
