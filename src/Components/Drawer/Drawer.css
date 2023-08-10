@@ -7,26 +7,6 @@
     z-index: 10000;
 }
 
-@keyframes open {
-    from {
-      transform: translateX(-300px);
-    }
-  
-    to {
-      transform: translateX(0px);
-    }
-  }
-  
-  @keyframes close {
-    from {
-      transform: translateX(0px);
-    }
-  
-    to {
-      transform: translateX(-300px);
-    }
-  }
-
   .animation-header-modal {
     animation: open 0.5s forwards;
   }
@@ -42,6 +22,7 @@
     flex-direction: column;
     background-color: #fff;
 }
+
 
 .drawer-btn {
     width: 100%;

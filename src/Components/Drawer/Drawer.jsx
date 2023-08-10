@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import './Drawer.css'
 import { DataUserContext } from '../../Contexts/dataUser'
 import { storage } from '../../FireBaseConnection'
@@ -25,20 +25,21 @@ const Drawer = ({ isOpen = false, setDrawerOpen }) => {
         }
     }
 
-    function handleModalState() {
-        setAnimation("content-header-modal animate-modal-info");
-
-        setTimeout(() => {
-            setIsOpen(false);
-            setAnimation("content-header-modal animation-header-modal");
-        }, 300);
-    }
+    const [animation, setAnimation] = useState(true) 
 
     if (isOpen) {
         return (
-            <div className='drawer-header' onClick={(e) => { if (e.target.className === 'drawer-header') { setDrawerOpen(false) } }}>
+            <div className='drawer-header' onClick={(e) => {
+                if (e.target.className === 'drawer-header') {
+                    setAnimation(false);
+                    setTimeout(() => {
+                        setDrawerOpen(false)
+                        setAnimation(true);
+                    }, 300);
+                }
+            }}>
 
-                <div className='drawer-container-user'>
+                <div className={animation ? 'drawer-container-user animation-header-modal' : 'drawer-container-user animation-close-header-modal'}>
                     <div className='user-drawer'>
                         <div className='drawer-img-user'>
                             <img src={urlImgUser ? urlImgUser : './imgUserNone.jpg'} alt="" />
