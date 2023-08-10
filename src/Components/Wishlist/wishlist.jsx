@@ -20,7 +20,7 @@ export default function Wishlist() {
         if (snapshot.exists()) {
           setUserWishlist(snapshot.data().products);
         } else {
-          setUserWishlist([]); // Set empty wishlist if user has no items
+          setUserWishlist([]);
         }
       })
       .catch((error) => {
@@ -29,7 +29,7 @@ export default function Wishlist() {
   }, [dataUser.uid]);
 
   const handleRemoveFromWishlist = async (productId, event) => {
-    event.preventDefault(); // Prevent page navigation/reload
+    event.preventDefault();
 
     const updatedWishlist = userWishlist.filter((product) => product.id !== productId);
     setUserWishlist(updatedWishlist);
