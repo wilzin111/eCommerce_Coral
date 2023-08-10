@@ -21,6 +21,8 @@ export default function Wishlist() {
       .then((snapshot) => {
         if (snapshot.exists()) {
           setUserWishlist(snapshot.data().products);
+        } else {
+          setUserWishlist([]);
         }
       })
       .catch((error) => {
@@ -35,17 +37,22 @@ export default function Wishlist() {
   const handleRemoveFromWishlist = async (productId, event) => {
     event.preventDefault();
 
-    const updatedWishlist = userWishlist.filter((product) => product.id !== productId);
-    setUserWishlist(updatedWishlist);
+    const updatedWishlist = [...userWishlist];
+    const productIndex = updatedWishlist.findIndex((product) => product.id === productId);
 
-    const userWishlistRef = doc(db, "userWishlist", dataUser.uid);
-    await updateDoc(userWishlistRef, { products: updatedWishlist });
+    if (productIndex !== -1) {
+      updatedWishlist.splice(productIndex, 1);
+      setUserWishlist(updatedWishlist);
 
-    removeFromWishlist(dataUser.uid, productId);
+      const userWishlistRef = doc(db, "userWishlist", dataUser.uid);
+      await updateDoc(userWishlistRef, { products: updatedWishlist });
+
+      removeFromWishlist(dataUser.uid, productId);
+    }
   };
 
   return (
-    <div className="wrapper-wishlist">
+    <div className={`wrapper-wishlist ${isEmpty ? "empty" : ""}`}>
       <Link to='/' className="my-wishlist">
         <img src={Arrow} alt="Back to Wishlist" className="arrow-wishlist" />
         <h2 className="h2-wishlist">My Wishlist</h2>
@@ -53,17 +60,17 @@ export default function Wishlist() {
 
       {isEmpty ? (
         <section className="container-wishlist" id="container-wishlist">
-          <div className="img-wishlist">
+          <div className="img-wishlist empty">
             <img src={noFavs} alt="empty wishlist" />
           </div>
-          <div className="text-wishlist">
+          <div className="text-wishlist empty">
             <h1 className="h1-wishlist">Well...</h1>
-            <div className="p-wishlist">
+            <div className="p-wishlist empty">
               <p>It seems you have not added any products to your wishlist.</p>
             </div>
           </div>
           <div className="btn-div-wishlist">
-            <Link to={"/"} className="start-shopping">
+            <Link to="/" className="start-shopping">
               Start Shopping
             </Link>
           </div>
@@ -79,7 +86,9 @@ export default function Wishlist() {
                 <h3 className="wishlist-product-name">{product.name}</h3>
                 <p className="wishlist-product-subname">{product.subname}</p>
                 <span className="wishlist-product-price">${product.price}</span>
-                <button type="button" onClick={(event) => handleRemoveFromWishlist(product.id, event)}>Remove</button>
+                <div className="wishlist-product-button">
+                  <button onClick={(event) => handleRemoveFromWishlist(product.id, event)}>Remove</button>
+                </div>
               </div>
             </div>
           ))}

@@ -133,13 +133,7 @@ const Home = () => {
           {produtos.length > 0 ? (
             <div className="new-arrivals-products">
               {produtos.slice(0, 12).map((produto) => (
-                <Link
-                  className="product-link"
-                  to={`/product-detail/${produto.id}`}
-                  key={produto.id}
-                >
-                  <ProductsHome produto={produto} />
-                </Link>
+                  <ProductsHome produto={produto} key={produto.id}/>
               ))}
             </div>
           ) : (

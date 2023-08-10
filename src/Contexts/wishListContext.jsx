@@ -10,12 +10,13 @@ export function useWishlist() {
 
 export function WishlistProvider({ children }) {
   const [wishlist, setWishlist] = useState({});
+  
   function addToWishlist(userId, product) {
     setWishlist((prevWishlist) => ({
       ...prevWishlist,
       [userId]: [...(prevWishlist[userId] || []), product],
     }));
-
+    
     const userWishlistRef = doc(db, "userWishlist", userId);
     getDoc(userWishlistRef)
       .then((snapshot) => {
@@ -35,12 +36,19 @@ export function WishlistProvider({ children }) {
   function removeFromWishlist(userId, productId) {
     setWishlist((prevWishlist) => ({
       ...prevWishlist,
-      [userId]: prevWishlist[userId].filter((product) => product.id !== productId),
+      [userId]: prevWishlist[userId]?.filter((product) => product.id !== productId) || [],
     }));
+    
+    const userWishlistRef = doc(db, "userWishlist", userId);
+    updateDoc(userWishlistRef, {
+      products: wishlist[userId]?.filter((product) => product.id !== productId) || [],
+    }).catch((error) => {
+      console.error("Error updating wishlist in Firestore:", error);
+    });
   }
 
   return (
-    <WishlistContext.Provider value={{ wishlist, addToWishlist, removeFromWishlist}}>
+    <WishlistContext.Provider value={{ wishlist, addToWishlist, removeFromWishlist }}>
       {children}
     </WishlistContext.Provider>
   );
