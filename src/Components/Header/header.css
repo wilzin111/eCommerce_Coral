@@ -224,16 +224,14 @@
   margin: 0.75rem 0.5rem 0 0.87rem;
 }
 
-.heade-btn-notLog button {
+.heade-btn-notLog a {
+  color: #ffffff;
+  padding: 5px 10px;
   background-color: #1B4B66;
   height: 30px;
   border-radius: 20px;
 }
 
-.heade-btn-notLog a {
-  color: #ffffff;
-  padding: 0 10px;
-}
 
 @media screen and (min-width: 900px) {
   .header-mobile {

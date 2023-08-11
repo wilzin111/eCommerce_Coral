@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import './Drawer.css'
 import { DataUserContext } from '../../Contexts/dataUser'
 import { storage } from '../../FireBaseConnection'
@@ -25,11 +25,21 @@ const Drawer = ({ isOpen = false, setDrawerOpen }) => {
         }
     }
 
+    const [animation, setAnimation] = useState(true) 
+
     if (isOpen) {
         return (
-            <div className='drawer-header'>
+            <div className='drawer-header' onClick={(e) => {
+                if (e.target.className === 'drawer-header') {
+                    setAnimation(false);
+                    setTimeout(() => {
+                        setDrawerOpen(false)
+                        setAnimation(true);
+                    }, 300);
+                }
+            }}>
 
-                <div className='drawer-container-user'>
+                <div className={animation ? 'drawer-container-user animation-header-modal' : 'drawer-container-user animation-close-header-modal'}>
                     <div className='user-drawer'>
                         <div className='drawer-img-user'>
                             <img src={urlImgUser ? urlImgUser : './imgUserNone.jpg'} alt="" />
@@ -42,46 +52,61 @@ const Drawer = ({ isOpen = false, setDrawerOpen }) => {
 
                     <div className='drawer-top-categoris'>
                         <p>Top categories</p>
-                        <div className="text-drawer">
-                            <p>Skincare</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link to={"/products/skincare"}>
+                            <div className="text-drawer">
+                                <p>Skincare</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>Apparels</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link to={'/products/apparels'}>
+                            <div className="text-drawer">
+                                <p>Apparels</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>Jwellery</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link to={"/products/jewellery"}>
+                            <div className="text-drawer">
+                                <p>Jwellery</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>Handbags</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link to={"/products/handbags"}>
+                            <div className="text-drawer">
+                                <p>Handbags</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>EyeWare</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link>
+                            <div className="text-drawer">
+                                <p>EyeWare</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>Fragrance</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link>
+                            <div className="text-drawer">
+                                <p>Fragrance</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>Watches</p>
-                            <button className='drawer-btn-arrow'>{arrow}</button>
-                        </div>
+                        <Link to={"/products/watches"}>
+                            <div className="text-drawer">
+                                <p>Watches</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
 
-                        <div className="text-drawer">
-                            <p>About</p>
-                            <button className='drawer-btn-arrow'><Link to={'/about'}>{arrow}</Link></button>
-                        </div>
-
+                        <Link to={'/about'}>
+                            <div className="text-drawer">
+                                <p>About</p>
+                                <button className='drawer-btn-arrow'>{arrow}</button>
+                            </div>
+                        </Link>
                     </div>
                     <hr />
                     <div className='drawer-ContactUs'>
@@ -103,14 +128,9 @@ const Drawer = ({ isOpen = false, setDrawerOpen }) => {
                         </div>
                     </div>
                 </div>
-                <button onClick={() => { setDrawerOpen(false) }} className='drawer-btn' />
             </div>
         )
     }
 }
-
-
-
-
 
 export default Drawer

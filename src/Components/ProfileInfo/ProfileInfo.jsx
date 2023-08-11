@@ -12,7 +12,7 @@ export default function ProfileInfo() {
 
   const { dataUser, logout } = useContext(DataUserContext)
   const [imguser, setImgUser] = useState('')
-
+  const fullNumber = dataUser.DDD + ' ' + dataUser.Number
   if (dataUser.uid) {
     const handleUploadImage = async (e) => {
       await getDownloadURL(ref(storage, `images/users/${e}`))
@@ -89,7 +89,7 @@ export default function ProfileInfo() {
               <br />
               <span className="text_low_emphasis2">{dataUser.signupEmail}</span>
               <br />
-              <span className="text_low_emphasis2">{dataUser.nunber}</span>
+              <span className="text_low_emphasis2">{fullNumber ? fullNumber : ''}</span>
             </div>
             <div className="flex_row absolute" style={{ right: "1rem" }}>
               <img className="change_to_gray" src={right} />

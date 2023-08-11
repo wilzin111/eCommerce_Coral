@@ -31,8 +31,8 @@ export default function PersonalInfo() {
   const [urlImgUserProfile, setUrlImgUserProfile] = useState('');
   const [userFirstName, setUserFirstName] = useState(dataUser.firstName ? dataUser.firstName : '')
   const [userLastName, setUserLastName] = useState(dataUser.lastName ? dataUser.lastName : '')
-  const [userDDD, setUserDDD] = useState('1')
-  const [userNumber, setUserNumber] = useState('xxx-xxx-xxxx')
+  const [userDDD, setUserDDD] = useState(dataUser.DDD ? dataUser.DDD : '1')
+  const [userNumber, setUserNumber] = useState(dataUser.Number ? dataUser.Number : 'xxxxx-xxxx')
   const [userNiver, setUserNiver] = useState(dataUser.niver ? dataUser.niver : '')
   const [userCurrentPassword, setUserCurrentPassword] = useState('')
   const [userNewPassword, setUserNewPassword] = useState('')
@@ -151,8 +151,6 @@ export default function PersonalInfo() {
               className="user_profile_info_input width_19rem"
               type="tel"
               value={userNumber}
-              inputMode="numeric"
-              autoComplete="on"
               // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               onChange={(e) => setUserNumber(e.target.value)}
             />
