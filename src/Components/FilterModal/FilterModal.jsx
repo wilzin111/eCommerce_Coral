@@ -2,74 +2,68 @@ import "./FilterModal.css";
 import { useState } from "react";
 
 export const FilterModal = () => {
-  const [sizeOpen, setSizeOpen] = useState(false);
-  const [colorOpen, setColorOpen] = useState(false);
-  const [brandOpen, setBrandOpen] = useState(false);
-  const [priceOpen, setPriceOpen] = useState(false);
-  const [discountOpen, setDiscountOpen] = useState(false);
+  const [selectedButton, setSelectedButton] = useState("Size");
 
   return (
     <div className="filter-modal-container">
       <div className="filter-buttons">
         <button
-          onClick={() => [
-            setSizeOpen(true),
-            setColorOpen(false),
-            setBrandOpen(false),
-            setPriceOpen(false),
-            setDiscountOpen(false),
-          ]}
+          onClick={() => setSelectedButton("Size")}
+          style={
+            selectedButton == "Size"
+              ? { backgroundColor: "white", color: "black" }
+              : { backgroundColor: " #f1f1f1", color: "#626262" }
+          }
         >
           Size
         </button>
         <button
-          onClick={() => [
-            setColorOpen(true),
-            setSizeOpen(false),
-            setBrandOpen(false),
-            setPriceOpen(false),
-            setDiscountOpen(false),
-          ]}
+          onClick={() => setSelectedButton("Color")}
+          style={
+            selectedButton == "Color"
+              ? { backgroundColor: "white", color: "black" }
+              : { backgroundColor: " #f1f1f1", color: "#626262" }
+          }
         >
           Color
         </button>
+
         <button
-          onClick={() => [
-            setBrandOpen(true),
-            setSizeOpen(false),
-            setColorOpen(false),
-            setPriceOpen(false),
-            setDiscountOpen(false),
-          ]}
+          onClick={() => setSelectedButton("Brand")}
+          style={
+            selectedButton == "Brand"
+              ? { backgroundColor: "white", color: "black" }
+              : { backgroundColor: " #f1f1f1", color: "#626262" }
+          }
         >
           Brand
         </button>
+
         <button
-          onClick={() => [
-            setPriceOpen(true),
-            setSizeOpen(false),
-            setColorOpen(false),
-            setBrandOpen(false),
-            setDiscountOpen(false),
-          ]}
+          onClick={() => setSelectedButton("Price Range")}
+          style={
+            selectedButton == "Price Range"
+              ? { backgroundColor: "white", color: "black" }
+              : { backgroundColor: " #f1f1f1", color: "#626262" }
+          }
         >
           Price Range
         </button>
+
         <button
-          onClick={() => [
-            setDiscountOpen(true),
-            setSizeOpen(false),
-            setColorOpen(false),
-            setBrandOpen(false),
-            setPriceOpen(false),
-          ]}
+          onClick={() => setSelectedButton("Discount")}
+          style={
+            selectedButton == "Discount"
+              ? { backgroundColor: "white", color: "black" }
+              : { backgroundColor: " #f1f1f1", color: "#626262" }
+          }
         >
           Discount
         </button>
       </div>
 
       <form>
-        {sizeOpen && (
+        {selectedButton == "Size" && (
           <div className="expanded-options">
             <label>
               <input type="checkbox" className="filter-checkbox" />
@@ -82,7 +76,7 @@ export const FilterModal = () => {
           </div>
         )}
 
-        {colorOpen && (
+        {selectedButton == "Color" && (
           <div className="expanded-options">
             <label>
               <input type="checkbox" className="filter-checkbox" />
@@ -119,7 +113,7 @@ export const FilterModal = () => {
           </div>
         )}
 
-        {brandOpen && (
+        {selectedButton == "Brand" && (
           <div className="expanded-options">
             <label>
               <input type="checkbox" className="filter-checkbox" />
@@ -148,7 +142,7 @@ export const FilterModal = () => {
           </div>
         )}
 
-        {priceOpen && (
+        {selectedButton == "Price Range" && (
           <div className="expanded-options">
             <label>
               <input type="checkbox" className="filter-checkbox" />
@@ -165,7 +159,7 @@ export const FilterModal = () => {
           </div>
         )}
 
-        {discountOpen && (
+        {selectedButton == "Discount" && (
           <div className="expanded-options">
             <label>
               <input type="checkbox" className="filter-checkbox" />

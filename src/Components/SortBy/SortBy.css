@@ -18,8 +18,7 @@
   .sortby-container {
     width: 74%;
     height: 56px;
-    float: right;
-    margin: -260px 20px 0 0;
+    padding-bottom: 15px;
   }
 
   .sortby-content {

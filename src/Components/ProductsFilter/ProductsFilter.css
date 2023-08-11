@@ -1,16 +1,15 @@
 .header-category,
 .products_blackfriday,
 .products_blImageContainer,
-.breadcrumb-page-category {
+.breadcrumb-page-category,
+.products-filter-container {
   display: none;
 }
 
-.products-filter,
-.products-filter-container {
+.components-flex {
   display: flex;
-  flex-direction: column;
-  width: 286px;
-  padding-left: 20px;
+  flex-direction: row;
+  gap: 35px;
 }
 
 .homeLinkCss {
@@ -85,6 +84,14 @@ a {
 
   .category-title img {
     display: none;
+  }
+
+  .products-filter,
+  .products-filter-container {
+    display: flex;
+    flex-direction: column;
+    width: 286px;
+    padding-left: 20px;
   }
 
   .category-name {
