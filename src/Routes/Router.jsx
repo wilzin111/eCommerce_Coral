@@ -4,13 +4,7 @@ import About from "../Pages/About/About";
 import Categories from "../Pages/Categories/Categories";
 import Bag from "../Components/Bag/Bag";
 import UserProfile from "../Pages/UserProfile/UserProfile";
-import HandbagsPages from "../Pages/HandbagsPages/HandbagsPages";
-import WatchesPages from "../Pages/WatchesPages/WatchesPages";
-import EyewearPages from "../Pages/EyewarePages/EyewearPages";
-import PersonalCarePages from "../Pages/PersonalCarePages/PersonalCarePages";
-import SkinCarePages from "../Pages/SkinCarePages/SkinCarePages";
-import JewelleryPages from "../Pages/JewelleryPages/JewelleryPages";
-import ApparelsPages from "../Pages/ApparelsPage/ApparelsPage";
+import ProductsPages from "../Pages/ProductsPages/ProductsPages";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
 import RegisterProducts from "../Pages/RegisterProducts/RegProducts";
@@ -62,13 +56,7 @@ const Router = () => {
           }
         />
         <Route path="/product-detail/:id" element={<ProductDetail />} />
-        <Route path="/products/handbags" element={<HandbagsPages />} />
-        <Route path="/products/watches" element={<WatchesPages />} />
-        <Route path="/products/eyewear" element={<EyewearPages />} />
-        <Route path="/products/personalcare" element={<PersonalCarePages />} />
-        <Route path="/products/skincare" element={<SkinCarePages />} />
-        <Route path="/products/jewellery" element={<JewelleryPages />} />
-        <Route path="/products/apparels" element={<ApparelsPages />} />
+        <Route path="/products/:id" element={<ProductsPages />} />
       </Routes>
     </BrowserRouter>
   );
