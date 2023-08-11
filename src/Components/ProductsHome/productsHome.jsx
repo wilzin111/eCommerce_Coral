@@ -7,7 +7,7 @@ import { DataUserContext } from "../../Contexts/dataUser";
 import { Link } from "react-router-dom";
 
 export const ProductsHome = ({ produto }) => {
-  const { wishlist, addToWishlist } = useWishlist();
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
   const { dataUser } = useContext(DataUserContext);
 
   const [isHovered, setIsHovered] = useState(false);
@@ -19,8 +19,12 @@ export const ProductsHome = ({ produto }) => {
 
   const handleAddToWishlist = () => {
     const userId = dataUser.uid;
-    addToWishlist(userId, produto);
-    setIsClicked(true);
+    if (isClicked) {
+      removeFromWishlist(userId, produto.id);
+    } else {
+      addToWishlist(userId, produto);
+    }
+    setIsClicked(!isClicked);
   };
 
   const newPrice = produto.price - produto.price * (produto.discount / 100);
@@ -49,8 +53,10 @@ export const ProductsHome = ({ produto }) => {
         >
           <img
             src={isClicked || isHovered ? heartFill : heartEmpty}
-            alt="Add to Wishlist"
-            className={`${isHovered ? "heart-hover" : ""}`}
+            alt={isClicked ? "Remove from Wishlist" : "Add to Wishlist"}
+            className={`heart-icon ${
+              isClicked || isHovered ? "filled" : "empty"
+            } ${isHovered ? "heart-hover" : ""}`}
           />
         </button>
       </div>
