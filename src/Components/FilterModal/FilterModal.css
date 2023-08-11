@@ -1,0 +1,66 @@
+.filter-modal-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.expanded-options label {
+  margin-top: 10px;
+  color: #626262;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
+  height: 654px;
+  width: 120px;
+  background-color: #f1f1f1;
+}
+
+.filter-buttons button {
+  width: 120px;
+  height: 46px;
+  border: none;
+  background-color: #f1f1f1;
+
+  color: #626262;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.filter-buttons button::after {
+  background-color: #fff;
+}
+
+.filter-submit-btn {
+  width: 100%;
+  height: 66px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.filter-submit-btn button {
+  width: 160px;
+  height: 44px;
+  border-radius: 8px;
+  border: 2px solid #1b4b66;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.clear-all-filter {
+  background-color: #fff;
+  color: #1b4b66;
+}
+
+.apply-filter {
+  background-color: #1b4b66;
+  color: #fff;
+}
