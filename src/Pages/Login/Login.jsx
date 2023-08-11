@@ -38,17 +38,19 @@ const login = () => {
                     <input type="text"
                         placeholder=" "
                         onChange={(e) => setLoginEmail(e.target.value)}
+                        id='email'
                     />
-                    <label >Your Email</label>
+                    <label for='email'>Your Email</label>
                 </div>
 
                 <div className="label-float">
                     <input type={showPassword ? 'text' : 'password'}
                         placeholder=" "
                         onChange={(e) => setLoginPassword(e.target.value)}
+                        id='password'
                     />
                     
-                    <label>Enter a password</label>
+                    <label for='password'>Enter a password</label>
                     <button onClick={()=> setShowPassword(!showPassword)}>
                         <img src={showPassword ? cross : eye}/>
                     </button>

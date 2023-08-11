@@ -146,7 +146,7 @@ const Signup = () => {
             onChange={(e) => setUserName(e.target.value)}
             className="signup-hover"
           />
-          <label >Your Name</label>
+          <label for='Name'>Your Name</label>
         </div>
 
         <div className="label-float">
@@ -158,7 +158,7 @@ const Signup = () => {
             onChange={(e) => setUserLastName(e.target.value)}
             className="signup-hover"
           />
-          <label >Your Last Name</label>
+          <label for='LastName'>Your Last Name</label>
         </div>
 
         <div className="label-float">
@@ -170,7 +170,7 @@ const Signup = () => {
             onChange={(e) => setUserEmail(e.target.value)}
             className="signup-hover"
           />
-          <label >Your Email</label>
+          <label for='Email'>Your Email</label>
         </div>
 
         <div className="label-float-date">
@@ -182,19 +182,19 @@ const Signup = () => {
             onChange={(e) => setUserNiver(e.target.value)}
             className="signup-hover"
           />
-          <label >Your birthday</label>
+          <label for='Niver'>Your birthday</label>
         </div>
         <div className="signup-fone-number">
           <div className="label-float signup-number-dd">
             <input
               type="DDD"
-              id="Number"
+              id="DDD"
               placeholder=" "
               maxLength={2}
               value={userDDD}
               onChange={(e) => setUserDDD(e.target.value)}
             />
-            <label >DDD</label>
+            <label for='DDD'>DDD</label>
           </div>
 
           <div className="label-float signup-number">
@@ -206,7 +206,7 @@ const Signup = () => {
               value={userNumber}
               onChange={(e) => setUserNumber(e.target.value)}
             />
-            <label >Phone number</label>
+            <label for='Number'>Phone number</label>
           </div>
         </div>
 
@@ -220,7 +220,7 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
             className="signup-hover"
           />
-          <label >Enter a password</label>
+          <label for='Password'>Enter a password</label>
           <button onClick={() => setShowPassword(!showPassword)}>
             <img src={showPassword ? cross : eye} />
           </button>
@@ -235,7 +235,7 @@ const Signup = () => {
             onChange={(e) => setPasswordConfirm(e.target.value)}
             className="signup-hover"
           />
-          <label >Confirm the password</label>
+          <label for='ConfirmPassword'>Confirm the password</label>
           <button onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}>
             <img src={showPasswordConfirm ? cross : eye} />
           </button>
