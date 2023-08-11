@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import { db } from "../FireBaseConnection";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 
@@ -10,27 +10,44 @@ export function useWishlist() {
 
 export function WishlistProvider({ children }) {
   const [wishlist, setWishlist] = useState({});
-  
+  const [localStorageLoaded, setLocalStorageLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!localStorageLoaded) {
+      const storedWishlist = localStorage.getItem("wishlist");
+      if (storedWishlist) {
+        setWishlist(JSON.parse(storedWishlist));
+      }
+      setLocalStorageLoaded(true);
+    }
+  }, [localStorageLoaded]);
+
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
+
   function addToWishlist(userId, product) {
-    setWishlist((prevWishlist) => ({
-      ...prevWishlist,
-      [userId]: [...(prevWishlist[userId] || []), product],
-    }));
-    
-    const userWishlistRef = doc(db, "userWishlist", userId);
-    getDoc(userWishlistRef)
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          updateDoc(userWishlistRef, {
-            products: [...snapshot.data().products, product],
-          });
-        } else {
-          setDoc(userWishlistRef, { products: [product] });
-        }
-      })
-      .catch((error) => {
-        console.error("Error updating wishlist in Firestore:", error);
-      });
+    if (!wishlist[userId]?.some((p) => p.id === product.id)) {
+      setWishlist((prevWishlist) => ({
+        ...prevWishlist,
+        [userId]: [...(prevWishlist[userId] || []), product],
+      }));
+      
+      const userWishlistRef = doc(db, "userWishlist", userId);
+      getDoc(userWishlistRef)
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            updateDoc(userWishlistRef, {
+              products: [...snapshot.data().products, product],
+            });
+          } else {
+            setDoc(userWishlistRef, { products: [product] });
+          }
+        })
+        .catch((error) => {
+          console.error("Error updating wishlist in Firestore:", error);
+        });
+    }
   }
 
   function removeFromWishlist(userId, productId) {

@@ -413,3 +413,10 @@
     width: 84%;
   }
 }
+
+@media screen and (max-width: 1280px) {
+  .newArrivalContainer {
+    margin-top: 60px;
+  }
+}
+

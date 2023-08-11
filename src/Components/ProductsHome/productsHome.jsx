@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useWishlist } from "../../Contexts/wishlistContext";
 import "./productsHome.css";
 import heartEmpty from "../../Assets/Icons/wishlist.svg";
 import heartFill from "../../Assets/Icons/wishlist-fill.svg";
-import { useContext } from "react";
 import { DataUserContext } from "../../Contexts/dataUser";
 import { Link } from "react-router-dom";
 
 export const ProductsHome = ({ produto }) => {
-  const { addToWishlist } = useWishlist();
+  const { wishlist, addToWishlist } = useWishlist();
   const { dataUser } = useContext(DataUserContext);
 
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+
+  useEffect(() => {
+    setIsClicked(wishlist[dataUser.uid]?.some((p) => p.id === produto.id));
+  }, [dataUser.uid, produto.id, wishlist]);
 
   const handleAddToWishlist = () => {
     const userId = dataUser.uid;
@@ -27,9 +30,10 @@ export const ProductsHome = ({ produto }) => {
     <div className="product-img-home-content">
       <img src={produto.url} alt="Product image" className="product-img-home" />
       <div className="products-home-container">
-        <Link className="product-link"
+        <Link
           to={`/product-detail/${produto.id}`}
           key={produto.id}
+          className="product-link"
         >
           <div className="products-home-text">
             <span className="products-home-span">{produto.name}</span>

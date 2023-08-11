@@ -85,18 +85,18 @@ body {
 
 .products-wishlist {
   display: flex;
-  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 20px;
-  margin-left: 25px;
+  padding-left: 25px;
 }
 
 .wishlist-product {
   width: calc(25% - 20px);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  margin-right: 23px;
   margin-bottom: 20px;
 }
 
@@ -108,10 +108,36 @@ body {
   box-shadow: black 0px 11px 49px -31px;
 }
 
+.wishlist-product-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 10px;
+}
+
 .wishlist-product-name {
   font-size: 16px;
   text-align: left;
-  margin-top: 10px;
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.heart-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.heart-button img {
+  width: 20px;
+  height: 20px;
 }
 
 .wishlist-product-button button {
@@ -145,14 +171,26 @@ body {
   margin: 10px 0;
 }
 
+@media screen and (max-width: 1280px) {
+  .wishlist-product {
+    width: calc(19.33% - 20px);
+  }
+}
+
+@media screen and (max-width: 876px) {
+  .wishlist-product {
+    width: calc(33.33% - 20px);
+  }
+}
+
 
 @media screen and (max-width: 700px) {
   .wishlist-product {
-    width: calc(50% - 20px);
+    width: calc(30% - 20px);
   }
 
   .products-wishlist {
-    justify-content: space-around;
+    justify-content: space-;
     margin-left: 0;
     gap: 0;
   }
@@ -169,7 +207,7 @@ body {
 
 @media screen and (max-width: 360px) {
   .wishlist-product {
-    width: calc(38% - 0px);
+    width: calc(43% - 0px);
     gap: 0;
     margin-left: 0;
   }
