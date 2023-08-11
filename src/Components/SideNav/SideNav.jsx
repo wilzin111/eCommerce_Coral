@@ -8,6 +8,15 @@ import Wishlist from "../Wishlist/wishlist";
 
 export default function SideNav() {
   const [component, setComponent] = useState(0);
+  const [start, setStart] = useState(false);
+
+  if(window.screen.width < 900){
+    if(start == false){
+      setComponent(-1);
+      setStart(true);
+    }
+    console.log("test " + component);
+  }
 
   const PersonalInformation = useRef();
   const PersonalInformationSpan = useRef();
@@ -58,12 +67,6 @@ export default function SideNav() {
     );
     myWishlistImg.current.classList.remove("change_to_blue");
     
-    if(window.screen.width < 900){
-      if(component !== -1 ){
-        setComponent(-1);
-      }
-      console.log(component);
-    }
     if (component === 0) {
       if(window.screen.width < 900) {
         console.log("teste");
@@ -93,6 +96,7 @@ export default function SideNav() {
       orderSearch.classList.remove("display_none");
     }
     if (component === 3) {
+
       myWishlist.current.classList.add(
         "user_profile_side_navigation_selector_enabled"
       );
@@ -100,6 +104,10 @@ export default function SideNav() {
         "user_profile_side_navigation_text_enabled"
       );
       myWishlistImg.current.classList.add("change_to_blue");
+
+      if(window.screen.width < 900){
+        setComponent(3)
+      }
     }
     if (component === 4) {
     }
@@ -213,7 +221,7 @@ export default function SideNav() {
 
       {component === 0 ? <PersonlInfo /> : null}
       {component === 2 ? <MyOrder /> : null}
-      {component === 3 ? <Wishlist /> : null}
+      {component === 3 ? <Wishlist component={setComponent} /> : null}
     </>
   );
 }

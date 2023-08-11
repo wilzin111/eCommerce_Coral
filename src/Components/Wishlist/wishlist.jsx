@@ -5,16 +5,16 @@ import noFavs from "../../Assets/Wishlist/noFavs.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Wishlist() {
+export default function Wishlist(prop) {
   const [isEmpty, setIsEmpty] = useState(false);
 
   return (
     <>
       <div className="wrapper-wishlist">
-        <Link to={"/home"} className="my-wishlist">
+        <button onClick={() => {prop.component(-1)}} className="my-wishlist">
           <img src={Arrow} className="arrow-wishlist" />
           <h2 className="h2-wishlist">My Wishlist</h2>
-        </Link>
+        </button>
 
         {isEmpty ? (
           <section className="container-wishlist" id="container-wishlist">
