@@ -8,6 +8,8 @@ import "./wishlist.css";
 import { Link } from "react-router-dom";
 import noFavs from "../../Assets/Wishlist/noFavs.png";
 import heartEmpty from "../../Assets/Icons/wishlist.svg";
+import heartFill from "../../Assets/Icons/wishlist-fill.svg";
+import bag from '../../Assets/Icons/bagWishlist.svg';
 
 export default function Wishlist() {
   const { wishlist, removeFromWishlist } = useWishlist();
@@ -74,7 +76,12 @@ export default function Wishlist() {
           {userWishlist.map((product) => (
             <div key={product.id} className="wishlist-product">
               <div className="wishlist-product-img">
-                <img src={product.url} alt={product.name} />
+                <Link 
+                  to={`/product-detail/${product.id}`}
+                  key={product.id}
+                  className="product-link">
+                    <img src={product.url} alt={product.name} />
+                </Link>
               </div>
               <div className="wishlist-product-details">
                 <h3 className="wishlist-product-name">{product.name}</h3>
@@ -82,10 +89,21 @@ export default function Wishlist() {
                   onClick={() => handleRemoveFromWishlist(product.id)}
                   className="heart-button remove"
                 >
-                  <img src={heartEmpty} alt="Remove from Wishlist" className="heart-hover" />
+                  <img src={heartFill} alt="Remove from Wishlist" className="heart-hover" />
                 </button>
+                <Link
+                      to={`/product-detail/${product.id}`}
+                      key={product.id}
+                      className="product-link"
+                >
                 <p className="wishlist-product-subname">{product.subname}</p>
                 <span className="wishlist-product-price">${product.price}</span>
+                </Link>
+                <div className="wishlist-btn-addBag">
+                  <button>
+                    <img src={bag} alt="" /><p>Add to bag</p>
+                  </button>
+                </div>
               </div>
             </div>
           ))}
