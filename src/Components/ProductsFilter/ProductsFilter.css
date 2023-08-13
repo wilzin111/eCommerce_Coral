@@ -109,4 +109,15 @@ a {
   .products_blackfriday {
     width: 97%;
   }
+
+  .breadcrumb-page-category {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .homeLinkCss,
+  .categoriesPageLink {
+    margin: 0;
+  }
 }

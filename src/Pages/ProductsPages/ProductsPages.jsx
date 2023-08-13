@@ -10,6 +10,7 @@ import SortBy from "../../Components/SortBy/SortBy";
 import { ProductsCategory } from "../../Components/ProductsCategory/ProductsCategory";
 import { useContext } from "react";
 import { productContext } from "../../Contexts/productsContext";
+import arrow from "../../Assets/Icons/chevron-right-small.svg";
 
 export default function ProductsPage() {
   const { id } = useParams();
@@ -30,11 +31,12 @@ export default function ProductsPage() {
           <Link to={"/"} className="homeLinkCss">
             Home
           </Link>
-          <span>&gt;</span>
+          <img src={arrow} />
           <Link to={`products/${id}`} className="categoriesPageLink">
             {id}
           </Link>
         </div>
+
         <div className="category-title">
           <Link to={"/"}>
             <img src={left} />
@@ -42,6 +44,7 @@ export default function ProductsPage() {
           <h2 className="category-name">{id}</h2>
         </div>
       </div>
+
       <div className="components-flex">
         <ProductsFilter />
 
