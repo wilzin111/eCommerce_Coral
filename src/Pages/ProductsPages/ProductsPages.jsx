@@ -7,9 +7,14 @@ import Footer from "../../Components/Footer/Footer";
 import left from "../../Assets/Icons/chevron-left.svg";
 import FilterMobile from "../../Components/FilterMobile/FilterMobile";
 import SortBy from "../../Components/SortBy/SortBy";
+import { ProductsCategory } from "../../Components/ProductsCategory/ProductsCategory";
+import { useContext } from "react";
+import { productContext } from "../../Contexts/productsContext";
 
 export default function ProductsPage() {
   const { id } = useParams();
+
+  const { produtos } = useContext(productContext);
 
   return (
     <div>
@@ -40,7 +45,19 @@ export default function ProductsPage() {
       <div className="components-flex">
         <ProductsFilter />
 
-        <SortBy />
+        <div className="comp-flex-products">
+          <SortBy />
+
+          {produtos.length > 0 ? (
+            <div className="products-category-container">
+              {produtos.map((produto) => (
+                <ProductsCategory produto={produto} key={produto.id} />
+              ))}
+            </div>
+          ) : (
+            <div> loading... </div>
+          )}
+        </div>
       </div>
 
       <FilterMobile />
