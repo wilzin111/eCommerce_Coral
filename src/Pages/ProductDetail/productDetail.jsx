@@ -25,19 +25,25 @@ const ProductDetail = () => {
   const { id } = useParams();
   const [produto, setProduto] = useState("");
   const [image, setImage] = useState("");
-  const [isLog, setIsLog] = useState(false);
-
-  const [isHovered, setIsHovered] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
-
   const { dataUser } = useContext(DataUserContext);
+
+  useEffect(() => {
+    if (produtos) {
+      produtos.forEach((doc) => {
+        if (doc.id == id) {
+          setProduto(doc);
+          setImage(doc.url);
+        }
+      });
+    }
+  }, [produtos]);
 
   const isProductInWishlist = wishlist[dataUser.uid]?.some((p) => p.id === produto.id);
 
+  const [pdQuantity, setPdQuantity] = useState(1);
+
   const newPrice = produto.price - produto.price * (produto.discount / 100);
   const roundedPrice = newPrice.toFixed(2);
-
-  const [pdQuantity, setPdQuantity] = useState(1);
 
   function productQuantity(e) {
     if (e.deltaY < 0) {
@@ -63,15 +69,19 @@ const ProductDetail = () => {
   console.log(produto);
 
   const handleAddToWishlist = () => {
-    if (!isLog) {
-      const userId = dataUser.uid;
-      addToWishlist(userId, produto);
-      setIsClicked(true);
-    } else {
-
+    if (dataUser.isLog) {
       console.log("User is not logged in. Cannot add to wishlist.");
+      return;
+    }
+
+    const userId = dataUser.uid;
+    if (isProductInWishlist) {
+      removeFromWishlist(userId, produto.id);
+    } else {
+      addToWishlist(userId, produto);
     }
   };
+
 
   return (
     <>
