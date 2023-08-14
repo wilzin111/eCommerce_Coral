@@ -4,9 +4,19 @@ import right from "./../../Assets/Icons/chevron-right.svg";
 
 import PersonlInfo from "./../PersonlInfo/PersonalInfo";
 import MyOrder from "../MyOrder/MyOrder";
+import Wishlist from "../Wishlist/wishlist";
 
 export default function SideNav() {
   const [component, setComponent] = useState(0);
+  const [start, setStart] = useState(false);
+
+  if(window.screen.width < 900){
+    if(start == false){
+      setComponent(-1);
+      setStart(true);
+    }
+    console.log("test " + component);
+  }
 
   const PersonalInformation = useRef();
   const PersonalInformationSpan = useRef();
@@ -15,6 +25,10 @@ export default function SideNav() {
   const myOrders = useRef();
   const myOrdersSpan = useRef();
   const myOrdersImg = useRef();
+
+  const myWishlist = useRef();
+  const myWishlistSpan = useRef();
+  const myWishlistImg = useRef();
 
   useEffect(() => {
     const loggoutButton = document.getElementById("user_profile_logout");
@@ -45,7 +59,18 @@ export default function SideNav() {
     );
     myOrdersImg.current.classList.remove("change_to_blue");
 
+    myWishlist.current.classList.remove(
+      "user_profile_side_navigation_selector_enabled"
+    );
+    myWishlistSpan.current.classList.remove(
+      "user_profile_side_navigation_text_enabled"
+    );
+    myWishlistImg.current.classList.remove("change_to_blue");
+    
     if (component === 0) {
+      if(window.screen.width < 900) {
+        console.log("teste");
+      }
       loggoutButton.classList.remove("display_none");
       PersonalInformation.current.classList.add(
         "user_profile_side_navigation_selector_enabled"
@@ -71,6 +96,18 @@ export default function SideNav() {
       orderSearch.classList.remove("display_none");
     }
     if (component === 3) {
+
+      myWishlist.current.classList.add(
+        "user_profile_side_navigation_selector_enabled"
+      );
+      myWishlistSpan.current.classList.add(
+        "user_profile_side_navigation_text_enabled"
+      );
+      myWishlistImg.current.classList.add("change_to_blue");
+
+      if(window.screen.width < 900){
+        setComponent(3)
+      }
     }
     if (component === 4) {
     }
@@ -78,7 +115,12 @@ export default function SideNav() {
     }
     if (component === 6) {
     }
+
   }, [component]);
+
+  
+  
+
 
   return (
     <>
@@ -137,9 +179,9 @@ export default function SideNav() {
           }}
           className="div_to_button flex_row align_center_justify_between"
         >
-          <div className="user_profile_side_navigation_selector"></div>
-          <span className="user_profile_side_navigation_text">My Wishlist</span>
-          <img src={right} />
+          <div ref={myWishlist} className="user_profile_side_navigation_selector"></div>
+          <span ref={myWishlistSpan} className="user_profile_side_navigation_text">My Wishlist</span>
+          <img ref={myWishlistImg} src={right} />
         </button>
         <button
           onClick={() => {
@@ -179,6 +221,7 @@ export default function SideNav() {
 
       {component === 0 ? <PersonlInfo /> : null}
       {component === 2 ? <MyOrder /> : null}
+      {component === 3 ? <Wishlist component={setComponent} /> : null}
     </>
   );
 }

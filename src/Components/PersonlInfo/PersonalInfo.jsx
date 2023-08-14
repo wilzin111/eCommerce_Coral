@@ -168,7 +168,7 @@ export default function PersonalInfo() {
         </div>
 
         <div>
-          <p className="user_profile_container_title">Personal Information</p>
+          <p className="user_profile_container_title">Change Password</p>
           <div className="user_profile_separator"></div>
 
           <div className="flex_column padding_top_1-5rem row_gap_0-5rem margin_bottom_1rem">

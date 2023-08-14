@@ -58,7 +58,6 @@ const ProductDetail = () => {
   useEffect(() => {
     if (produtos) {
       produtos.forEach((doc) => {
-        console.log(id);
         if (doc.id == id) {
           setProduto(doc);
           setImage(doc.url);
@@ -66,11 +65,9 @@ const ProductDetail = () => {
       });
     }
   }, [produtos]);
-  console.log(produto);
 
   const handleAddToWishlist = () => {
     if (dataUser.isLog) {
-      console.log("User is not logged in. Cannot add to wishlist.");
       return;
     }
 
