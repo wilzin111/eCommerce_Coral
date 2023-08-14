@@ -11,9 +11,6 @@ import heartEmpty from "../../Assets/Icons/wishlist.svg";
 import heartFill from "../../Assets/Icons/wishlist-fill.svg";
 import bag from '../../Assets/Icons/bagWishlist.svg';
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
-
 export default function Wishlist(prop) {
   const { wishlist, removeFromWishlist } = useWishlist();
   const { dataUser } = useContext(DataUserContext);
