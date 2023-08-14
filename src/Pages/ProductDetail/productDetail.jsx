@@ -25,6 +25,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const [produto, setProduto] = useState("");
   const [image, setImage] = useState("");
+  const [isLog, setIsLog] = useState(false);
 
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
@@ -62,14 +63,14 @@ const ProductDetail = () => {
   console.log(produto);
 
   const handleAddToWishlist = () => {
-    const userId = dataUser.uid;
-
-    if (isProductInWishlist) {
-      removeFromWishlist(userId, produto.id);
-    } else {
+    if (!isLog) {
+      const userId = dataUser.uid;
       addToWishlist(userId, produto);
+      setIsClicked(true);
+    } else {
+
+      console.log("User is not logged in. Cannot add to wishlist.");
     }
-    setIsClicked(!isClicked);
   };
 
   return (
@@ -222,13 +223,13 @@ const ProductDetail = () => {
                 <img src={bag} />
                 <span>Add to Bag</span>
               </Link>
-                <button
-                  onClick={handleAddToWishlist}
-                  className={`pd-add-wishlist ${isProductInWishlist ? "clicked" : ""}`}
-                >
-                  <img src={isProductInWishlist ? heartFill : heart} />
-                  <span>Add to Wishlist</span>
-                </button>
+              <button
+          onClick={handleAddToWishlist}
+          className={`pd-add-wishlist ${isProductInWishlist ? "clicked" : ""}`}
+        >
+          <img src={isProductInWishlist ? heartFill : heart} />
+          <span>Add to Wishlist</span>
+        </button>
             </div>
           </div>
         </>
