@@ -14,13 +14,25 @@ import { productContext } from "../../Contexts/productsContext";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ProductNav from "../../Components/ProductDetailNav/productDetailNav";
+import { DataUserContext } from "../../Contexts/dataUser";
+import { WishlistContext, useWishlist } from "../../Contexts/wishlistContext";
+import heartFill from "../../Assets/Icons/wishlist-fill.svg";
 
 
 const ProductDetail = () => {
   const { produtos } = useContext(productContext);
+  const { wishlist, addToWishlist, removeFromWishlist } = useContext(WishlistContext);
   const { id } = useParams();
   const [produto, setProduto] = useState("");
   const [image, setImage] = useState("");
+  const [isLog, setIsLog] = useState(false);
+
+  const [isHovered, setIsHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+
+  const { dataUser } = useContext(DataUserContext);
+
+  const isProductInWishlist = wishlist[dataUser.uid]?.some((p) => p.id === produto.id);
 
   const newPrice = produto.price - produto.price * (produto.discount / 100);
   const roundedPrice = newPrice.toFixed(2);
@@ -49,6 +61,17 @@ const ProductDetail = () => {
     }
   }, [produtos]);
   console.log(produto);
+
+  const handleAddToWishlist = () => {
+    if (!isLog) {
+      const userId = dataUser.uid;
+      addToWishlist(userId, produto);
+      setIsClicked(true);
+    } else {
+
+      console.log("User is not logged in. Cannot add to wishlist.");
+    }
+  };
 
   return (
     <>
@@ -200,11 +223,13 @@ const ProductDetail = () => {
                 <img src={bag} />
                 <span>Add to Bag</span>
               </Link>
-
-              <Link className="pd-add-wishlist">
-                <img src={heart} />
-                <span>Add to Wishlist</span>
-              </Link>
+              <button
+          onClick={handleAddToWishlist}
+          className={`pd-add-wishlist ${isProductInWishlist ? "clicked" : ""}`}
+        >
+          <img src={isProductInWishlist ? heartFill : heart} />
+          <span>Add to Wishlist</span>
+        </button>
             </div>
           </div>
         </>
