@@ -6,10 +6,10 @@ O eCommerce_Coral é um projeto desenvolvido em 7 semanas(Sprints) por uma equip
 O projeto tem como paginas liberadas sem necessidade de cadastro Home (tela inicial), Login, Signup, About, products information, já com necessidade de login temos a Wishlist, userProfile e myBag
 
 # Devs:
-  isabeckmann
-  MuriloDessuy
-  tzydit
-  wilzin111
+ - isabeckmann
+ - MuriloDessuy
+ - tzydit
+ - wilzin111
   
 # Home Descktop
 ![Home Desktop](https://github.com/wilzin111/eCommerce_Coral/assets/129423295/3dc020ea-02f1-45d6-b7e9-b745f314bed0)
