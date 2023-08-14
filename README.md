@@ -11,7 +11,7 @@ O projeto tem como paginas liberadas sem necessidade de cadastro Home (tela inic
  - tzydit
  - wilzin111
   
-# Home Descktop
+# Home Desktop
 ![Home Desktop](https://github.com/wilzin111/eCommerce_Coral/assets/129423295/3dc020ea-02f1-45d6-b7e9-b745f314bed0)
 
 Tela inicial do projeto desktop
@@ -28,7 +28,7 @@ Tela inicial do projeto mobile
 - CSS
 
 ## Banco de dados
-- FireBase
+- Firebase
 
 ## Requisitos para rodar o projeto
 
