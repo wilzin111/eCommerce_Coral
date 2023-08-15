@@ -18,18 +18,24 @@ export default function ProductsPage() {
   const { produtos } = useContext(productContext);
 
   const [filter, setFilter] = useState("");
+  const [viewAll, setViewAll] = useState("");
 
   useEffect(() => {
     if (produtos) {
       var filteredBrand = produtos.filter(
         (produto) =>
-          produto.category.toLowerCase().includes(id.toLowerCase()) ||
-          produto.brand.toLowerCase().includes(id.toLowerCase())
+          produto.category.toLowerCase().includes(viewAll.toLowerCase()) ||
+          produto.brand.toLowerCase().includes(viewAll.toLowerCase())
       );
 
-      setFilter(filteredBrand);
+      if (id === "View All") {
+        setViewAll("");
+      } else {
+        setViewAll(id);
+      }
     }
-  }, [produtos, id]);
+    setFilter(filteredBrand);
+  }, [produtos, viewAll]);
 
   return (
     <div>
