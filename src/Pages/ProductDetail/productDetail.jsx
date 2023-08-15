@@ -15,7 +15,6 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ProductNav from "../../Components/ProductDetailNav/productDetailNav";
 
-
 const ProductDetail = () => {
   const { produtos } = useContext(productContext);
   const { id } = useParams();
@@ -40,7 +39,6 @@ const ProductDetail = () => {
   useEffect(() => {
     if (produtos) {
       produtos.forEach((doc) => {
-        console.log(id);
         if (doc.id == id) {
           setProduto(doc);
           setImage(doc.url);
@@ -67,7 +65,12 @@ const ProductDetail = () => {
           Home
         </Link>
         <img src={pointer} />
-        <Link className="pd-breadcrumb-link">{produto.category}</Link>
+        <Link
+          to={`/products/${produto.category}`}
+          className="pd-breadcrumb-link"
+        >
+          {produto.category}
+        </Link>
         <img src={pointer} />
         <span>{produto.name}</span>
       </div>

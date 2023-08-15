@@ -8,7 +8,7 @@ import left from "../../Assets/Icons/chevron-left.svg";
 import FilterMobile from "../../Components/FilterMobile/FilterMobile";
 import SortBy from "../../Components/SortBy/SortBy";
 import { ProductsCategory } from "../../Components/ProductsCategory/ProductsCategory";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { productContext } from "../../Contexts/productsContext";
 import arrow from "../../Assets/Icons/chevron-right-small.svg";
 
@@ -16,6 +16,20 @@ export default function ProductsPage() {
   const { id } = useParams();
 
   const { produtos } = useContext(productContext);
+
+  const [filter, setFilter] = useState("");
+
+  useEffect(() => {
+    if (produtos) {
+      var filteredBrand = produtos.filter(
+        (produto) =>
+          produto.category.toLowerCase().includes(id.toLowerCase()) ||
+          produto.brand.toLowerCase().includes(id.toLowerCase())
+      );
+
+      setFilter(filteredBrand);
+    }
+  }, [produtos, id]);
 
   return (
     <div>
@@ -51,9 +65,9 @@ export default function ProductsPage() {
         <div className="comp-flex-products">
           <SortBy />
 
-          {produtos.length > 0 ? (
+          {filter.length > 0 ? (
             <div className="products-category-container">
-              {produtos.map((produto) => (
+              {filter.map((produto) => (
                 <ProductsCategory produto={produto} key={produto.id} />
               ))}
             </div>
