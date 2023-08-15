@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 // CSS
@@ -9,7 +9,7 @@ import menu from "./../../Assets/Icons/menu.svg";
 import add from "./../../Assets/Icons/add-to-homescreen.svg";
 import search from "./../../Assets/Icons/search.svg";
 import notification from "./../../Assets/Icons/notification.svg";
-import wishlist from "./../../Assets/Icons/wishlist.svg";
+import wishlistIcon from "./../../Assets/Icons/wishlist.svg";
 import profile from "./../../Assets/Icons/profile.svg";
 import bag from "./../../Assets/Icons/bag.svg";
 import del from "./../../Assets/Icons/del.svg";
@@ -20,6 +20,11 @@ import logo from "./../../Assets/Images_header/logo.png";
 import testImage from "./../../Assets/Images_header/testImage.png";
 import Drawer from "../Drawer/Drawer";
 import { DataUserContext } from "../../Contexts/dataUser";
+import heartEmpty from "../../Assets/Icons/wishlist.svg";
+import heartFill from "../../Assets/Icons/wishlist-fill.svg";
+
+// Contexts 
+import { productContext } from "../../Contexts/productsContext";
 
 function Header() {
   const [openBag, setOpenBag] = useState(false);
@@ -173,10 +178,78 @@ function Header() {
     return document.body.classList.remove("stop-scrolling");
   }
 
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const { isLog } = useContext(DataUserContext);
+  const { produtos } = useContext(productContext);
+
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [searchBar, setSearchBar] = useState("");
+  const [productsSearched, setProductsSearched] = useState([]);
+
+  useEffect(() => {
+
+    let a = document.getElementById("search_modal")
+    let re = new RegExp(`${searchBar.normalize("NFD").replace(/[\u0300-\u036f]/g, '')}`, "gi");
+
+    if(searchBar.length < 1) {
+      a.classList.add("header_search_modal_none");
+    } else { 
+      //document.body.classList.add("stop-scrolling")
+    }
+    if (searchBar.length > 0) {
+      let produtosFiltered = produtos.filter((product) => {
+        return product.name.match(re);
+      });
+      setProductsSearched(produtosFiltered);
+    };
+  },[searchBar]);
+
+  //useEffect(() => {
+  //},[productsSearched]);
+
+  function handleSearchChange(e) {
+    let a = document.getElementById("search_modal")
+    setSearchBar(e.target.value);
+    if (searchBar === "") {
+      a.classList.remove("header_search_modal_none");
+    } else {
+      document.body.classList.add("stop-scrolling");
+    }
+  };
+
   return (
     <>
+      <div id="search_modal" className="header_search_modal header_search_modal_none">
+        <div className="header_search_modal_products">
+          <section className="products-wishlist" id="products-wishlist">
+
+            {productsSearched.map((product) => (
+              <div key={product.id} className="wishlist-product search_product">
+                <div className="wishlist-product-img">
+                  <Link
+                    to={`/product-detail/${product.id}`}
+                    key={product.id}
+                    className="product-link">
+                    <img src={product.url} alt={product.name} />
+                  </Link>
+                </div>
+                <div className="wishlist-product-details">
+                  <h3 className="wishlist-product-name">{product.name}</h3>
+                  
+                  <Link
+                    to={`/product-detail/${product.id}`}
+                    key={product.id}
+                    className="product-link"
+                  >
+                    <p className="wishlist-product-subname">{product.subname}</p>
+                    <span className="wishlist-product-price">${product.price}</span>
+                  </Link>
+                </div>
+              </div>
+            ))}
+
+          </section>
+        </div>
+      </div>
       <Drawer isOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
       <section className="header">
         <div className="header-mobile">
@@ -231,18 +304,20 @@ function Header() {
           </div>
 
           <div className="flex">
-            <div className="search-bar">
-              <img src={search} />
+            <form style={{zIndex: "1"}} className="search-bar">
+              <button className="search_bar" type="submit"><img src={search} /></button>
               <input
                 type="search"
                 placeholder="Search for products or brands....."
+                onChange={(handleSearchChange)}
+                value={searchBar}
               ></input>
-            </div>
+            </form>
             <div className="header_icons change_to_blue">
               {isLog ? (
                 <>
                   <Link to='/wishlist' onClick={handleClick}>
-                    <img src={wishlist} className="icon" />
+                    <img src={wishlistIcon} className="icon" />
                   </Link>
                   <Link to="/profile" onClick={handleClick}>
                     <img src={profile} className="icon" />
