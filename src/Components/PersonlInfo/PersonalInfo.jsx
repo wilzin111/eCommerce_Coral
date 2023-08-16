@@ -5,8 +5,10 @@ import cross from "./../../Assets/Icons/cross.svg";
 import { DataUserContext } from "../../Contexts/dataUser";
 import { db, storage } from "../../FireBaseConnection";
 import { getDownloadURL, ref } from "firebase/storage";
+import seta from "../../Assets/Wishlist/arrow.svg";
+import './PersonalInfo.css';
 
-export default function PersonalInfo() {
+export default function PersonalInfo(prop) {
   const [passwordIcon, setPasswordIcon] = useState(eye);
 
   function handleUpload(e) {
@@ -90,7 +92,11 @@ export default function PersonalInfo() {
 
   return (
     <div className="user_profile_container">
-      <div>
+      <div className="close-personal-mobile">
+        <button onClick={() => { prop.component(-1) }}>
+          <img src={seta} alt="close-modal" />
+        </button>
+        
         <p className="user_profile_container_title">Personal Information</p>
         <div className="user_profile_separator"></div>
       </div>

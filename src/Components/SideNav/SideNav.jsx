@@ -71,6 +71,10 @@ export default function SideNav() {
       if(window.screen.width < 900) {
         console.log("teste");
       }
+      userProfileH1.innerHTML = "Personal Information";
+      myOrdersImg.current.classList.add("change_to_blue");
+      breadCrumbImg.classList.remove("display_none");
+      breadCrumb.innerHTML = "Personal Information";
       loggoutButton.classList.remove("display_none");
       PersonalInformation.current.classList.add(
         "user_profile_side_navigation_selector_enabled"
@@ -81,6 +85,10 @@ export default function SideNav() {
       PersonalInformationImg.current.classList.add("change_to_blue");
     }
     if (component === 1) {
+      userProfileH1.innerHTML = "Refer and Earn";
+      myOrdersImg.current.classList.add("change_to_blue");
+      breadCrumbImg.classList.remove("display_none");
+      breadCrumb.innerHTML = "Refer and Earn";
     }
     if (component === 2) {
       userProfileH1.innerHTML = "My Orders";
@@ -96,7 +104,10 @@ export default function SideNav() {
       orderSearch.classList.remove("display_none");
     }
     if (component === 3) {
-
+      userProfileH1.innerHTML = "My Wishlist";
+      myOrdersImg.current.classList.add("change_to_blue");
+      breadCrumbImg.classList.remove("display_none");
+      breadCrumb.innerHTML = "My Wishlist";
       myWishlist.current.classList.add(
         "user_profile_side_navigation_selector_enabled"
       );
@@ -110,10 +121,22 @@ export default function SideNav() {
       }
     }
     if (component === 4) {
+      userProfileH1.innerHTML = "My Reviews";
+      myOrdersImg.current.classList.add("change_to_blue");
+      breadCrumbImg.classList.remove("display_none");
+      breadCrumb.innerHTML = "My Reviews";
     }
     if (component === 5) {
+      userProfileH1.innerHTML = "My Anddress Book";
+      myOrdersImg.current.classList.add("change_to_blue");
+      breadCrumbImg.classList.remove("display_none");
+      breadCrumb.innerHTML = "My Anddress Book";
     }
     if (component === 6) {
+      userProfileH1.innerHTML = "My Saved Cards";
+      myOrdersImg.current.classList.add("change_to_blue");
+      breadCrumbImg.classList.remove("display_none");
+      breadCrumb.innerHTML = "My Saved Cards";
     }
 
   }, [component]);
@@ -219,7 +242,7 @@ export default function SideNav() {
         </button>
       </div>
 
-      {component === 0 ? <PersonlInfo /> : null}
+      {component === 0 ? <PersonlInfo component={setComponent}/> : null}
       {component === 2 ? <MyOrder /> : null}
       {component === 3 ? <Wishlist component={setComponent} /> : null}
     </>

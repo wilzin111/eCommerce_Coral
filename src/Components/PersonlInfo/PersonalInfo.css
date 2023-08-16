@@ -1,0 +1,29 @@
+.close-personal-mobile button {
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .user_profile_container {
+        position: absolute;
+        background-color: #fff;
+        left: 0;
+        padding: 0 8px 60px;
+    }
+    
+    .close-personal-mobile {
+        display: flex;
+        align-items: center;
+    }
+
+    .close-personal-mobile button {
+        display: flex;
+        background-color: transparent;
+        border: none;
+    }
+
+    .close-personal-mobile p {
+        margin: 0;
+        color: #1B4B66;
+    }
+
+}
