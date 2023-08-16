@@ -55,7 +55,7 @@ const ProductDetail = () => {
       </div>
 
       <div className="pd-topbar-mobile">
-        <Link to={"/"}>
+        <Link to={`/products/${produto.category}`}>
           <img src={pointerLeft} />
         </Link>
       </div>
