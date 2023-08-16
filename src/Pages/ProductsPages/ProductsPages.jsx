@@ -19,6 +19,12 @@ export default function ProductsPage() {
 
   const [filter, setFilter] = useState("");
   const [viewAll, setViewAll] = useState("");
+  const [filterOption, setFilterOption] = useState([]);
+
+  function choosenOption(value) {
+    setFilterOption(value);
+    console.log(value);
+  }
 
   useEffect(() => {
     if (produtos) {
@@ -66,7 +72,7 @@ export default function ProductsPage() {
       </div>
 
       <div className="components-flex">
-        <ProductsFilter />
+        <ProductsFilter choosenOption={choosenOption} />
 
         <div className="comp-flex-products">
           <SortBy />
@@ -83,7 +89,7 @@ export default function ProductsPage() {
         </div>
       </div>
 
-      <FilterMobile />
+      <FilterMobile choosenOption={choosenOption} />
 
       <div className="header-category">
         <Footer />

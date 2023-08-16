@@ -1,7 +1,7 @@
 import "./ProductsFilter.css";
 import { useState } from "react";
 
-const ProductsFilter = () => {
+const ProductsFilter = ({ choosenOption }) => {
   const [sizeExpanded, setSizeExpanded] = useState(false);
   const [colorExpanded, setColorExpanded] = useState(false);
   const [brandExpanded, setBrandExpanded] = useState(false);
@@ -62,35 +62,59 @@ const ProductsFilter = () => {
         {colorExpanded && (
           <div className="expanded-options">
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input type="checkbox" className="filter-checkbox" value="blue" />
               Blue
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input type="checkbox" className="filter-checkbox" value="teal" />
               Teal
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="aquamarine"
+              />
               Aquamarine
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="off-white"
+              />
               Off-white
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="marron-red"
+              />
               Marron Red
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="crimson-red"
+              />
               Crimson Red
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="seinna-pink"
+              />
               Seinna Pink
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="muave-orange"
+              />
               Muave Orange
             </label>
           </div>
@@ -104,27 +128,35 @@ const ProductsFilter = () => {
         {brandExpanded && (
           <div className="expanded-options">
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input type="checkbox" className="filter-checkbox" value="zara" />
               Zara
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input type="checkbox" className="filter-checkbox" value="d&g" />
               D&G
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input type="checkbox" className="filter-checkbox" value="h&m" />
               H&M
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="chanel"
+              />
               Chanel
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="prada"
+              />
               Prada
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input type="checkbox" className="filter-checkbox" value="biba" />
               BIBA
             </label>
           </div>
@@ -160,23 +192,39 @@ const ProductsFilter = () => {
         {discountExpanded && (
           <div className="expanded-options">
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input type="checkbox" className="filter-checkbox" value="ten" />
               10%
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="fifteen"
+              />
               15%
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="twenty"
+              />
               20%
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="thirty"
+              />
               30%
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="fifty"
+              />
               50%
             </label>
           </div>

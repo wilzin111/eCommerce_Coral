@@ -1,8 +1,28 @@
 import "./FilterModal.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export const FilterModal = () => {
+export const FilterModal = ({ handleOption }) => {
   const [selectedButton, setSelectedButton] = useState("Size");
+  const [selectedOption, setSelectedOption] = useState([]);
+
+  function handleChange(e) {
+    const { value, checked } = e.target;
+
+    if (checked) {
+      setSelectedOption((doc) => [...doc, value]);
+    } else {
+      setSelectedOption((doc) => doc.filter((option) => option != value));
+    }
+    console.log(selectedOption);
+  }
+
+  useEffect(() => {
+    const handleFilter = () => {
+      handleOption(selectedOption);
+    };
+
+    handleFilter();
+  }, [selectedOption]);
 
   return (
     <div className="filter-modal-container">
@@ -79,35 +99,75 @@ export const FilterModal = () => {
         {selectedButton == "Color" && (
           <div className="expanded-options">
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="blue"
+                onChange={handleChange}
+              />
               Blue
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="teal"
+                onChange={handleChange}
+              />
               Teal
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="aquamarine"
+                onChange={handleChange}
+              />
               Aquamarine
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="off-white"
+                onChange={handleChange}
+              />
               Off-white
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="marron-red"
+                onChange={handleChange}
+              />
               Marron Red
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="crimson-red"
+                onChange={handleChange}
+              />
               Crimson Red
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="seinna-pink"
+                onChange={handleChange}
+              />
               Seinna Pink
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="muave-orange"
+                onChange={handleChange}
+              />
               Muave Orange
             </label>
           </div>
@@ -116,27 +176,35 @@ export const FilterModal = () => {
         {selectedButton == "Brand" && (
           <div className="expanded-options">
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input type="checkbox" className="filter-checkbox" value="zara" />
               Zara
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input type="checkbox" className="filter-checkbox" value="d&g" />
               D&G
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input type="checkbox" className="filter-checkbox" value="h&m" />
               H&M
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="chanel"
+              />
               Chanel
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="prada"
+              />
               Prada
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input type="checkbox" className="filter-checkbox" value="biba" />
               BIBA
             </label>
           </div>
@@ -162,23 +230,39 @@ export const FilterModal = () => {
         {selectedButton == "Discount" && (
           <div className="expanded-options">
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input type="checkbox" className="filter-checkbox" value="ten" />
               10%
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="fifteen"
+              />
               15%
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="twenty"
+              />
               20%
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="thirty"
+              />
               30%
             </label>
             <label>
-              <input type="checkbox" className="filter-checkbox" />
+              <input
+                type="checkbox"
+                className="filter-checkbox"
+                value="fifty"
+              />
               50%
             </label>
           </div>

@@ -3,12 +3,25 @@ import filter from "../../Assets/Icons/filter.svg";
 import sort from "../../Assets/Icons/sort.svg";
 import cross from "../../Assets/Icons/cross.svg";
 import { SortByModal } from "../SortByModal/SortByModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FilterModal } from "../FilterModal/FilterModal";
 
-export default function FilterMobile() {
+export default function FilterMobile({ choosenOption }) {
   const [sortOpen, setSortOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState();
+
+  function handleOption(value) {
+    setSelectedOption(value);
+  }
+
+  useEffect(() => {
+    const handleFilter = () => {
+      choosenOption(selectedOption);
+    };
+
+    handleFilter();
+  }, [selectedOption]);
 
   return (
     <div>
@@ -37,7 +50,7 @@ export default function FilterMobile() {
             <h2>Filters</h2>
             <img src={cross} onClick={() => setFilterOpen(false)} />
           </div>
-          <FilterModal />
+          <FilterModal handleOption={handleOption} />
         </div>
       )}
     </div>
