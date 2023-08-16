@@ -76,7 +76,7 @@ export default function ProductsPage() {
         <div className="comp-flex-products">
           <SortBy />
 
-          {viewAll.length > 0 ? (
+          {viewAll.length > 0 || filter.length > 0 ? (
             <div className="products-category-container">
               {filter.map((produto) => (
                 <ProductsCategory produto={produto} key={produto.id} />
