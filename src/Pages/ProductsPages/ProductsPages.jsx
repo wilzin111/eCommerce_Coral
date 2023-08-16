@@ -23,7 +23,6 @@ export default function ProductsPage() {
 
   function choosenOption(value) {
     setFilterOption(value);
-    console.log(value);
   }
 
   useEffect(() => {
@@ -41,7 +40,7 @@ export default function ProductsPage() {
       }
     }
     setFilter(filteredBrand);
-  }, [produtos, viewAll]);
+  }, [produtos, viewAll, id]);
 
   return (
     <div>
@@ -77,7 +76,7 @@ export default function ProductsPage() {
         <div className="comp-flex-products">
           <SortBy />
 
-          {filter.length > 0 ? (
+          {viewAll.length > 0 ? (
             <div className="products-category-container">
               {filter.map((produto) => (
                 <ProductsCategory produto={produto} key={produto.id} />
