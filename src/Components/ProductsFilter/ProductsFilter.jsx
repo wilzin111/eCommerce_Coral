@@ -1,5 +1,5 @@
 import "./ProductsFilter.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ProductsFilter = ({ choosenOption }) => {
   const [sizeExpanded, setSizeExpanded] = useState(false);
@@ -8,6 +8,7 @@ const ProductsFilter = ({ choosenOption }) => {
   const [priceExpanded, setPriceExpanded] = useState(false);
   const [discountExpanded, setDiscountExpanded] = useState(false);
   const [availabilityExpanded, setAvailabilityExpanded] = useState(false);
+  const [selectedOption, setSelectedOption] = useState();
 
   const handleToggle = (option) => {
     switch (option) {

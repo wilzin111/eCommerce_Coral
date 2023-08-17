@@ -17,7 +17,7 @@ export default function ProductsPage() {
 
   const { produtos } = useContext(productContext);
 
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState([]);
   const [viewAll, setViewAll] = useState("");
   const [filterOption, setFilterOption] = useState([]);
 
@@ -25,9 +25,27 @@ export default function ProductsPage() {
     setFilterOption(value);
   }
 
+  // const porfavorfunciona =
+  //   ((produtos) => {
+  //     var filteredBrand = produtos.filter(
+  //       (produto) =>
+  //         produto.category.toLowerCase().includes(viewAll.toLowerCase()) ||
+  //         produto.brand.toLowerCase().includes(viewAll.toLowerCase())
+  //     );
+
+  //     if (id === "View All") {
+  //       setViewAll("");
+  //     } else {
+  //       setViewAll(id);
+  //     }
+
+  //     setFilter(filteredBrand);
+  //   },
+  //   [filter, viewAll, id]);
+
   useEffect(() => {
     if (produtos) {
-      var filteredBrand = produtos.filter(
+      const filteredBrand = produtos.filter(
         (produto) =>
           produto.category.toLowerCase().includes(viewAll.toLowerCase()) ||
           produto.brand.toLowerCase().includes(viewAll.toLowerCase())
@@ -38,9 +56,23 @@ export default function ProductsPage() {
       } else {
         setViewAll(id);
       }
+
+      setFilter(filteredBrand);
+
+      // criar novos states com os outros filtros ou alterar state atual para ser um objeto com todos os tipos de filtro
+
+      //TODO : verificar se array de filtros contém algum valor
+
+      // if (filterOption.length > 0) {
+      //   // testar se os produtos resultantes do ultimo filtro contem algum produto com os novos filtros
+      //   filteredBrand.filter((produto) => {
+      //     filterOption.filter((filtro) => {
+      //       produto.colour == filtro;
+      //     });
+      //   });
+      // }
     }
-    setFilter(filteredBrand);
-  }, [produtos, viewAll, id]);
+  }, [produtos, viewAll, id, filterOption]);
 
   return (
     <div>

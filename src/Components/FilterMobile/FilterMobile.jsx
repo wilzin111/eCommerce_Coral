@@ -21,7 +21,7 @@ export default function FilterMobile({ choosenOption }) {
     };
 
     handleFilter();
-  }, [selectedOption]);
+  }, []);
 
   return (
     <div>
