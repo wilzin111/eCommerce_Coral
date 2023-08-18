@@ -3,6 +3,7 @@
   height: 48.75rem;
   gap: 2.5rem;
 }
+
 .my_order_display_buttons_container {
   display: flex;
   max-width: 56.125rem;
@@ -14,6 +15,7 @@
   background-color: #f1f1f1;
   padding: 0.75rem 1rem;
 }
+
 .my_order_display_buttons {
   display: flex;
   align-items: center;
@@ -28,6 +30,7 @@
   flex-direction: column;
   gap: 1.5rem;
 }
+
 .my_order_label {
   display: flex;
   gap: min(9.38rem, 15%);
@@ -35,6 +38,7 @@
   padding-bottom: 0.56rem;
   border-bottom: 1px #0000001f solid;
 }
+
 .my_order_orders {
   display: flex;
   width: 100%;
@@ -44,6 +48,7 @@
   position: relative;
   padding-right: 1rem;
 }
+
 .my_order_order {
   max-width: 55.4635rem;
   width: 100%;
@@ -61,13 +66,16 @@
   font-weight: 500;
   line-height: 1.25rem;
 }
+
 .my_order_color_lowenphasis {
   color: #626262;
 }
+
 .my_order_display_buttons_selected {
   color: #ffffff;
   background-color: #1b4b66;
 }
+
 .left_15rem {
   right: 1%;
 }
@@ -77,6 +85,7 @@ input[type="checkbox"]:checked {
   opacity: 1;
   border: solid transparent;
 }
+
 input[type="checkbox"] {
   position: relative;
   border: 2px solid #000;
@@ -94,15 +103,16 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-    background-color: #1b4b66;
-    opacity: 1;
-    border: #1b4b66;
-    z-index: 2;
+  background-color: #1b4b66;
+  opacity: 1;
+  border: #1b4b66;
+  z-index: 2;
 }
-  
+
 input[type="checkbox"]:hover {
   opacity: 1;
 }
+
 input[type="checkbox"]:before {
   content: "";
   position: absolute;
@@ -118,7 +128,7 @@ input[type="checkbox"]:before {
 }
 
 
-input[type="checkbox"].checked:before  {
+input[type="checkbox"].checked:before {
   content: "";
   position: absolute;
   right: 50%;
@@ -135,15 +145,19 @@ input[type="checkbox"].checked:before  {
 .absolute {
   position: absolute;
 }
+
 .left_8p {
   left: 8%;
 }
+
 .left_30p {
   left: 30%;
 }
+
 .left_50p {
   left: 50%;
 }
+
 .left_70p {
   left: 70%;
 }
@@ -152,19 +166,24 @@ input[type="checkbox"].checked:before  {
   .display_above_1000px {
     display: none;
   }
+
   .my_order_label {
     gap: 20%;
   }
+
   .left_8p {
     left: 3.3rem;
   }
+
   .left_30p {
     left: 13rem;
   }
+
   .left_50p {
     left: 22rem;
   }
 }
+
 .my_order_search {
   display: flex;
   width: 18.5rem;
@@ -173,4 +192,107 @@ input[type="checkbox"].checked:before  {
   border: none;
   padding: 0 1rem;
   background: var(--grey, #F1F1F1);
+}
+
+
+
+
+@media screen and (max-width: 900px) {
+  .container-order-mob {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-color: #fff;
+  }
+
+  .orders-header {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+  }
+
+  .orders-header button {
+    background-color: transparent;
+    border: none;
+  }
+
+  .header-order-start {
+    width: 145px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    color: #1B4B66;
+  }
+
+  .btn-cpc-orders {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 32px;
+  }
+
+  .btn-cpc-orders button {
+    width: 100px;
+    height: 28px;
+    background-color: #F1F1F1;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 18px;
+  }
+
+  .container-orders {
+    margin: 0 16px;
+  }
+
+  .q-orders {
+    margin-bottom: 16px;
+  }
+
+  .container-order {
+    width: 100%;
+    height: 104px;
+    display: flex;
+    background-color: #F1F1F1;
+    border-radius: 8px;
+    padding: 16px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .container-order button {
+    background-color: transparent;
+    border: none;
+  }
+
+  .order-text p:nth-child(1) {
+    color: #7E7E7E;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+  }
+
+  .order-text p:nth-child(1),
+  .order-text p:nth-child(2) {
+    margin-bottom: 8px;
+  }
+
+  .order-text p:nth-child(2),
+  .order-text p:nth-child(3) {
+    color: #171520;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+  }
+
 }

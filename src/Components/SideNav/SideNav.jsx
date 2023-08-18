@@ -15,7 +15,6 @@ export default function SideNav() {
       setComponent(-1);
       setStart(true);
     }
-    console.log("test " + component);
   }
 
   const PersonalInformation = useRef();
@@ -243,7 +242,7 @@ export default function SideNav() {
       </div>
 
       {component === 0 ? <PersonlInfo component={setComponent}/> : null}
-      {component === 2 ? <MyOrder /> : null}
+      {component === 2 ? <MyOrder component={setComponent}/> : null}
       {component === 3 ? <Wishlist component={setComponent} /> : null}
     </>
   );

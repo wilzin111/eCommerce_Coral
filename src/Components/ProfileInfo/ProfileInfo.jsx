@@ -75,7 +75,7 @@ export default function ProfileInfo() {
             Profile
           </p>
 
-          <div className="user_information flex_row">
+          <div className="user_information flex_row relative">
             <img
               src={imguser ? imguser : './imgUserNone.jpg'}
               alt=""
@@ -91,7 +91,7 @@ export default function ProfileInfo() {
               <br />
               <span className="text_low_emphasis2">{fullNumber ? fullNumber : ''}</span>
             </div>
-            <div className="flex_row absolute" style={{ right: "1rem" }}>
+            <div className="flex_row absolute" style={{ right: "0.5rem" }}>
               <img className="change_to_gray" src={right} />
             </div>
           </div>
