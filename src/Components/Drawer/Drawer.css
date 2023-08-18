@@ -7,13 +7,13 @@
   z-index: 10000;
 }
 
-  .animation-header-modal {
-    animation: open 0.5s forwards;
-  }
-  
-  .animation-close-header-modal {
-    animation: close 0.5s;
-  }
+.animation-header-modal {
+  animation: open 0.5s forwards;
+}
+
+.animation-close-header-modal {
+  animation: close 0.5s;
+}
 
 .drawer-container-user {
   width: 297px;
@@ -22,7 +22,6 @@
   flex-direction: column;
   background-color: #fff;
 }
-
 
 .drawer-btn {
   width: 100%;
@@ -71,24 +70,21 @@
 
 .text-drawer,
 .text2-drawer {
-    height: 34px;
-    display: flex;
-    margin-right: 18px;
-    color: #000000;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  margin: 16px 0;
+  margin-right: 18px;
+  justify-content: space-between;
 }
 
-.text2-drawer{
-    margin: 16px 0;
-    margin-right: 18px;
+.text2-drawer {
+  margin: 16px 0;
+  margin-right: 18px;
 }
 
 .text-drawer:hover,
 .text2-drawer:hover {
-    background-color: #F4F4F4
+  background-color: #f4f4f4;
 }
-
 
 .text-drawer:last-child {
   margin-bottom: 0;
