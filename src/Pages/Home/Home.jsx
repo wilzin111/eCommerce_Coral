@@ -35,11 +35,11 @@ import { ProductsHome } from "../../Components/ProductsHome/productsHome";
 import { Link } from "react-router-dom";
 
 const categories = [
-  { image: category1Image, text: "SkinCare", Link: "/skincare" },
-  { image: category2Image, text: "Jewellery", link: "/jewellery" },
-  { image: category3Image, text: "Handbags", link: "/handbags" },
-  { image: category4Image, text: "Watches", link: "/watches" },
-  { image: category5Image, text: "Eyewear", link: "/eye-wear" },
+  { image: category1Image, text: "SkinCare", Link: "products/Skincare" },
+  { image: category2Image, text: "Jewellery", link: "products/Jewellery" },
+  { image: category3Image, text: "Handbags", link: "products/Handbags" },
+  { image: category4Image, text: "Watches", link: "products/Watches" },
+  { image: category5Image, text: "Eyewear", link: "products/Eyewear" },
 ];
 
 const Home = () => {
@@ -124,7 +124,7 @@ const Home = () => {
             <p className="new">New Arrivals</p>
             <div className="viewAllContainer">
               <p className="viewAllText">
-                <a href="">View All</a>
+                <Link to={"products/View All"}>View All</Link>
               </p>
               <img src={Seta} alt="Arrow" className="arrowImage" />
             </div>
@@ -143,18 +143,18 @@ const Home = () => {
         <div className="imageSection">
           <p>Handpicked Collections</p>
           <div className="imagePair">
-            <Link to={"/products/personalcare"} className="imageLink">
+            <Link to={"/products/Personal Care"} className="imageLink">
               <img src={PersonalCare} alt="Image 1" className="image" />
             </Link>
-            <Link to={"/products/handbags"} className="imageLink">
+            <Link to={"/products/Handbags"} className="imageLink">
               <img src={Handbags} alt="Image 2" className="image" />
             </Link>
           </div>
           <div className="imagePair">
-            <Link to={"/products/watches"} className="imageLink">
+            <Link to={"/products/Watches"} className="imageLink">
               <img src={WristWatches} alt="Image 3" className="image" />
             </Link>
-            <Link to={"/products/sunglasses"} className="imageLink">
+            <Link to={"/products/Eyewear"} className="imageLink">
               <img src={SunGlasses} alt="Image 4" className="image" />
             </Link>
           </div>
@@ -164,30 +164,30 @@ const Home = () => {
             <p className="shopByBrands">Shop by Brands</p>
             <div className="ViewAllBrand">
               <p className="viewAllTextLink">
-                <a href="">View All</a>
+                <Link to={"products/View All"}>View All</Link>
               </p>
               <img src={Seta} alt="Arrow" className="arrowImage" />
             </div>
           </div>
           <div className="brandsImagesContainer">
-            <a href="" className="brandLink">
+            <Link to={"products/Zara"} className="brandLink">
               <img src={Zara} alt="Image 1" className="brandImage" />
-            </a>
-            <a href="" className="brandLink">
+            </Link>
+            <Link to={"products/D&G"} className="brandLink">
               <img src={DeG} alt="Image 2" className="brandImage" />
-            </a>
-            <a href="" className="brandLink">
+            </Link>
+            <Link to={"products/H&M"} className="brandLink">
               <img src={Hem} alt="Image 3" className="brandImage" />
-            </a>
-            <a href="" className="brandLink">
+            </Link>
+            <Link to={"products/BIBA"} className="brandLink">
               <img src={Biba} alt="Image 4" className="brandImage" />
-            </a>
-            <a href="" className="brandLink">
+            </Link>
+            <Link to={"products/Chanel"} className="brandLink">
               <img src={Chanel} alt="Image 5" className="brandImage" />
-            </a>
-            <a href="" className="brandLink">
+            </Link>
+            <Link to={"products/Prada"} className="brandLink">
               <img src={Prada} alt="Image 6" className="brandImage" />
-            </a>
+            </Link>
           </div>
         </div>
         <div className="ShortCut">

@@ -1,0 +1,10 @@
+.components-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 900px) {
+  .comp-flex-products {
+    width: 78%;
+  }
+}

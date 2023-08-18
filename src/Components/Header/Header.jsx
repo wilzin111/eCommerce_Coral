@@ -222,11 +222,11 @@ function Header() {
               <img src={logo} className="logo" />
             </Link>
             <div className="nav-category-text">
-              <Link to={"/products/handbags"}>Handbags</Link>
-              <Link to={"/products/watches"}>Watches</Link>
-              <Link to={"/products/skincare"}>Skincare</Link>
-              <Link to={"/products/jewellery"}>Jewellery</Link>
-              <Link to={"/products/apparels"}>Apparels</Link>
+              <Link to={"/products/Handbags"}>Handbags</Link>
+              <Link to={"/products/Watches"}>Watches</Link>
+              <Link to={"/products/Skincare"}>Skincare</Link>
+              <Link to={"/products/Jewellery"}>Jewellery</Link>
+              <Link to={"/products/Apparels"}>Apparels</Link>
             </div>
           </div>
 
@@ -241,7 +241,7 @@ function Header() {
             <div className="header_icons change_to_blue">
               {isLog ? (
                 <>
-                  <Link to='/wishlist' onClick={handleClick}>
+                  <Link to='/profile' onClick={handleClick}>
                     <img src={wishlist} className="icon" />
                   </Link>
                   <Link to="/profile" onClick={handleClick}>

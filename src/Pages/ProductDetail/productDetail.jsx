@@ -19,7 +19,6 @@ import { WishlistContext, useWishlist } from "../../Contexts/wishlistContext";
 import heartFill from "../../Assets/Icons/wishlist-fill.svg";
 import { useBag } from "../../Contexts/bagContext";
 
-
 const ProductDetail = () => {
   const { produtos } = useContext(productContext);
   const { wishlist, addToWishlist, removeFromWishlist } = useContext(WishlistContext);
@@ -89,7 +88,7 @@ const ProductDetail = () => {
       </div>
 
       <div className="pd-topbar-mobile">
-        <Link to={"/"}>
+        <Link to={`/products/${produto.category}`}>
           <img src={pointerLeft} />
         </Link>
       </div>
@@ -99,7 +98,12 @@ const ProductDetail = () => {
           Home
         </Link>
         <img src={pointer} />
-        <Link className="pd-breadcrumb-link">{produto.category}</Link>
+        <Link
+          to={`/products/${produto.category}`}
+          className="pd-breadcrumb-link"
+        >
+          {produto.category}
+        </Link>
         <img src={pointer} />
         <span>{produto.name}</span>
       </div>
