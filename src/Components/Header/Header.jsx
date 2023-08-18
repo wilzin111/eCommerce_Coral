@@ -420,7 +420,7 @@ function Header() {
               {isLog ? (
                 <>
                   <Link to='/profile' onClick={handleClick}>
-                    <img src={wishlist} className="icon" />
+                    <img src={wishlistIcon} className="icon" />
                   </Link>
                   <Link to="/profile" onClick={handleClick}>
                     <img src={profile} className="icon" />
