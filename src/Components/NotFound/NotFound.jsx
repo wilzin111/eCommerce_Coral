@@ -2,13 +2,10 @@ import React from 'react'
 import NotFoundImg from '../../Assets/notFound/notFound.png'
 import { Link } from 'react-router-dom'
 import './NotFound.css'
-import seta from "../../Assets/Wishlist/arrow.svg";
 
 const NotFound = () => {
     return (
         <div className='container-NotFound'>
-
-           
 
             <div className="container-img-NotFound">
                 <img src={NotFoundImg} alt="NotFoundImg" />
