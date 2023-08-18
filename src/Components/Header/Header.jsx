@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 // CSS
@@ -9,10 +9,11 @@ import menu from "./../../Assets/Icons/menu.svg";
 import add from "./../../Assets/Icons/add-to-homescreen.svg";
 import search from "./../../Assets/Icons/search.svg";
 import notification from "./../../Assets/Icons/notification.svg";
-import wishlist from "./../../Assets/Icons/wishlist.svg";
+import wishlistIcon from "./../../Assets/Icons/wishlist.svg";
 import profile from "./../../Assets/Icons/profile.svg";
 import bag from "./../../Assets/Icons/bag.svg";
 import del from "./../../Assets/Icons/del.svg";
+import leftarrow from "./../../Assets/Icons/chevron-left.svg";
 import smallMinus from "./../../Assets/Icons/small-minus.svg";
 import smallPlus from "./../../Assets/Icons/small-plus.svg";
 import crossSmall from "./../../Assets/Icons/cross-small.svg";
@@ -20,6 +21,11 @@ import logo from "./../../Assets/Images_header/logo.png";
 import testImage from "./../../Assets/Images_header/testImage.png";
 import Drawer from "../Drawer/Drawer";
 import { DataUserContext } from "../../Contexts/dataUser";
+import heartEmpty from "../../Assets/Icons/wishlist.svg";
+import heartFill from "../../Assets/Icons/wishlist-fill.svg";
+
+// Contexts
+import { productContext } from "../../Contexts/productsContext";
 
 function Header() {
   const [openBag, setOpenBag] = useState(false);
@@ -38,7 +44,7 @@ function Header() {
     document.getElementById("AllProducts").classList.remove("stop-scrolling");
   }
 
-  function handleClick() { }
+  function handleClick() {}
   function Bag() {
     if (openBag) {
       document.body.classList.add("stop-scrolling");
@@ -173,10 +179,174 @@ function Header() {
     return document.body.classList.remove("stop-scrolling");
   }
 
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const { isLog } = useContext(DataUserContext);
+  const { produtos } = useContext(productContext);
+
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [searchBar, setSearchBar] = useState("");
+  const [productsSearched, setProductsSearched] = useState([]);
+
+  useEffect(() => {
+    let a = document.getElementById("search_modal");
+    let re = new RegExp(
+      `${searchBar.normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`,
+      "gi"
+    );
+
+    if (searchBar.length < 1) {
+      a.classList.add("header_search_modal_none");
+    } else {
+      //document.body.classList.add("stop-scrolling")
+    }
+    if (searchBar.length > 0) {
+      let produtosFiltered = produtos.filter((product) => {
+        return (product.name + product.subname).match(re);
+      });
+      setProductsSearched(produtosFiltered);
+    }
+  }, [searchBar]);
+
+  //useEffect(() => {
+  //},[productsSearched]);
+
+  function handleSearchChange(e) {
+    let a = document.getElementById("search_modal");
+    setSearchBar(e.target.value);
+    if (searchBar === "") {
+      a.classList.remove("header_search_modal_none");
+    } else {
+      document.body.classList.add("stop-scrolling");
+    }
+  }
+
+  function handleMobileSearch(e) {
+    document.body.classList.add("stop-scrolling");
+    let a = document.getElementById("mobile_search_bar");
+    a.classList.remove("mobile_search_bar_nodisplay");
+  }
+  function handleMobileSearchClose(e) {
+    document.body.classList.remove("stop-scrolling");
+    let a = document.getElementById("mobile_search_bar");
+    a.classList.add("mobile_search_bar_nodisplay");
+  }
+  function handleMobileSearchSubmit(e) {
+    e.preventDefault();
+    let input = document.getElementById("mobile_search_input");
+    input = input.value;
+    let a = document.getElementById("mobile_search_input");
+    let re = new RegExp(
+      `${input.normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`,
+      "gi"
+    );
+
+    if (input.length < 1) {
+      a.classList.add("header_search_modal_none");
+    }
+    if (input.length > 0) {
+      let produtosFiltered = produtos.filter((product) => {
+        return (product.name + product.subname).match(re);
+      });
+      console.log(produtosFiltered);
+      setProductsSearched(produtosFiltered);
+    }
+  }
+
   return (
     <>
+      <div
+        id="mobile_search_bar"
+        className="mobile_search_bar mobile_search_bar_nodisplay"
+        style={{ flexDirection: "column" }}
+      >
+        <div className="flex_row mobile_searching">
+          <button
+            onClick={handleMobileSearchClose}
+            className="button_normalizer"
+          >
+            <img src={leftarrow} />
+          </button>
+          <form
+            onSubmit={handleMobileSearchSubmit}
+            className="mobile_searching mobile_search_bar2"
+          >
+            <input
+              id="mobile_search_input"
+              placeholder="Search"
+              type="search"
+            />
+            <button className="button_normalizer" type="submit">
+              <img src={search} />
+            </button>
+          </form>
+        </div>
+        <div className="mobile_search_container">
+          {productsSearched.map((product) => (
+            <div key={product.id} className="wishlist-product search_product" style={{minWidth: "20%"}}>
+              <div className="wishlist-product-img" >
+                <Link
+                  to={`/product-detail/${product.id}`}
+                  key={product.id}
+                  className="product-link"
+                >
+                  <img src={product.url} alt={product.name} />
+                </Link>
+              </div>
+              <div className="wishlist-product-details">
+                <h3 className="wishlist-product-name">{product.name}</h3>
+
+                <Link
+                  to={`/product-detail/${product.id}`}
+                  key={product.id}
+                  className="product-link"
+                >
+                  <p className="wishlist-product-subname">{product.subname}</p>
+                  <span className="wishlist-product-price">
+                    ${product.price}
+                  </span>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div
+        id="search_modal"
+        className="header_search_modal header_search_modal_none"
+      >
+        <div className="header_search_modal_products">
+          <section className="products-wishlist" id="products-wishlist">
+            {productsSearched.map((product) => (
+              <div key={product.id} className="wishlist-product search_product">
+                <div className="wishlist-product-img">
+                  <Link
+                    to={`/product-detail/${product.id}`}
+                    key={product.id}
+                    className="product-link"
+                  >
+                    <img src={product.url} alt={product.name} />
+                  </Link>
+                </div>
+                <div className="wishlist-product-details">
+                  <h3 className="wishlist-product-name">{product.name}</h3>
+
+                  <Link
+                    to={`/product-detail/${product.id}`}
+                    key={product.id}
+                    className="product-link"
+                  >
+                    <p className="wishlist-product-subname">
+                      {product.subname}
+                    </p>
+                    <span className="wishlist-product-price">
+                      ${product.price}
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </section>
+        </div>
+      </div>
       <Drawer isOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
       <section className="header">
         <div className="header-mobile">
@@ -198,7 +368,11 @@ function Header() {
               <img src={add} className="icon change_to_blue" />
             </button>
             <button>
-              <img src={search} className="icon change_to_blue" />
+              <img
+                onClick={handleMobileSearch}
+                src={search}
+                className="icon change_to_blue"
+              />
             </button>
             {isLog ? (
               <>
@@ -231,13 +405,17 @@ function Header() {
           </div>
 
           <div className="flex">
-            <div className="search-bar">
-              <img src={search} />
+            <form style={{ zIndex: "1" }} className="search-bar">
+              <button className="search_bar" type="submit">
+                <img src={search} />
+              </button>
               <input
                 type="search"
                 placeholder="Search for products or brands....."
+                onChange={handleSearchChange}
+                value={searchBar}
               ></input>
-            </div>
+            </form>
             <div className="header_icons change_to_blue">
               {isLog ? (
                 <>

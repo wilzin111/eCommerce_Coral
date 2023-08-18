@@ -238,3 +238,7 @@
     overflow: scroll;
   }
 }
+
+.search_product {
+  width: 39%;
+}
