@@ -18,6 +18,7 @@ import StartScreen from "../Pages/StartScreen/StartScreen";
 import Wishlist from "../Components/Wishlist/wishlist";
 import Private from "./Private";
 import ProductDetail from "../Pages/ProductDetail/productDetail";
+import NotFound from "../Components/NotFound/NotFound";
 
 const Router = () => {
   return (
@@ -69,6 +70,7 @@ const Router = () => {
         <Route path="/products/skincare" element={<SkinCarePages />} />
         <Route path="/products/jewellery" element={<JewelleryPages />} />
         <Route path="/products/apparels" element={<ApparelsPages />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

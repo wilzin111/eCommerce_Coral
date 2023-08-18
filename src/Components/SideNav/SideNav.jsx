@@ -179,7 +179,7 @@ export default function SideNav() {
         </button>
         <button
           onClick={() => {
-            setComponent(2);
+            setComponent(4);
           }}
           className="div_to_button flex_row align_center_justify_between"
         >
@@ -217,7 +217,7 @@ export default function SideNav() {
         </button>
         <button
           onClick={() => {
-            setComponent(5);
+            setComponent(4);
           }}
           className="div_to_button flex_row align_center_justify_between"
         >
@@ -229,7 +229,7 @@ export default function SideNav() {
         </button>
         <button
           onClick={() => {
-            setComponent(6);
+            setComponent(4);
           }}
           className="div_to_button flex_row align_center_justify_between"
         >
