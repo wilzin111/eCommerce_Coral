@@ -77,7 +77,7 @@ export default function ProductsPage() {
         </div>
 
         <div className="category-title">
-          <Link to={"/"}>
+          <Link to={"/categories"}>
             <img src={left} />
           </Link>
           <h2 className="category-name">{id}</h2>
