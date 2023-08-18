@@ -25,6 +25,7 @@
 
 .select-container-rp input[type="file"] {
   color: #5d5d5d;
+  display: block;
 }
 
 .rp-content button {

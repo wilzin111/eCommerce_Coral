@@ -119,6 +119,8 @@ export default function RegisterProducts() {
               <option>Skincare</option>
               <option>Jewellery</option>
               <option>Apparels</option>
+              <option>Eyewear</option>
+              <option>Personal Care</option>
             </select>
           </div>
 

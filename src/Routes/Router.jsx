@@ -39,14 +39,7 @@ const Router = () => {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route
-          path="/register-products"
-          element={
-            <Private>
-              <RegisterProducts />
-            </Private>
-          }
-        />
+        <Route path="/register-products" element={<RegisterProducts />} />
         <Route path="/startScreen" element={<StartScreen />} />
         <Route
           path="/wishlist"
