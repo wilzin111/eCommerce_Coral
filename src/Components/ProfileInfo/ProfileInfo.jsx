@@ -7,18 +7,17 @@ import { useContext, useState, useNavigate } from "react";
 import { DataUserContext } from "../../Contexts/dataUser";
 import { getDownloadURL, ref } from "firebase/storage";
 import { storage } from "../../FireBaseConnection";
+import { Link } from "react-router-dom";
 
 export default function ProfileInfo() {
-
-  const { dataUser, logout } = useContext(DataUserContext)
-  const [imguser, setImgUser] = useState('')
-  const fullNumber = dataUser.DDD + ' ' + dataUser.Number
+  const { dataUser, logout } = useContext(DataUserContext);
+  const [imguser, setImgUser] = useState("");
+  const fullNumber = dataUser.DDD + " " + dataUser.Number;
   if (dataUser.uid) {
     const handleUploadImage = async (e) => {
-      await getDownloadURL(ref(storage, `images/users/${e}`))
-        .then((value) => {
-          setImgUser(value);
-        })
+      await getDownloadURL(ref(storage, `images/users/${e}`)).then((value) => {
+        setImgUser(value);
+      });
     };
 
     if (!imguser) {
@@ -30,7 +29,13 @@ export default function ProfileInfo() {
     <>
       <section className="user_profile">
         <div className="user_profile_breadcrumb">
-          <span className="text_low_emphasis text_primary">Home</span>
+          <Link
+            to={"/"}
+            className="text_low_emphasis text_primary"
+            style={{ marginLeft: 0 + "px" }}
+          >
+            Home
+          </Link>
           <img src={rightSmall} />
           <span className="text_low_emphasis">User Profile</span>
           <img id="breadCrumbImg" className="display_none" src={rightSmall} />
@@ -77,7 +82,7 @@ export default function ProfileInfo() {
 
           <div className="user_information flex_row relative">
             <img
-              src={imguser ? imguser : './imgUserNone.jpg'}
+              src={imguser ? imguser : "./imgUserNone.jpg"}
               alt=""
               className="profile_photo"
               style={{ marginRight: "max(5.41%, 1rem)" }}
@@ -89,7 +94,9 @@ export default function ProfileInfo() {
               <br />
               <span className="text_low_emphasis2">{dataUser.signupEmail}</span>
               <br />
-              <span className="text_low_emphasis2">{fullNumber ? fullNumber : ''}</span>
+              <span className="text_low_emphasis2">
+                {fullNumber ? fullNumber : ""}
+              </span>
             </div>
             <div className="flex_row absolute" style={{ right: "0.5rem" }}>
               <img className="change_to_gray" src={right} />
