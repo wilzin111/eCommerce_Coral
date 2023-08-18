@@ -202,6 +202,7 @@ input[type="checkbox"].checked:before {
     top: 0;
     position: absolute;
     background-color: #fff;
+    z-index: 3;
   }
 
   .orders-header {

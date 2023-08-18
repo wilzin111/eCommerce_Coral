@@ -5,6 +5,7 @@ import right from "./../../Assets/Icons/chevron-right.svg";
 import PersonlInfo from "./../PersonlInfo/PersonalInfo";
 import MyOrder from "../MyOrder/MyOrder";
 import Wishlist from "../Wishlist/wishlist";
+import MoreShortly from "../MoreShortly/MoreShortly";
 
 export default function SideNav() {
   const [component, setComponent] = useState(0);
@@ -179,7 +180,7 @@ export default function SideNav() {
         </button>
         <button
           onClick={() => {
-            setComponent(4);
+            setComponent(2);
           }}
           className="div_to_button flex_row align_center_justify_between"
         >
@@ -217,7 +218,7 @@ export default function SideNav() {
         </button>
         <button
           onClick={() => {
-            setComponent(4);
+            setComponent(5);
           }}
           className="div_to_button flex_row align_center_justify_between"
         >
@@ -229,7 +230,7 @@ export default function SideNav() {
         </button>
         <button
           onClick={() => {
-            setComponent(4);
+            setComponent(6);
           }}
           className="div_to_button flex_row align_center_justify_between"
         >
@@ -242,8 +243,12 @@ export default function SideNav() {
       </div>
 
       {component === 0 ? <PersonlInfo component={setComponent}/> : null}
+      {component === 1 ?<MoreShortly component={setComponent}/>:null}
       {component === 2 ? <MyOrder component={setComponent}/> : null}
       {component === 3 ? <Wishlist component={setComponent} /> : null}
+      {component === 4 ?<MoreShortly component={setComponent}/>:null}
+      {component === 5 ?<MoreShortly component={setComponent}/>:null}
+      {component === 6 ?<MoreShortly component={setComponent}/>:null}
     </>
   );
 }
