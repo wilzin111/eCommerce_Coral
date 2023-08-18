@@ -25,24 +25,6 @@ export default function ProductsPage() {
     setFilterOption(value);
   }
 
-  // const porfavorfunciona =
-  //   ((produtos) => {
-  //     var filteredBrand = produtos.filter(
-  //       (produto) =>
-  //         produto.category.toLowerCase().includes(viewAll.toLowerCase()) ||
-  //         produto.brand.toLowerCase().includes(viewAll.toLowerCase())
-  //     );
-
-  //     if (id === "View All") {
-  //       setViewAll("");
-  //     } else {
-  //       setViewAll(id);
-  //     }
-
-  //     setFilter(filteredBrand);
-  //   },
-  //   [filter, viewAll, id]);
-
   useEffect(() => {
     if (produtos) {
       const filteredBrand = produtos.filter(
