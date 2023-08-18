@@ -123,6 +123,6 @@ const Drawer = ({ isOpen = false, setDrawerOpen }) => {
   }
 };
 
-
+export default Drawer;
 
 
