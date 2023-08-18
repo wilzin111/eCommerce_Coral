@@ -13,6 +13,7 @@ import wishlistIcon from "./../../Assets/Icons/wishlist.svg";
 import profile from "./../../Assets/Icons/profile.svg";
 import bag from "./../../Assets/Icons/bag.svg";
 import del from "./../../Assets/Icons/del.svg";
+import leftarrow from "./../../Assets/Icons/chevron-left.svg";
 import smallMinus from "./../../Assets/Icons/small-minus.svg";
 import smallPlus from "./../../Assets/Icons/small-plus.svg";
 import crossSmall from "./../../Assets/Icons/cross-small.svg";
@@ -23,7 +24,7 @@ import { DataUserContext } from "../../Contexts/dataUser";
 import heartEmpty from "../../Assets/Icons/wishlist.svg";
 import heartFill from "../../Assets/Icons/wishlist-fill.svg";
 
-// Contexts 
+// Contexts
 import { productContext } from "../../Contexts/productsContext";
 
 function Header() {
@@ -43,7 +44,7 @@ function Header() {
     document.getElementById("AllProducts").classList.remove("stop-scrolling");
   }
 
-  function handleClick() { }
+  function handleClick() {}
   function Bag() {
     if (openBag) {
       document.body.classList.add("stop-scrolling");
@@ -186,67 +187,163 @@ function Header() {
   const [productsSearched, setProductsSearched] = useState([]);
 
   useEffect(() => {
+    let a = document.getElementById("search_modal");
+    let re = new RegExp(
+      `${searchBar.normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`,
+      "gi"
+    );
 
-    let a = document.getElementById("search_modal")
-    let re = new RegExp(`${searchBar.normalize("NFD").replace(/[\u0300-\u036f]/g, '')}`, "gi");
-
-    if(searchBar.length < 1) {
+    if (searchBar.length < 1) {
       a.classList.add("header_search_modal_none");
-    } else { 
+    } else {
       //document.body.classList.add("stop-scrolling")
     }
     if (searchBar.length > 0) {
       let produtosFiltered = produtos.filter((product) => {
-        return product.name.match(re);
+        return (product.name + product.subname).match(re);
       });
       setProductsSearched(produtosFiltered);
-    };
-  },[searchBar]);
+    }
+  }, [searchBar]);
 
   //useEffect(() => {
   //},[productsSearched]);
 
   function handleSearchChange(e) {
-    let a = document.getElementById("search_modal")
+    let a = document.getElementById("search_modal");
     setSearchBar(e.target.value);
     if (searchBar === "") {
       a.classList.remove("header_search_modal_none");
     } else {
       document.body.classList.add("stop-scrolling");
     }
-  };
+  }
+
+  function handleMobileSearch(e) {
+    document.body.classList.add("stop-scrolling");
+    let a = document.getElementById("mobile_search_bar");
+    a.classList.remove("mobile_search_bar_nodisplay");
+  }
+  function handleMobileSearchClose(e) {
+    document.body.classList.remove("stop-scrolling");
+    let a = document.getElementById("mobile_search_bar");
+    a.classList.add("mobile_search_bar_nodisplay");
+  }
+  function handleMobileSearchSubmit(e) {
+    e.preventDefault();
+    let input = document.getElementById("mobile_search_input");
+    input = input.value;
+    let a = document.getElementById("mobile_search_input");
+    let re = new RegExp(
+      `${input.normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`,
+      "gi"
+    );
+
+    if (input.length < 1) {
+      a.classList.add("header_search_modal_none");
+    }
+    if (input.length > 0) {
+      let produtosFiltered = produtos.filter((product) => {
+        return (product.name + product.subname).match(re);
+      });
+      console.log(produtosFiltered);
+      setProductsSearched(produtosFiltered);
+    }
+  }
 
   return (
     <>
-      <div id="search_modal" className="header_search_modal header_search_modal_none">
+      <div
+        id="mobile_search_bar"
+        className="mobile_search_bar mobile_search_bar_nodisplay"
+        style={{ flexDirection: "column" }}
+      >
+        <div className="flex_row mobile_searching">
+          <button
+            onClick={handleMobileSearchClose}
+            className="button_normalizer"
+          >
+            <img src={leftarrow} />
+          </button>
+          <form
+            onSubmit={handleMobileSearchSubmit}
+            className="mobile_searching mobile_search_bar2"
+          >
+            <input
+              id="mobile_search_input"
+              placeholder="Search"
+              type="search"
+            />
+            <button className="button_normalizer" type="submit">
+              <img src={search} />
+            </button>
+          </form>
+        </div>
+        <div className="mobile_search_container">
+          {productsSearched.map((product) => (
+            <div key={product.id} className="wishlist-product search_product" style={{minWidth: "20%"}}>
+              <div className="wishlist-product-img" >
+                <Link
+                  to={`/product-detail/${product.id}`}
+                  key={product.id}
+                  className="product-link"
+                >
+                  <img src={product.url} alt={product.name} />
+                </Link>
+              </div>
+              <div className="wishlist-product-details">
+                <h3 className="wishlist-product-name">{product.name}</h3>
+
+                <Link
+                  to={`/product-detail/${product.id}`}
+                  key={product.id}
+                  className="product-link"
+                >
+                  <p className="wishlist-product-subname">{product.subname}</p>
+                  <span className="wishlist-product-price">
+                    ${product.price}
+                  </span>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div
+        id="search_modal"
+        className="header_search_modal header_search_modal_none"
+      >
         <div className="header_search_modal_products">
           <section className="products-wishlist" id="products-wishlist">
-
             {productsSearched.map((product) => (
               <div key={product.id} className="wishlist-product search_product">
                 <div className="wishlist-product-img">
                   <Link
                     to={`/product-detail/${product.id}`}
                     key={product.id}
-                    className="product-link">
+                    className="product-link"
+                  >
                     <img src={product.url} alt={product.name} />
                   </Link>
                 </div>
                 <div className="wishlist-product-details">
                   <h3 className="wishlist-product-name">{product.name}</h3>
-                  
+
                   <Link
                     to={`/product-detail/${product.id}`}
                     key={product.id}
                     className="product-link"
                   >
-                    <p className="wishlist-product-subname">{product.subname}</p>
-                    <span className="wishlist-product-price">${product.price}</span>
+                    <p className="wishlist-product-subname">
+                      {product.subname}
+                    </p>
+                    <span className="wishlist-product-price">
+                      ${product.price}
+                    </span>
                   </Link>
                 </div>
               </div>
             ))}
-
           </section>
         </div>
       </div>
@@ -271,7 +368,11 @@ function Header() {
               <img src={add} className="icon change_to_blue" />
             </button>
             <button>
-              <img src={search} className="icon change_to_blue" />
+              <img
+                onClick={handleMobileSearch}
+                src={search}
+                className="icon change_to_blue"
+              />
             </button>
             {isLog ? (
               <>
@@ -304,19 +405,21 @@ function Header() {
           </div>
 
           <div className="flex">
-            <form style={{zIndex: "1"}} className="search-bar">
-              <button className="search_bar" type="submit"><img src={search} /></button>
+            <form style={{ zIndex: "1" }} className="search-bar">
+              <button className="search_bar" type="submit">
+                <img src={search} />
+              </button>
               <input
                 type="search"
                 placeholder="Search for products or brands....."
-                onChange={(handleSearchChange)}
+                onChange={handleSearchChange}
                 value={searchBar}
               ></input>
             </form>
             <div className="header_icons change_to_blue">
               {isLog ? (
                 <>
-                  <Link to='/wishlist' onClick={handleClick}>
+                  <Link to="/wishlist" onClick={handleClick}>
                     <img src={wishlistIcon} className="icon" />
                   </Link>
                   <Link to="/profile" onClick={handleClick}>
