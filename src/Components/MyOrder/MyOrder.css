@@ -194,9 +194,6 @@ input[type="checkbox"].checked:before {
   background: var(--grey, #F1F1F1);
 }
 
-
-
-
 @media screen and (max-width: 900px) {
   .container-order-mob {
     width: 100%;

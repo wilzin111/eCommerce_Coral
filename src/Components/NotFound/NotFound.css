@@ -1,0 +1,40 @@
+@media screen and (max-width: 900px) {
+    .container-NotFound {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container-img-NotFound {
+        margin-top: 137px;
+    }
+
+    .container-text-NotFound h1 {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 26px;
+        margin: 24px 0 16px;
+    }
+
+    .container-text-NotFound p {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+    }
+
+    .container-text-NotFound button {
+        width: 328px;
+        height: 44px;
+        color: #fff;
+        border-radius: 8px;
+        background: #1B4B66;
+        border: none;
+        margin-top: 237px;
+    }
+
+}
