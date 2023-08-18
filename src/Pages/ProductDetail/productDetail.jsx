@@ -17,6 +17,7 @@ import ProductNav from "../../Components/ProductDetailNav/productDetailNav";
 import { DataUserContext } from "../../Contexts/dataUser";
 import { WishlistContext, useWishlist } from "../../Contexts/wishlistContext";
 import heartFill from "../../Assets/Icons/wishlist-fill.svg";
+import { useBag } from "../../Contexts/bagContext";
 
 
 const ProductDetail = () => {
@@ -26,6 +27,7 @@ const ProductDetail = () => {
   const [produto, setProduto] = useState("");
   const [image, setImage] = useState("");
   const { dataUser } = useContext(DataUserContext);
+  const { addToBag } = useBag(); 
 
   useEffect(() => {
     if (produtos) {
@@ -228,7 +230,7 @@ const ProductDetail = () => {
             <div className="pd-buttons">
               <Link className="pd-add-to-bag">
                 <img src={bag} />
-                <span>Add to Bag</span>
+                <button onClick={() => addToBag(produto)}>Add to Bag</button>
               </Link>
               <button
           onClick={handleAddToWishlist}
