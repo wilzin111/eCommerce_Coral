@@ -35,7 +35,7 @@ import { ProductsHome } from "../../Components/ProductsHome/productsHome";
 import { Link } from "react-router-dom";
 
 const categories = [
-  { image: category1Image, text: "SkinCare", Link: "products/Skincare" },
+  { image: category1Image, text: "Skincare", Link: "/products/Skincare" },
   { image: category2Image, text: "Jewellery", link: "products/Jewellery" },
   { image: category3Image, text: "Handbags", link: "products/Handbags" },
   { image: category4Image, text: "Watches", link: "products/Watches" },
@@ -133,7 +133,7 @@ const Home = () => {
           {produtos.length > 0 ? (
             <div className="new-arrivals-products">
               {produtos.slice(0, 12).map((produto) => (
-                  <ProductsHome produto={produto} key={produto.id}/>
+                <ProductsHome produto={produto} key={produto.id} />
               ))}
             </div>
           ) : (
