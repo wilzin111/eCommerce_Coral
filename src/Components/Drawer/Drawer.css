@@ -1,7 +1,7 @@
 .drawer-header {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.20);
   position: fixed;
   display: flex;
   z-index: 10000;
@@ -23,6 +23,7 @@
   background-color: #fff;
 }
 
+
 .drawer-btn {
   width: 100%;
   background-color: transparent;
@@ -32,7 +33,7 @@
 .drawer-header hr {
   width: 296px;
   height: 8px;
-  background-color: #f4f4f4;
+  background-color: #F4F4F4;
   margin-top: 16px;
   margin-bottom: 12px;
   border: none;
@@ -42,7 +43,7 @@
   width: 265px;
   height: 74px;
   display: flex;
-  background-color: #f4f4f4;
+  background-color: #F4F4F4;
   border-radius: 8px;
   margin-top: 16px;
   margin-left: 16px;
@@ -70,32 +71,33 @@
 
 .text-drawer,
 .text2-drawer {
+  height: 34px;
   display: flex;
-  margin: 16px 0;
   margin-right: 18px;
+  color: #000000;
   justify-content: space-between;
+  align-items: center;
 }
 
-.text2-drawer {
+.text2-drawer{
   margin: 16px 0;
   margin-right: 18px;
 }
 
 .text-drawer:hover,
 .text2-drawer:hover {
-  background-color: #f4f4f4;
+  background-color: #F4F4F4
 }
 
 .text-drawer:last-child {
   margin-bottom: 0;
 }
 
-.text-drawer,
+/* .text-drawer,
 .text2-drawer p {
   font-size: 14px;
   font-weight: 600;
-  color: #000;
-}
+} */
 
 .drawer-top-categoris,
 .drawer-ContactUs {
