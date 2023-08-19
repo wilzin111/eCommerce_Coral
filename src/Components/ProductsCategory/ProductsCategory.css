@@ -1,0 +1,171 @@
+.products-category-container,
+.product-category-price,
+.products-category-text,
+.pd-ct-name,
+.heart-name {
+  display: flex;
+}
+
+.products-ct-review {
+  display: none;
+}
+
+.products-category-container,
+.product-category-price,
+.heart-name {
+  flex-direction: row;
+}
+
+.products-category-text,
+.pd-ct-name {
+  flex-direction: column;
+}
+
+.heart-name {
+  justify-content: space-between;
+  width: 151px;
+}
+
+.category-heart {
+  width: 20px;
+  height: 20px;
+}
+
+.pd-card-category {
+  width: 151px;
+  height: 219px;
+}
+
+.product-img-category {
+  width: 151px;
+  height: 156px;
+  border-radius: 12px;
+}
+
+.products-category-container {
+  width: 95%;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-left: 17px;
+  margin-bottom: 70px;
+}
+
+.products-category-text {
+  align-items: flex-start;
+  gap: 3px;
+  height: 54px;
+  margin-left: -20px;
+}
+
+.products-category-span {
+  color: #171520;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.products-description-category {
+  color: #626262;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.product-category-price {
+  width: 151px;
+  gap: 6px;
+  align-items: center;
+  padding-top: 3px;
+}
+
+.new-price {
+  color: #171520;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.old-price,
+.discount-category {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.old-price {
+  color: #b6b6b6;
+  text-decoration: line-through;
+}
+
+.discount-category {
+  color: #ff404b;
+}
+
+@media screen and (min-width: 900px) {
+  .products-category-container {
+    gap: 32px;
+    margin-top: 24px;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .pd-card-category,
+  .product-img-category,
+  .product-category-price,
+  .heart-name {
+    width: 286px;
+  }
+
+  .product-img-category {
+    height: 286px;
+    border-radius: 8px;
+  }
+
+  .pd-card-category {
+    height: 403px;
+  }
+
+  .products-category-text {
+    margin: -20px 0 0 -8px;
+  }
+
+  .pd-ct-name {
+    gap: 8px;
+  }
+
+  .products-category-span {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .products-description-category {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .category-heart {
+    width: 24px;
+    height: 24px;
+  }
+
+  .products-ct-review {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .products-ct-review span {
+    color: #1b4b66;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .new-price {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .old-price,
+  .discount-category {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,244 @@
+.wishlist-product {
+  width: 150px;
+  height: 290px;
+  margin-bottom: 28px;
+  margin-right: 10px;
+  background-color: #FFFFFF;
+}
+
+.wishlist-product-img img {
+  max-width: 152px;
+  max-height: 152px;
+  min-width: 152px;
+  min-height: 152px;
+  border-radius: 14px;
+  box-shadow: black 0px 11px 49px -31px;
+}
+
+.wishlist-container-info {
+  width: 152px;
+  display: flex;
+  margin-top: 7px;
+  margin-left: 6px;
+}
+
+.wishlist-product-details {
+  width: 131px;
+  height: 70px;
+  display: block;
+  margin-bottom: 9px;
+}
+
+.wishlist-product-details a {
+  color: #000;
+  margin: 0;
+}
+
+.wishlist-product-details h3 {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+}
+
+.wishlist-product-details p {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  color: #626262;
+  margin: 3px 0;
+}
+
+.wishlist-product-details span {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 16px;
+}
+
+.wishlist-heart button {
+  background-color: transparent;
+  border: none;
+}
+
+.wishlist-btn-addBag button {
+  width: 151px;
+  height: 36px;
+  display: flex;
+  border-radius: 8px;
+  border: 2px solid #1B4B66;
+  background: #FFF;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #1B4B66;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  margin-left: 6px;
+}
+
+.wishlist-close {
+  display: none;
+}
+
+.wrapper-wishlist {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-wishlist-true {
+  margin-left: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.container-wishlist {
+  width: 100%;
+  height: 744px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.wishlist-container-text {
+  margin-top: 81px;
+}
+
+.wishlist-container-text img {
+  margin-bottom: 30px;
+}
+
+.wishlist-container-text h2 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.wishlist-container-text p {
+  width: 285px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.btn-wishlist {
+  display: flex;
+  width: 328px;
+  padding: 10px 0;
+  background-color: #1B4B66;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.btn-wishlist a {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper-wishlist {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .wishlist-close {
+    width: 100vw;
+    height: 56px;
+    align-items: center;
+    display: flex;
+  }
+
+  .wishlist-close button {
+    width: 157px;
+    height: 23px;
+    border: none;
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+    background-color: #FFFFFF;
+  }
+
+  .wishlist-close h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    margin: 0;
+    margin-left: 20px;
+  }
+
+  .container-wishlist {
+    width: 100%;
+    height: 744px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .wishlist-container-text {
+    margin-top: 81px;
+  }
+
+  .wishlist-container-text img {
+    margin-bottom: 30px;
+  }
+
+  .wishlist-container-text h2 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 26px;
+  }
+
+  .wishlist-container-text p {
+    width: 285px;
+    margin-top: 16px;
+    margin-bottom: 237px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+  }
+
+  .btn-wishlist {
+    display: flex;
+    width: 328px;
+    padding: 10px 0;
+    background-color: #1B4B66;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+
+  .btn-wishlist a {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #FFFFFF;
+  }
+
+  .container-wishlist-true {
+    width: 90vw;
+    height: 744px;
+    margin-left: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: scroll;
+  }
+}
+
+.search_product {
+  width: 39%;
+}

@@ -1,0 +1,158 @@
+.signup-container {
+    height: 100vh;
+    background-image: radial-gradient(circle, #60b6f1, #4d9acc, #3b7fa9, #2b6487, #1b4b66);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-container-input {
+    width: 40%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.signup-container-input input {
+    width: 270px;
+    height: 30px;
+    margin: 12px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffffff;
+    padding-left: 10px;
+}
+
+.signup-img-Width {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.signup-img-none img {
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.signup-img-none p {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+#imgNone {
+    width: 100%;
+    max-width: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#imgNone:hover {
+    border: 2px solid #111;
+}
+
+.signup-hover:hover {
+    border: 2px solid #111;
+}
+
+.signup-hover input:focus {
+    border: transparent;
+}
+
+input[type='file'] {
+    display: none;
+}
+
+input[type='date'] {
+    cursor: text;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
+.signup-btn {
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    margin: 10px 0;
+    font-weight: 600;
+    border: none;
+}
+
+.signup-btn:hover {
+    border: 2px solid #111;
+}
+
+.signup-p {
+    width: 270px;
+    text-align: center;
+    display: flex;
+}
+
+.signup-p p {
+    color: #ffffff;
+
+}
+
+.signup-p a {
+    color: #000000;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.label-float {
+    position: relative;
+}
+
+.signup-fone-number {
+    display: flex;
+}
+
+.signup-number-dd input {
+    width: 60px;
+}
+
+.signup-number input {
+    width: 140px;
+}
+
+.label-float label {
+    position: absolute;
+    top: 17px;
+    left: 23px;
+    color: #000000;
+    transition: .3s;
+    font-size: 15px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.label-float input:focus+label,
+.label-float input:not(:placeholder-shown)+label {
+    font-size: 15px;
+    top: -9px;
+    transition: .3s;
+}
+
+.label-float button {
+    position: absolute;
+    top: 15px;
+    right: 23px;
+    background-color: transparent;
+    border: none;
+}
+
+.label-float-date label {
+    position: absolute;
+    left: 23px;
+    color: #000000;
+    transition: .3s;
+    font-size: 10px;
+}

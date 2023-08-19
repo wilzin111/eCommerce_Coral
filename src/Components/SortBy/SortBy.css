@@ -1,0 +1,65 @@
+.sortby-container {
+  display: none;
+}
+
+@media screen and (min-width: 900px) {
+  .sortby-container,
+  .sortby-content,
+  .sortby-content2,
+  .sort-options,
+  .display-option {
+    display: flex;
+    flex-direction: row;
+    color: #171520;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .sortby-container {
+    width: 98%;
+    height: 56px;
+    padding-bottom: 15px;
+  }
+
+  .sortby-content {
+    width: 50%;
+    gap: 13px;
+    align-items: center;
+  }
+
+  .sortby-content2 {
+    width: 50%;
+    gap: 74px;
+  }
+
+  .display-option {
+    gap: 2px;
+  }
+
+  .sort-options {
+    gap: 8px;
+    align-items: center;
+  }
+
+  .sort-options input,
+  .sort-options select {
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 4px;
+
+    color: #626262;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 16px;
+  }
+
+  .sort-options input {
+    width: 52px;
+    height: 52px;
+  }
+
+  .sort-options select {
+    width: 206px;
+    height: 56px;
+  }
+}

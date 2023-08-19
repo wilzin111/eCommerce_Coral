@@ -1,0 +1,68 @@
+.filter-mob-container,
+.filter-mob {
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-mob-container {
+  width: 100%;
+  height: 56px;
+  position: fixed;
+  background-color: #fff;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+}
+
+.filter-mob {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  border: none;
+  background-color: inherit;
+
+  color: #171520;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.filter-mob img {
+  width: 24px;
+  height: 24px;
+}
+
+.filter-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #fff;
+  height: 100vh;
+}
+
+.filter-modal-topbar {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  gap: 243px;
+  padding: 39px 0 0 16px;
+}
+
+.filter-modal-topbar img {
+  width: 24px;
+  height: 24px;
+}
+
+.filter-modal-topbar h2 {
+  color: #1b4b66;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 900px) {
+  .filter-mob-container {
+    display: none;
+  }
+}

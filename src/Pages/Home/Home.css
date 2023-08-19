@@ -1,0 +1,422 @@
+.container-home {
+  width: 100%;
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ImagesCarousel {
+  margin-top: 8px;
+  max-width: 91.5%;
+  height: auto;
+}
+
+.categoryContainer {
+  width: 100%;
+  height: 100px;
+  padding: 10px 30px;
+  gap: 2px;
+  display: flex;
+  overflow-x: scroll;
+  justify-content: center;
+}
+
+.desktopImageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.categoryItem {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 17px;
+}
+
+.CategoryImage {
+  width: 58px;
+  height: 58px;
+  background: #f2f2f3;
+  border-radius: 15px;
+}
+
+.CategoryText {
+  margin-top: 5px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.carouselContainer {
+  margin-top: 25px;
+  width: 92%;
+}
+
+.CategoryText {
+  margin-top: 5px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.linkUnstyled {
+  color: inherit;
+  text-decoration: none;
+  font-family: Inter;
+  font-size: 12px;
+}
+
+.carouselContainer h3 {
+  font-size: clamp(14px, 2.5vw, 34px);
+  font-family: Inter;
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+
+.newArrivalContainer {
+  width: 92%;
+}
+
+.newViewAllContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 33px;
+}
+
+.new {
+  color: var(--type-high-emphasis, #171520);
+  font-family: Inter;
+  font-size: clamp(14px, 2.5vw, 34px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  margin-right: 160px;
+}
+
+.viewAllContainer {
+  display: flex;
+  align-items: center;
+}
+
+.viewAllText > a {
+  color: var(--primary, #1b4b66);
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  text-decoration: none;
+}
+
+.arrowImage {
+  width: 20px;
+  height: 20px;
+}
+
+.imageSection {
+  width: 100%;
+  height: auto;
+  background-color: #1b4b66;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 17px 0px;
+}
+
+.imagePair {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.image {
+  width: 156px;
+  height: auto;
+}
+
+.imageLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.imageSection p {
+  color: #fff;
+  font-size: clamp(14px, 2.5vw, 34px);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 16px;
+
+  width: 91.5%;
+}
+
+.brandsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.brandsImagesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.brandImage {
+  width: 100px;
+  height: 100px;
+}
+
+.textBrandContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 33px;
+  width: 92%;
+}
+
+.shopByBrands {
+  color: var(--type-high-emphasis, #171520);
+  font-family: Inter;
+  font-size: clamp(14px, 2.5vw, 34px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  margin-right: 156px;
+}
+
+.viewAllTextLink a {
+  color: var(--primary, #1b4b66);
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  text-decoration: none;
+}
+
+.ViewAllBrand {
+  display: flex;
+  align-items: center;
+}
+
+.arrowImage {
+  width: 20px;
+  height: 20px;
+}
+
+.ShortCut a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.centeredImg {
+  display: block;
+  max-width: 91.5%;
+  max-height: 100%;
+}
+
+.skincareSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.sectionImage {
+  width: 91.5%;
+  height: auto;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.productPair {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.productImage {
+  width: 85%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skincareTitleContainer {
+  text-align: left;
+  width: 92%;
+}
+
+.skincareTitle {
+  color: var(--type-high-emphasis, #171520);
+  font-family: Inter;
+  font-size: clamp(14px, 2.5vw, 34px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.Trending {
+  width: 92%;
+  text-align: left;
+}
+
+.TrendingSection {
+  margin-top: 25px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Trending p {
+  color: var(--type-high-emphasis, #171520);
+  font-family: Inter;
+  font-size: clamp(14px, 2.5vw, 34px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 500px) {
+  .ShortCut {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .carouselContainer {
+    display: none;
+  }
+
+  .categoryContainer {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .container {
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+  }
+
+  .desktopImageContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ImagesCarousel {
+    max-width: 93%;
+    height: auto;
+  }
+
+  .carouselContainer,
+  .CategoryImage,
+  .CategoryText,
+  .home_carouselEnd,
+  .TrendingSection,
+  .skincareTitle,
+  .ViewAllBrand {
+    display: none;
+  }
+
+  .categoryContainer {
+    width: 100%;
+  }
+
+  .new {
+    font-size: 34px;
+  }
+
+  .viewAllText a {
+    font-size: 14px;
+  }
+
+  .arrowImage {
+    width: 24px;
+    height: 24px;
+  }
+
+  .newViewAllContainer {
+    margin-top: 0px;
+  }
+
+  .imageSection {
+    width: 100%;
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .image {
+    width: 277px;
+    height: 282px;
+  }
+
+  .imageSection p {
+    font-size: 34px;
+    position: absolute;
+    left: 27px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+
+  .imagePair {
+    margin-top: 55px;
+    gap: 40px;
+  }
+
+  .shopByBrands {
+    font-size: 34px;
+    margin-bottom: 30px;
+  }
+
+  .textBrandContainer {
+    margin-top: 80px;
+  }
+
+  .brandImage {
+    width: 168px;
+    height: 168px;
+  }
+
+  .brandsImagesContainer {
+    gap: 35px;
+  }
+
+  .skincareSection {
+    width: 100%;
+    margin-top: 60px;
+  }
+
+  .productImage {
+    width: 84%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .newArrivalContainer {
+    margin-top: 60px;
+  }
+}
+
