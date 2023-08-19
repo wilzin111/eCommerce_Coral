@@ -26,7 +26,7 @@ const ProductDetail = () => {
   const [produto, setProduto] = useState("");
   const [image, setImage] = useState("");
   const { dataUser } = useContext(DataUserContext);
-  const { addToBag } = useBag(); 
+  // const { addToBag } = useBag(); 
 
   useEffect(() => {
     if (produtos) {
@@ -234,7 +234,7 @@ const ProductDetail = () => {
             <div className="pd-buttons">
               <Link className="pd-add-to-bag">
                 <img src={bag} />
-                <button onClick={() => addToBag(produto)}>Add to Bag</button>
+                <button onClick={() => console.log('under development')}>Add to Bag</button>
               </Link>
               <button
           onClick={handleAddToWishlist}
