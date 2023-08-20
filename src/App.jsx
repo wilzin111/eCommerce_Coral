@@ -3,7 +3,8 @@ import Router from "./Routes/Router";
 import DataUserProvider from "./Contexts/dataUser";
 import ProductProvider from "./Contexts/productsContext";
 import { ToastContainer } from "react-toastify";
-import { WishlistProvider } from "./Contexts/wishListContext";
+import { WishlistProvider } from "./Contexts/wishlistContext";
+import { BagProvider } from "./Contexts/bagContext";
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
       <DataUserProvider>
         <ProductProvider>
           <WishlistProvider>
-            <Router />
+            <BagProvider>
+              <Router />
+            </BagProvider>
           </WishlistProvider>
         </ProductProvider>
       </DataUserProvider>
